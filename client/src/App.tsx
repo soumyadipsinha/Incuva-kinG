@@ -15,8 +15,17 @@ import BannerHoardingDesignPage from "@/pages/services/BannerHoardingDesign"
 import CorporateBrandingPage from "@/pages/services/CorporateBranding"
 import QuotePage from "@/pages/Quote"
 import ContactPage from "@/pages/Contact"
+import AboutPage from "@/pages/About"
+import CartPage from "@/pages/Cart"
 import AccountLoginPage from "@/pages/account/Login"
 import AccountSignupPage from "@/pages/account/Signup"
+import BannersPage from "@/pages/Banners"
+import ExplorePage from "@/pages/Explore"
+import FlexPrintingExplore from "@/pages/explore/FlexPrinting"
+import LogoDesignExplore from "@/pages/explore/LogoDesign"
+import BusinessCardsExplore from "@/pages/explore/BusinessCards"
+import BannersExplore from "@/pages/explore/Banners"
+import PricingPage from "@/pages/Pricing"
 
 function App() {
   return (
@@ -25,9 +34,18 @@ function App() {
         <Navbar />
         <Routes>
           <Route path="/" element={<HomePage />} />
+          <Route path="/explore" element={<ExplorePage />} />
+          <Route path="/explore/flex-printing" element={<FlexPrintingExplore />} />
+          <Route path="/explore/logo-design" element={<LogoDesignExplore />} />
+          <Route path="/explore/business-cards" element={<BusinessCardsExplore />} />
+          <Route path="/explore/banners" element={<BannersExplore />} />
+          <Route path="/pricing" element={<PricingPage />} />
+          <Route path="/banners" element={<BannersPage />} />
           <Route path="/services" element={<ServicesPage />} />
           <Route path="/quote" element={<QuotePage />} />
           <Route path="/contact" element={<ContactPage />} />
+          <Route path="/about" element={<AboutPage />} />
+          <Route path="/cart" element={<CartPage />} />
           <Route path="/account/login" element={<AccountLoginPage />} />
           <Route path="/account/signup" element={<AccountSignupPage />} />
           <Route path="/services/flex-printing" element={<FlexPrintingPage />} />

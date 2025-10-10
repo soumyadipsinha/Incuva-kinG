@@ -1,7 +1,9 @@
 import { Menu, ShoppingCart } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import { useState } from "react";
 
 export default function Navbar() {
+  const [activeMenu, setActiveMenu] = useState<string | null>(null);
   return (
     <header className="sticky top-0 z-40 w-full">
       {/* Scrolling notice above navbar */}
@@ -28,11 +30,21 @@ export default function Navbar() {
         {/* Left: primary links */}
         <nav className="hidden gap-6 text-sm font-medium md:flex">
           <div className="relative group">
-            <a href="/services" className="transition-colors hover:text-primary">SHOP</a>
+            <button 
+              className="relative transition-colors hover:text-primary bg-transparent border-none cursor-pointer"
+              onClick={() => setActiveMenu('shop')}
+            >
+              SHOP
+              {activeMenu === 'shop' && (
+                <div className="absolute -bottom-1 left-0 h-0.5 w-full bg-primary animate-[underline_0.3s_ease-out_forwards] origin-left" />
+              )}
+            </button>
             {/* Mega menu */}
             <div className="invisible absolute left-0 top-full z-50 mt-2 w-[28rem] rounded-md border bg-white p-4 opacity-0 shadow-md transition-opacity duration-150 group-hover:visible group-hover:opacity-100 md:w-[36rem]">
               <div className="grid max-h-72 grid-cols-1 gap-6 overflow-y-auto sm:grid-cols-2">
                   <ul className="space-y-3">
+                    <li><a href="/services" className="block font-semibold text-primary hover:underline">All Services</a></li>
+                    <li><a href="/banners" className="block hover:underline">Banner Templates</a></li>
                     <li><a href="/services/flex-printing" className="block hover:underline">Flex Printing (frontlit/backlit banners, hoardings)</a></li>
                     <li><a href="/services/vinyl-printing" className="block hover:underline">Vinyl Printing (posters, stickers)</a></li>
                     <li><a href="/services/album-printing" className="block hover:underline">Canvera-style Album Printing</a></li>
@@ -49,14 +61,36 @@ export default function Navbar() {
                 </div>
               </div>
             </div>
-          <a href="#" className="transition-colors hover:text-primary">LEARN</a>
-          <a href="#" className="transition-colors hover:text-primary">15% OFF</a>
+          <a 
+            href="/explore" 
+            className="relative transition-colors hover:text-primary"
+            onClick={() => setActiveMenu('explore')}
+          >
+            EXPLORE
+            {activeMenu === 'explore' && (
+              <div className="absolute -bottom-1 left-0 h-0.5 w-full bg-primary animate-[underline_0.3s_ease-out_forwards] origin-left" />
+            )}
+          </a>
+          <a 
+            href="/pricing" 
+            className="relative transition-colors hover:text-primary"
+            onClick={() => setActiveMenu('pricing')}
+          >
+            SERVICES
+            {activeMenu === 'pricing' && (
+              <div className="absolute -bottom-1 left-0 h-0.5 w-full bg-primary animate-[underline_0.3s_ease-out_forwards] origin-left" />
+            )}
+          </a>
+          
         </nav>
 
         {/* Center: logo */}
         <a href="/" className="text-center">
-          <div className="text-xs tracking-[0.35em] text-primary/80">INKUVA</div>
-          <div className="-mt-1 text-xl font-semibold tracking-wide text-primary">YOUR BEST LAYOUT</div>
+          <img
+            src="/assets/logo.png"
+            alt="Incuva logo"
+            className="mx-auto h-24 w-auto md:h-36"
+          />
         </a>
 
         {/* Right: icons/cta */}
@@ -67,9 +101,13 @@ export default function Navbar() {
           }}>
             <Menu className="h-5 w-5" />
           </Button>
+           <a href="/about" className="text-sm underline-offset-2 hover:underline">About Us</a>
           <a href="/account/login" className="text-sm underline-offset-2 hover:underline">Account</a>
-          <Button variant="ghost" size="icon" aria-label="Cart">
-            <ShoppingCart className="h-5 w-5" />
+         
+          <Button variant="ghost" size="icon" aria-label="Cart" asChild>
+            <a href="/cart">
+              <ShoppingCart className="h-10 w-10" />
+            </a>
           </Button>
         </div>
       </div>
@@ -78,6 +116,7 @@ export default function Navbar() {
         <div className="mx-auto max-w-7xl px-4 py-4">
           <nav className="grid gap-3 text-sm">
             <a href="/services" className="font-medium">Shop</a>
+            <a href="/banners" className="pl-3">Banners</a>
             <a href="/services/flex-printing" className="pl-3">Flex Printing</a>
             <a href="/services/vinyl-printing" className="pl-3">Vinyl Printing</a>
             <a href="/services/album-printing" className="pl-3">Album Printing</a>
@@ -90,6 +129,7 @@ export default function Navbar() {
             <a href="/services/corporate-branding" className="pl-3">Corporate Branding</a>
             <a href="/quote" className="font-medium">Get a Quote</a>
             <a href="/contact" className="font-medium">Contact</a>
+            <a href="/about" className="font-medium">About Us</a>
           </nav>
         </div>
       </div>
