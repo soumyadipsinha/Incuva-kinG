@@ -5,26 +5,26 @@ import { Mail, Phone, MapPin, Clock, CheckCircle, Star, Users, Award, FileText, 
 
 export default function ContactPage() {
   return (
-    <main className="min-h-screen bg-gray-50">
+    <main className="min-h-screen bg-transparent">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-amber-50 to-orange-50 py-20">
+      <section className="bg-transparent py-12 sm:py-16 md:py-20">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-5xl font-bold text-gray-900 mb-6">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4 sm:mb-6">
               Connect With Us
             </h1>
-            <p className="text-xl text-gray-600 mb-8">
+            <p className="text-lg sm:text-xl text-gray-600 mb-6 sm:mb-8 px-4">
               Ready to start your project? Get in touch with our design and printing experts. 
               We're here to bring your vision to life.
             </p>
-            <div className="flex items-center justify-center gap-8">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8">
               <div className="flex items-center gap-2">
-                <Star className="h-5 w-5 text-amber-500 fill-current" />
-                <span className="text-gray-700 font-medium">4.9/5 Rating</span>
+                <Star className="h-4 w-4 sm:h-5 sm:w-5 text-amber-500 fill-current" />
+                <span className="text-sm sm:text-base text-gray-700 font-medium">4.9/5 Rating</span>
               </div>
               <div className="flex items-center gap-2">
-                <Users className="h-5 w-5 text-amber-500" />
-                <span className="text-gray-700 font-medium">500+ Happy Clients</span>
+                <Users className="h-4 w-4 sm:h-5 sm:w-5 text-amber-500" />
+                <span className="text-sm sm:text-base text-gray-700 font-medium">500+ Happy Clients</span>
               </div>
             </div>
           </div>
@@ -32,16 +32,16 @@ export default function ContactPage() {
       </section>
 
       {/* Contact Methods */}
-      <section className="py-20">
+      <section className="py-12 sm:py-16 md:py-20">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Get In Touch</h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          <div className="text-center mb-12 sm:mb-16">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">Get In Touch</h2>
+            <p className="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto px-4">
               Choose your preferred way to connect with us for your design and printing needs.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6 sm:gap-8 max-w-6xl mx-auto">
             {/* Email Contact */}
             <Card className="shadow-sm hover:shadow-xl transition-all duration-300 hover:-translate-y-1">
               <CardHeader className="text-center">
@@ -53,12 +53,44 @@ export default function ContactPage() {
               </CardHeader>
               <CardContent className="text-center">
                 <div className="space-y-4 mb-6">
-                  <div className="text-2xl font-bold text-primary">orders@incuva.com</div>
+                  <div className="bg-primary/5 border border-primary/20 rounded-lg p-4">
+                    <div className="text-lg font-semibold text-primary break-all">soumyadipsinha273@gmail.com</div>
+                  </div>
                   <p className="text-sm text-muted-foreground">
                     For design orders, quotes, and project inquiries
                   </p>
                 </div>
-                <Button className="w-full" variant="outline">
+                <Button 
+                  className="w-full" 
+                  variant="outline"
+                  onClick={() => {
+                    const subject = encodeURIComponent("Design Order Inquiry - Incuva");
+                    const body = encodeURIComponent(`Dear Incuva Team,
+
+I would like to place an order for the following services:
+
+Service Required: [Please specify - Logo Design / Business Cards / Banner Design / etc.]
+Quantity: [Number of items]
+Business Name: [Your Company Name]
+Industry: [Your Business Type]
+
+Design Preferences:
+• Colors: [Preferred colors]
+• Style: [Modern / Classic / Minimalist / etc.]
+• Text to include: [Your text content]
+
+Timeline: [When you need it delivered]
+Budget: [Your budget range]
+
+Please send me a detailed quote and timeline for this project.
+
+Thank you!
+
+[Your Name]
+[Your Contact Number]`);
+                    window.open(`mailto:soumyadipsinha273@gmail.com?subject=${subject}&body=${body}`);
+                  }}
+                >
                   <Mail className="mr-2 h-4 w-4" />
                   Send Email
                 </Button>
@@ -76,12 +108,20 @@ export default function ContactPage() {
               </CardHeader>
               <CardContent className="text-center">
                 <div className="space-y-4 mb-6">
-                  <div className="text-2xl font-bold text-primary">+91 98765 43210</div>
+                  <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
+                    <div className="text-xl font-semibold text-blue-700">+91 98765 43210</div>
+                  </div>
                   <p className="text-sm text-muted-foreground">
                     Monday - Friday: 9 AM - 7 PM
                   </p>
                 </div>
-                <Button className="w-full" variant="outline">
+                <Button 
+                  className="w-full" 
+                  variant="outline"
+                  onClick={() => {
+                    window.open('tel:+919876543210');
+                  }}
+                >
                   <Phone className="mr-2 h-4 w-4" />
                   Call Now
                 </Button>
@@ -99,11 +139,13 @@ export default function ContactPage() {
               </CardHeader>
               <CardContent className="text-center">
                 <div className="space-y-4 mb-6">
-                  <div className="text-lg font-bold text-primary">Incuva Design Studio</div>
-                  <p className="text-sm text-muted-foreground">
-                    123 Design Street, Creative District<br />
-                    Mumbai, Maharashtra 400001
-                  </p>
+                  <div className="bg-green-50 border border-green-200 rounded-lg p-4">
+                    <div className="text-lg font-semibold text-green-700 mb-2">Incuva Design Studio</div>
+                    <p className="text-sm text-green-600">
+                      123 Design Street, Creative District<br />
+                      Mumbai, Maharashtra 400001
+                    </p>
+                  </div>
                 </div>
                 <Button className="w-full" variant="outline">
                   <MapPin className="mr-2 h-4 w-4" />
@@ -116,7 +158,7 @@ export default function ContactPage() {
       </section>
 
       {/* Email Ordering Instructions */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-transparent">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">How to Order via Email</h2>
@@ -256,7 +298,7 @@ export default function ContactPage() {
       </section>
 
       {/* Email Template */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-transparent">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">Email Template</h2>
@@ -275,7 +317,8 @@ export default function ContactPage() {
                 <div className="bg-gray-100 p-6 rounded-lg font-mono text-sm">
                   <div className="space-y-4">
                     <div>
-                      <span className="text-muted-foreground">To:</span> orders@incuva.com
+                      <span className="text-muted-foreground">To:</span> 
+                      <span className="ml-2 font-semibold text-primary">soumyadipsinha273@gmail.com</span>
                     </div>
                     <div>
                       <span className="text-muted-foreground">Subject:</span> Design Order - [Your Service Type]
@@ -307,10 +350,40 @@ export default function ContactPage() {
                   </div>
                 </div>
                 <div className="mt-6">
-                  <Button className="w-full" variant="outline">
-                    <Mail className="mr-2 h-4 w-4" />
-                    Copy Template & Open Email
-                  </Button>
+                  <Button 
+                  className="w-full" 
+                  variant="outline"
+                  onClick={() => {
+                    const subject = encodeURIComponent("Design Order Inquiry - Incuva");
+                    const body = encodeURIComponent(`Dear Incuva Team,
+
+I would like to place an order for the following services:
+
+Service Required: [Logo Design / Business Cards / Banner Design / etc.]
+Quantity: [Number of items]
+Business Name: [Your Company Name]
+Industry: [Your Business Type]
+
+Design Preferences:
+• Colors: [Preferred colors]
+• Style: [Modern / Classic / Minimalist / etc.]
+• Text to include: [Your text content]
+
+Timeline: [When you need it delivered]
+Budget: [Your budget range]
+
+Please send me a detailed quote and timeline for this project.
+
+Thank you!
+
+[Your Name]
+[Your Contact Number]`);
+                    window.open(`mailto:soumyadipsinha273@gmail.com?subject=${subject}&body=${body}`);
+                  }}
+                >
+                  <Mail className="mr-2 h-4 w-4" />
+                  Copy Template & Open Email
+                </Button>
                 </div>
               </CardContent>
             </Card>
@@ -319,7 +392,7 @@ export default function ContactPage() {
       </section>
 
       {/* Why Choose Us */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-transparent">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">Why Choose Incuva?</h2>
@@ -372,11 +445,49 @@ export default function ContactPage() {
             Get professional design and printing services at unbeatable prices.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" variant="secondary" className="px-8 py-4 text-lg">
+            <Button 
+              size="lg" 
+              variant="secondary" 
+              className="px-8 py-4 text-lg"
+              onClick={() => {
+                const subject = encodeURIComponent("Design Order Inquiry - Incuva");
+                const body = encodeURIComponent(`Dear Incuva Team,
+
+I would like to place an order for the following services:
+
+Service Required: [Logo Design / Business Cards / Banner Design / etc.]
+Quantity: [Number of items]
+Business Name: [Your Company Name]
+Industry: [Your Business Type]
+
+Design Preferences:
+• Colors: [Preferred colors]
+• Style: [Modern / Classic / Minimalist / etc.]
+• Text to include: [Your text content]
+
+Timeline: [When you need it delivered]
+Budget: [Your budget range]
+
+Please send me a detailed quote and timeline for this project.
+
+Thank you!
+
+[Your Name]
+[Your Contact Number]`);
+                window.open(`mailto:soumyadipsinha273@gmail.com?subject=${subject}&body=${body}`);
+              }}
+            >
               <Mail className="mr-2 h-5 w-5" />
               Send Email Order
             </Button>
-            <Button size="lg" variant="outline" className="px-8 py-4 text-lg border-white text-white hover:bg-white hover:text-amber-600">
+            <Button 
+              size="lg" 
+              variant="outline" 
+              className="px-8 py-4 text-lg border-white text-white hover:bg-white hover:text-amber-600"
+              onClick={() => {
+                window.open('tel:+919876543210');
+              }}
+            >
               <Phone className="mr-2 h-5 w-5" />
               Call Us Now
             </Button>

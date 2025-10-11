@@ -2,12 +2,83 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
 import { CheckCircle, Star, Award, FileText, Palette, Camera, Share2, Users, Clock, Zap } from "lucide-react";
+import { useState, useEffect } from "react";
 
 export default function Pricing() {
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  
+  // Array of background images from assets
+  const backgroundImages = [
+    "/assets/buisnesscard1.png",
+    "/assets/flex1.jpg",
+    "/assets/flex2.jpg",
+    "/assets/flex3.jpg",
+    "/assets/poster1.png",
+    "/assets/poster2.png",
+    "/assets/poster3.png",
+    "/assets/showlogo1.png",
+    "/assets/broucher.png",
+    "/assets/broucher2.png",
+    "/assets/broucher3.png",
+    "/assets/resumebanner.png"
+  ];
+
+  // Change background image every 5 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prevIndex) => 
+        (prevIndex + 1) % backgroundImages.length
+      );
+    }, 5000);
+    return () => clearInterval(interval);
+  }, [backgroundImages.length]);
+
   return (
-    <div className="min-h-screen bg-gray-50">
+    <main className="min-h-screen bg-gray-50 relative overflow-hidden">
+      {/* Animated Background */}
+      <div className="fixed inset-0 z-0">
+        <div className="absolute inset-0 bg-black/5"></div>
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat transition-all duration-1000 ease-in-out animate-bg-fade"
+          style={{
+            backgroundImage: `url(${backgroundImages[currentImageIndex]})`,
+            transform: 'scale(1.05)',
+            opacity: 0.3
+          }}
+        ></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-amber-500/3 via-orange-500/3 to-red-500/3"></div>
+        
+        {/* Floating animated shapes */}
+        <div 
+          className="absolute w-20 h-20 bg-amber-400/20 rounded-full animate-float"
+          style={{ top: '20%', left: '10%' }}
+        ></div>
+        <div 
+          className="absolute w-16 h-16 bg-orange-400/20 rounded-full animate-float-reverse"
+          style={{ top: '40%', right: '20%' }}
+        ></div>
+        <div 
+          className="absolute w-24 h-24 bg-red-400/20 rounded-full animate-float"
+          style={{ bottom: '40%', left: '20%' }}
+        ></div>
+        <div 
+          className="absolute w-12 h-12 bg-yellow-400/20 rounded-full animate-float-reverse"
+          style={{ bottom: '20%', right: '10%' }}
+        ></div>
+        <div 
+          className="absolute w-18 h-18 bg-pink-400/20 rounded-full animate-float"
+          style={{ top: '60%', left: '50%' }}
+        ></div>
+        <div 
+          className="absolute w-14 h-14 bg-purple-400/20 rounded-full animate-float-reverse"
+          style={{ bottom: '60%', right: '30%' }}
+        ></div>
+      </div>
+      
+      {/* Content with backdrop blur */}
+      <div className="relative z-10 backdrop-blur-[1px]">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-amber-50 to-orange-50 py-20">
+      <section className="bg-transparent py-20">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
             <h1 className="text-5xl font-bold text-gray-900 mb-6">
@@ -162,7 +233,7 @@ export default function Pricing() {
       </section>
 
       {/* Additional Services */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-transparent">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">Additional Services</h2>
@@ -230,7 +301,7 @@ export default function Pricing() {
       </section>
 
       {/* Premium Packages */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-transparent">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">Premium Packages</h2>
@@ -317,7 +388,7 @@ export default function Pricing() {
       </section>
 
       {/* Printing Services */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-transparent">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">Printing Services</h2>
@@ -434,7 +505,7 @@ export default function Pricing() {
       </section>
 
       {/* Album Services */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-transparent">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">Album Services</h2>
@@ -532,6 +603,7 @@ export default function Pricing() {
           </div>
         </div>
       </section>
-    </div>
+      </div>
+    </main>
   );
 }

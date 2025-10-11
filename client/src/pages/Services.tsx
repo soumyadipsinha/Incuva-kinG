@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useMemo, useState, useEffect } from "react";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Button } from "@/components/ui/button";
 import { Badge } from "@/components/ui/badge";
@@ -6,6 +6,39 @@ import { CheckCircle, Star, Award, FileText, Palette, Camera, Share2, Users, Clo
 
 export default function ServicesPage() {
   const [query, setQuery] = useState("");
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  
+  // Array of background images from assets
+  const backgroundImages = [
+    "/assets/buisnesscard1.png",
+    "/assets/flex1.jpg",
+    "/assets/flex2.jpg",
+    "/assets/flex3.jpg",
+    "/assets/poster1.png",
+    "/assets/poster2.png",
+    "/assets/poster3.png",
+    "/assets/showlogo1.png",
+    "/assets/broucher.png",
+    "/assets/broucher2.png",
+    "/assets/broucher3.png",
+    "/assets/resumebanner.png"
+  ];
+
+  // Change background image every 5 seconds
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prevIndex) => 
+        (prevIndex + 1) % backgroundImages.length
+      );
+    }, 5000);
+    return () => clearInterval(interval);
+  }, [backgroundImages.length]);
+
+  // Generate random positions for floating shapes
+  const getRandomPosition = () => ({
+    top: Math.random() * 80 + 10, // 10% to 90%
+    left: Math.random() * 80 + 10, // 10% to 90%
+  });
   
   const categories: Array<{ 
     id: string; 
@@ -83,26 +116,68 @@ export default function ServicesPage() {
   }, [query, categories]);
 
   return (
-    <main className="min-h-screen bg-gray-50">
+    <main className="min-h-screen bg-gray-50 relative overflow-hidden">
+      {/* Animated Background */}
+      <div className="fixed inset-0 z-0">
+        <div className="absolute inset-0 bg-black/5"></div>
+        <div 
+          className="absolute inset-0 bg-cover bg-center bg-no-repeat transition-all duration-1000 ease-in-out animate-bg-fade"
+          style={{
+            backgroundImage: `url(${backgroundImages[currentImageIndex]})`,
+            transform: 'scale(1.05)',
+            opacity: 0.3
+          }}
+        ></div>
+        <div className="absolute inset-0 bg-gradient-to-br from-amber-500/3 via-orange-500/3 to-red-500/3"></div>
+        
+        {/* Floating animated shapes */}
+        <div 
+          className="absolute w-20 h-20 bg-amber-400/20 rounded-full animate-float"
+          style={{ top: '20%', left: '10%' }}
+        ></div>
+        <div 
+          className="absolute w-16 h-16 bg-orange-400/20 rounded-full animate-float-reverse"
+          style={{ top: '40%', right: '20%' }}
+        ></div>
+        <div 
+          className="absolute w-24 h-24 bg-red-400/20 rounded-full animate-float"
+          style={{ bottom: '40%', left: '20%' }}
+        ></div>
+        <div 
+          className="absolute w-12 h-12 bg-yellow-400/20 rounded-full animate-float-reverse"
+          style={{ bottom: '20%', right: '10%' }}
+        ></div>
+        <div 
+          className="absolute w-18 h-18 bg-pink-400/20 rounded-full animate-float"
+          style={{ top: '60%', left: '50%' }}
+        ></div>
+        <div 
+          className="absolute w-14 h-14 bg-purple-400/20 rounded-full animate-float-reverse"
+          style={{ bottom: '60%', right: '30%' }}
+        ></div>
+      </div>
+      
+      {/* Content with backdrop blur */}
+      <div className="relative z-10 backdrop-blur-[1px]">
       {/* Hero Section */}
-      <section className="bg-gradient-to-br from-amber-50 to-orange-50 py-20">
+      <section className="bg-transparent py-12 sm:py-16 md:py-20">
         <div className="container mx-auto px-4">
           <div className="max-w-4xl mx-auto text-center">
-            <h1 className="text-5xl font-bold text-gray-900 mb-6">
+            <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-gray-900 mb-4 sm:mb-6">
               Complete Design & Printing Services
-        </h1>
-            <p className="text-xl text-gray-600 mb-8">
+            </h1>
+            <p className="text-lg sm:text-xl text-gray-600 mb-6 sm:mb-8 px-4">
               From design to printing, we provide end-to-end solutions for all your business needs. 
               Professional quality at unbeatable prices.
             </p>
-            <div className="flex items-center justify-center gap-8">
+            <div className="flex flex-col sm:flex-row items-center justify-center gap-4 sm:gap-8">
               <div className="flex items-center gap-2">
-                <Star className="h-5 w-5 text-amber-500 fill-current" />
-                <span className="text-gray-700 font-medium">4.9/5 Rating</span>
+                <Star className="h-4 w-4 sm:h-5 sm:w-5 text-amber-500 fill-current" />
+                <span className="text-sm sm:text-base text-gray-700 font-medium">4.9/5 Rating</span>
               </div>
               <div className="flex items-center gap-2">
-                <Users className="h-5 w-5 text-amber-500" />
-                <span className="text-gray-700 font-medium">500+ Happy Clients</span>
+                <Users className="h-4 w-4 sm:h-5 sm:w-5 text-amber-500" />
+                <span className="text-sm sm:text-base text-gray-700 font-medium">500+ Happy Clients</span>
               </div>
             </div>
           </div>
@@ -110,9 +185,9 @@ export default function ServicesPage() {
       </section>
 
       {/* Search Section */}
-      <section className="py-10 bg-white">
+      <section className="py-8 sm:py-10 bg-transparent">
         <div className="container mx-auto px-4">
-          <div className="mx-auto max-w-3xl rounded-xl border bg-card p-6">
+          <div className="mx-auto max-w-3xl rounded-xl border bg-card p-4 sm:p-6">
         <label htmlFor="services-search" className="sr-only">Search services and designs</label>
         <div className="relative">
           <input
@@ -139,16 +214,16 @@ export default function ServicesPage() {
       </section>
 
       {/* Services Grid */}
-      <section className="py-20">
+      <section className="py-12 sm:py-16 md:py-20">
         <div className="container mx-auto px-4">
-          <div className="text-center mb-16">
-            <h2 className="text-4xl font-bold text-gray-900 mb-4">Our Services</h2>
-            <p className="text-xl text-gray-600 max-w-2xl mx-auto">
+          <div className="text-center mb-12 sm:mb-16">
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 mb-4">Our Services</h2>
+            <p className="text-lg sm:text-xl text-gray-600 max-w-2xl mx-auto px-4">
               Professional design and printing services for all your business needs.
             </p>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
         {filteredCategories.length === 0 && (
           <div className="col-span-full rounded-xl border bg-card p-6 text-center text-sm text-muted-foreground">
             No matching services. Try different keywords.
@@ -180,14 +255,14 @@ export default function ServicesPage() {
                       </li>
                     )}
                   </ul>
-                  <div className="flex gap-3">
-                    <Button variant="outline" className="flex-1">
+                  <div className="flex flex-col sm:flex-row gap-3">
+                    <Button variant="outline" className="w-full sm:flex-1">
                       View Details
                     </Button>
-                    <Button className="flex-1 bg-amber-600 hover:bg-amber-700 text-white" asChild>
+                    <Button className="w-full sm:flex-1 bg-amber-600 hover:bg-amber-700 text-white" asChild>
                       <a href="/contact">Order Now</a>
                     </Button>
-                    <Button variant="outline" className="flex-1" asChild>
+                    <Button variant="outline" className="w-full sm:flex-1" asChild>
                       <a href="/contact">Connect Us</a>
                     </Button>
                   </div>
@@ -199,7 +274,7 @@ export default function ServicesPage() {
       </section>
 
       {/* Combo Packages Section */}
-      <section className="py-20 bg-white">
+      <section className="py-20 bg-transparent">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">Combo Packages</h2>
@@ -233,11 +308,11 @@ export default function ServicesPage() {
                     <span className="text-sm">Letterhead Design</span>
                   </li>
                 </ul>
-                <div className="flex gap-3">
-                  <Button className="flex-1 bg-amber-600 hover:bg-amber-700" asChild>
+                <div className="flex flex-col sm:flex-row gap-3">
+                  <Button className="w-full sm:flex-1 bg-amber-600 hover:bg-amber-700" asChild>
                     <a href="/contact">Order Now</a>
                   </Button>
-                  <Button variant="outline" className="flex-1 border-amber-600 text-amber-600 hover:bg-amber-50" asChild>
+                  <Button variant="outline" className="w-full sm:flex-1 border-amber-600 text-amber-600 hover:bg-amber-50" asChild>
                     <a href="/contact">Connect Us</a>
                   </Button>
                 </div>
@@ -268,11 +343,11 @@ export default function ServicesPage() {
                     <span className="text-sm">Print Ready</span>
                   </li>
                 </ul>
-                <div className="flex gap-3">
-                  <Button className="flex-1 bg-blue-600 hover:bg-blue-700" asChild>
+                <div className="flex flex-col sm:flex-row gap-3">
+                  <Button className="w-full sm:flex-1 bg-blue-600 hover:bg-blue-700" asChild>
                     <a href="/contact">Order Now</a>
                   </Button>
-                  <Button variant="outline" className="flex-1 border-blue-600 text-blue-600 hover:bg-blue-50" asChild>
+                  <Button variant="outline" className="w-full sm:flex-1 border-blue-600 text-blue-600 hover:bg-blue-50" asChild>
                     <a href="/contact">Connect Us</a>
                   </Button>
                 </div>
@@ -303,11 +378,11 @@ export default function ServicesPage() {
                     <span className="text-sm">All formats</span>
                   </li>
                 </ul>
-                <div className="flex gap-3">
-                  <Button className="flex-1 bg-green-600 hover:bg-green-700" asChild>
+                <div className="flex flex-col sm:flex-row gap-3">
+                  <Button className="w-full sm:flex-1 bg-green-600 hover:bg-green-700" asChild>
                     <a href="/contact">Order Now</a>
                   </Button>
-                  <Button variant="outline" className="flex-1 border-green-600 text-green-600 hover:bg-green-50" asChild>
+                  <Button variant="outline" className="w-full sm:flex-1 border-green-600 text-green-600 hover:bg-green-50" asChild>
                     <a href="/contact">Connect Us</a>
                   </Button>
                 </div>
@@ -338,11 +413,11 @@ export default function ServicesPage() {
                     <span className="text-sm">Complete Branding</span>
                   </li>
             </ul>
-                <div className="flex gap-3">
-                  <Button className="flex-1 bg-purple-600 hover:bg-purple-700" asChild>
+                <div className="flex flex-col sm:flex-row gap-3">
+                  <Button className="w-full sm:flex-1 bg-purple-600 hover:bg-purple-700" asChild>
                     <a href="/contact">Order Now</a>
                   </Button>
-                  <Button variant="outline" className="flex-1 border-purple-600 text-purple-600 hover:bg-purple-50" asChild>
+                  <Button variant="outline" className="w-full sm:flex-1 border-purple-600 text-purple-600 hover:bg-purple-50" asChild>
                     <a href="/contact">Connect Us</a>
                   </Button>
                 </div>
@@ -353,7 +428,7 @@ export default function ServicesPage() {
       </section>
 
       {/* Why Choose Us Section */}
-      <section className="py-20 bg-gray-50">
+      <section className="py-20 bg-transparent">
         <div className="container mx-auto px-4">
           <div className="text-center mb-16">
             <h2 className="text-4xl font-bold text-gray-900 mb-4">Why Choose Incuva?</h2>
@@ -415,6 +490,7 @@ export default function ServicesPage() {
           </div>
       </div>
       </section>
+      </div>
     </main>
   );
 }

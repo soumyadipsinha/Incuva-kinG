@@ -99,20 +99,20 @@ export default function AboutPage() {
   return (
     <main className="min-h-screen bg-background">
       {/* Hero Section */}
-      <section className="relative bg-gradient-to-br from-primary/10 via-secondary/20 to-accent/10 py-20">
+      <section className="relative bg-gradient-to-br from-primary/10 via-secondary/20 to-accent/10 py-12 sm:py-16 md:py-20">
         <div className="mx-auto max-w-7xl px-4">
           <div className="text-center">
-            <h1 className="text-4xl font-bold text-primary mb-6 md:text-6xl">
-              About <span className="text-primary font-black">Inkuva</span>
+            <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold text-primary mb-4 sm:mb-6">
+              About <span className="text-primary font-black">Incuva</span>
             </h1>
-            <p className="text-xl text-gray-700 max-w-3xl mx-auto mb-8">
+            <p className="text-lg sm:text-xl text-gray-700 max-w-3xl mx-auto mb-6 sm:mb-8 px-4">
               Your one-stop creative and printing hub where ideas take shape, designs come alive, and brands are built to stand out.
             </p>
-            <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Button size="lg" asChild>
+            <div className="flex flex-col sm:flex-row gap-4 justify-center w-full sm:w-auto px-4 sm:px-0">
+              <Button size="lg" className="w-full sm:w-auto" asChild>
                 <a href="/services">Explore Our Services</a>
               </Button>
-              <Button size="lg" variant="outline" asChild>
+              <Button size="lg" variant="outline" className="w-full sm:w-auto" asChild>
                 <a href="/contact">Get In Touch</a>
               </Button>
             </div>
@@ -121,29 +121,29 @@ export default function AboutPage() {
       </section>
 
       {/* Mission & Vision */}
-      <section className="py-16">
+      <section className="py-12 sm:py-16">
         <div className="mx-auto max-w-7xl px-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-12">
-            <Card className="p-8">
-              <div className="flex items-center gap-4 mb-6">
-                <div className="p-3 bg-primary/10 rounded-lg">
-                  <Target className="h-8 w-8 text-primary" />
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12">
+            <Card className="p-6 sm:p-8">
+              <div className="flex items-center gap-3 sm:gap-4 mb-4 sm:mb-6">
+                <div className="p-2 sm:p-3 bg-primary/10 rounded-lg">
+                  <Target className="h-6 w-6 sm:h-8 sm:w-8 text-primary" />
                 </div>
-                <h2 className="text-2xl font-bold text-primary">Our Mission</h2>
+                <h2 className="text-xl sm:text-2xl font-bold text-primary">Our Mission</h2>
               </div>
-              <p className="text-gray-700 text-lg leading-relaxed">
+              <p className="text-gray-700 text-base sm:text-lg leading-relaxed">
                 To make professional design and printing services accessible, affordable, and impactful for everyone — helping brands communicate better, connect deeper, and grow faster.
               </p>
             </Card>
 
-            <Card className="p-8">
-              <div className="flex items-center gap-4 mb-6">
-                <div className="p-3 bg-accent/10 rounded-lg">
-                  <Lightbulb className="h-8 w-8 text-accent" />
+            <Card className="p-6 sm:p-8">
+              <div className="flex items-center gap-3 sm:gap-4 mb-4 sm:mb-6">
+                <div className="p-2 sm:p-3 bg-accent/10 rounded-lg">
+                  <Lightbulb className="h-6 w-6 sm:h-8 sm:w-8 text-accent" />
                 </div>
-                <h2 className="text-2xl font-bold text-primary">Our Vision</h2>
+                <h2 className="text-xl sm:text-2xl font-bold text-primary">Our Vision</h2>
               </div>
-              <p className="text-gray-700 text-lg leading-relaxed">
+              <p className="text-gray-700 text-base sm:text-lg leading-relaxed">
                 To be India's most trusted creative design and printing brand by empowering businesses with visually stunning, high-quality, and cost-effective branding solutions.
               </p>
             </Card>
@@ -152,22 +152,22 @@ export default function AboutPage() {
       </section>
 
       {/* Stats Section */}
-      <section className="bg-secondary/30 py-16">
+      <section className="bg-secondary/30 py-12 sm:py-16">
         <div className="mx-auto max-w-7xl px-4">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-primary mb-4">Trusted by Thousands</h2>
-            <p className="text-gray-700">Join our growing community of satisfied clients</p>
+          <div className="text-center mb-8 sm:mb-12">
+            <h2 className="text-2xl sm:text-3xl font-bold text-primary mb-4">Trusted by Thousands</h2>
+            <p className="text-gray-700 px-4">Join our growing community of satisfied clients</p>
           </div>
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8">
             {stats.map((stat, index) => (
               <div key={index} className="text-center">
-                <div className="flex justify-center mb-4">
-                  <div className="p-3 bg-primary/10 rounded-full">
+                <div className="flex justify-center mb-3 sm:mb-4">
+                  <div className="p-2 sm:p-3 bg-primary/10 rounded-full">
                     {stat.icon}
                   </div>
                 </div>
-                <div className="text-3xl font-bold text-primary mb-2">{stat.number}</div>
-                <div className="text-muted-foreground">{stat.label}</div>
+                <div className="text-2xl sm:text-3xl font-bold text-primary mb-2">{stat.number}</div>
+                <div className="text-sm sm:text-base text-muted-foreground">{stat.label}</div>
               </div>
             ))}
           </div>
@@ -198,32 +198,42 @@ export default function AboutPage() {
             ))}
           </div>
 
-          <Card className="p-8 bg-gradient-to-r from-primary/5 to-accent/5">
             <div className="text-center">
-              <h3 className="text-2xl font-bold text-primary mb-4">Premium Printing Solutions</h3>
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-                {printingSolutions.map((solution, index) => (
-                  <div key={index} className="flex items-start gap-3">
-                    <CheckCircle className="h-5 w-5 text-primary mt-1 flex-shrink-0" />
-                    <div>
-                      <h4 className="font-semibold text-primary">{solution.title}</h4>
-                      <p className="text-gray-600 text-sm">{solution.description}</p>
+            <Button size="lg" asChild>
+              <a href="/services">View All Services</a>
+            </Button>
                     </div>
                   </div>
+      </section>
+
+      {/* Printing Solutions */}
+      <section className="bg-secondary/30 py-16">
+        <div className="mx-auto max-w-7xl px-4">
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-primary mb-4">Complete Printing Solutions</h2>
+            <p className="text-gray-700 max-w-2xl mx-auto">
+              From small business cards to large-scale banners, we handle all your printing needs with precision and quality.
+            </p>
+          </div>
+
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
+            {printingSolutions.map((solution, index) => (
+              <Card key={index} className="p-6">
+                <h3 className="text-xl font-semibold text-primary mb-3">{solution.title}</h3>
+                <p className="text-gray-600">{solution.description}</p>
+              </Card>
                 ))}
               </div>
-            </div>
-          </Card>
         </div>
       </section>
 
       {/* Why Choose Us */}
-      <section className="bg-secondary/30 py-16">
+      <section className="py-16">
         <div className="mx-auto max-w-7xl px-4">
           <div className="text-center mb-12">
             <h2 className="text-3xl font-bold text-primary mb-4">Why Choose Incuva?</h2>
             <p className="text-gray-700 max-w-2xl mx-auto">
-              We combine creativity, technology, and craftsmanship to deliver exceptional results.
+              We combine creativity, technology, and customer focus to deliver exceptional results every time.
             </p>
           </div>
 
@@ -231,11 +241,9 @@ export default function AboutPage() {
             {whyChooseUs.map((reason, index) => (
               <Card key={index} className="p-6 text-center hover:shadow-lg transition-shadow">
                 <div className="flex justify-center mb-4">
-                  <div className="p-3 bg-primary/10 rounded-full">
                     {reason.icon}
-                  </div>
                 </div>
-                <h3 className="text-lg font-semibold text-primary mb-3">{reason.title}</h3>
+                <h3 className="text-xl font-semibold text-primary mb-3">{reason.title}</h3>
                 <p className="text-gray-600">{reason.description}</p>
               </Card>
             ))}
@@ -243,76 +251,326 @@ export default function AboutPage() {
         </div>
       </section>
 
-      {/* Our Unique Edge */}
-      <section className="py-16">
+      {/* Portfolio Section */}
+      <section id="portfolio" className="py-16">
         <div className="mx-auto max-w-7xl px-4">
-          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
-            <div>
-              <h2 className="text-3xl font-bold text-primary mb-6">Our Unique Edge</h2>
-              <p className="text-gray-700 text-lg leading-relaxed mb-6">
-                What sets Incuva apart is our fusion of creativity and technology. We don't just design graphics — we build brand experiences.
-              </p>
-              <p className="text-gray-700 text-lg leading-relaxed mb-8">
-                Our digital and print solutions are optimized for real-world impact, helping businesses grow through visuals that connect, convert, and captivate. From pixel-perfect social media creatives to high-resolution marketing prints, we bring consistency, innovation, and excellence in every piece of work we deliver.
-              </p>
-              <div className="flex flex-col sm:flex-row gap-4">
-                <Button size="lg" asChild>
-                  <a href="/quote">Start Your Project</a>
-                </Button>
-                <Button size="lg" variant="outline" asChild>
-                  <a href="/explore">View Our Work</a>
-                </Button>
+          <div className="text-center mb-12">
+            <h2 className="text-3xl font-bold text-primary mb-4">View Our Best Works</h2>
+            <p className="text-gray-700 max-w-2xl mx-auto">
+              Explore our portfolio of creative designs, printing solutions, and branding work that has helped businesses stand out.
+            </p>
+          </div>
+
+          {/* Posters & Flyers Section */}
+          <div className="mb-12">
+            <h3 className="text-2xl font-semibold text-primary mb-6 text-center">Posters & Flyers</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div className="aspect-[4/3] rounded-lg overflow-hidden border shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105 cursor-pointer">
+                <img 
+                  src="/assets/poster1.png" 
+                  alt="Poster Design 1"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="aspect-[4/3] rounded-lg overflow-hidden border shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105 cursor-pointer">
+                <img 
+                  src="/assets/poster2.png" 
+                  alt="Poster Design 2"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="aspect-[4/3] rounded-lg overflow-hidden border shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105 cursor-pointer">
+                <img 
+                  src="/assets/poster3.png" 
+                  alt="Poster Design 3"
+                  className="w-full h-full object-cover"
+                />
               </div>
             </div>
-            <div className="grid grid-cols-2 gap-4">
-              <div className="space-y-4">
-                <Card className="p-4">
-                  <div className="flex items-center gap-3">
-                    <Palette className="h-6 w-6 text-primary" />
-                    <span className="font-semibold">Creative Design</span>
-                  </div>
-                </Card>
-                <Card className="p-4">
-                  <div className="flex items-center gap-3">
-                    <Package className="h-6 w-6 text-primary" />
-                    <span className="font-semibold">Premium Printing</span>
-                  </div>
-                </Card>
+          </div>
+
+          {/* Business Cards Section */}
+          <div className="mb-12">
+            <h3 className="text-2xl font-semibold text-primary mb-6 text-center">Business Cards</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              <div className="aspect-[4/3] rounded-lg overflow-hidden border shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105 cursor-pointer">
+                <img 
+                  src="/assets/buisnesscard1.png" 
+                  alt="Business Card Design 1"
+                  className="w-full h-full object-cover"
+                />
               </div>
-              <div className="space-y-4 mt-8">
-                <Card className="p-4">
-                  <div className="flex items-center gap-3">
-                    <Globe className="h-6 w-6 text-primary" />
-                    <span className="font-semibold">Digital Solutions</span>
+              <div className="aspect-[4/3] rounded-lg overflow-hidden border shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105 cursor-pointer">
+                <img 
+                  src="/assets/buisnesscard2.png" 
+                  alt="Business Card Design 2"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="aspect-[4/3] rounded-lg overflow-hidden border shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105 cursor-pointer">
+                <img 
+                  src="/assets/buisnesscard4.png" 
+                  alt="Business Card Design 3"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="aspect-[4/3] rounded-lg overflow-hidden border shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105 cursor-pointer">
+                <img 
+                  src="/assets/buisnesscard5.png" 
+                  alt="Business Card Design 4"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            </div>
+          </div>
+
+          {/* Brochures Section */}
+          <div className="mb-12">
+            <h3 className="text-2xl font-semibold text-primary mb-6 text-center">Brochures & Catalogs</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div className="aspect-[4/3] rounded-lg overflow-hidden border shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105 cursor-pointer">
+                <img 
+                  src="/assets/broucher.png" 
+                  alt="Brochure Design 1"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="aspect-[4/3] rounded-lg overflow-hidden border shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105 cursor-pointer">
+                <img 
+                  src="/assets/broucher2.png" 
+                  alt="Brochure Design 2"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="aspect-[4/3] rounded-lg overflow-hidden border shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105 cursor-pointer">
+                <img 
+                  src="/assets/broucher3.png" 
+                  alt="Brochure Design 3"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            </div>
+          </div>
+
+          {/* Flex & Banners Section */}
+          <div className="mb-12">
+            <h3 className="text-2xl font-semibold text-primary mb-6 text-center">Flex & Banners</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div className="aspect-[4/3] rounded-lg overflow-hidden border shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105 cursor-pointer">
+                <img 
+                  src="/assets/flex1.jpg" 
+                  alt="Flex Banner Design 1"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="aspect-[4/3] rounded-lg overflow-hidden border shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105 cursor-pointer">
+                <img 
+                  src="/assets/flex2.jpg" 
+                  alt="Flex Banner Design 2"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="aspect-[4/3] rounded-lg overflow-hidden border shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105 cursor-pointer">
+                <img 
+                  src="/assets/flex3.jpg" 
+                  alt="Flex Banner Design 3"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            </div>
+          </div>
+
+          {/* Social Media & Reels Section */}
+          <div className="mb-12">
+            <h3 className="text-2xl font-semibold text-primary mb-6 text-center">Social Media & Reels</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div className="aspect-[4/3] rounded-lg overflow-hidden border shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105 cursor-pointer">
+                <img 
+                  src="/assets/White Modern Travel Instagram Post.png" 
+                  alt="Social Media Post 1"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="aspect-[4/3] rounded-lg overflow-hidden border shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105 cursor-pointer">
+                <img 
+                  src="/assets/White Modern Travel Instagram Post.png" 
+                  alt="Social Media Post 2"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+              <div className="aspect-[4/3] rounded-lg overflow-hidden border shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105 cursor-pointer">
+                <img 
+                  src="/assets/White Modern Travel Instagram Post.png" 
+                  alt="Social Media Post 3"
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            </div>
+          </div>
+
+          {/* Video Reels Section */}
+          <div className="mb-8">
+            <h4 className="text-xl font-semibold text-primary mb-4 text-center">Video Reels</h4>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div className="relative group bg-gray-100 rounded-lg overflow-hidden">
+                <video
+                  className="w-full h-64 object-cover"
+                  controls
+                  muted
+                  preload="metadata"
+                  poster="/assets/poster1.png"
+                  onError={(e) => {
+                    console.log('Video 1 failed to load:', e);
+                    const target = e.target as HTMLVideoElement;
+                    target.style.display = 'none';
+                    const parent = target.parentElement;
+                    if (parent) {
+                      parent.innerHTML = '<div class="w-full h-64 flex items-center justify-center bg-gray-200 rounded-lg"><p class="text-gray-600">Video not available</p></div>';
+                    }
+                  }}
+                >
+                  <source src="/assets/reels1.mp4" type="video/mp4" />
+                  <source src="./assets/reels1.mp4" type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+              <div className="relative group bg-gray-100 rounded-lg overflow-hidden">
+                <video
+                  className="w-full h-64 object-cover"
+                  controls
+                  muted
+                  preload="metadata"
+                  poster="/assets/poster2.png"
+                  onError={(e) => {
+                    console.log('Video 2 failed to load:', e);
+                    const target = e.target as HTMLVideoElement;
+                    target.style.display = 'none';
+                    const parent = target.parentElement;
+                    if (parent) {
+                      parent.innerHTML = '<div class="w-full h-64 flex items-center justify-center bg-gray-200 rounded-lg"><p class="text-gray-600">Video not available</p></div>';
+                    }
+                  }}
+                >
+                  <source src="/assets/reels2.mp4" type="video/mp4" />
+                  <source src="./assets/reels2.mp4" type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+              <div className="relative group bg-gray-100 rounded-lg overflow-hidden">
+                <video
+                  className="w-full h-64 object-cover"
+                  controls
+                  muted
+                  preload="metadata"
+                  poster="/assets/poster3.png"
+                  onError={(e) => {
+                    console.log('Video 3 failed to load:', e);
+                    const target = e.target as HTMLVideoElement;
+                    target.style.display = 'none';
+                    const parent = target.parentElement;
+                    if (parent) {
+                      parent.innerHTML = '<div class="w-full h-64 flex items-center justify-center bg-gray-200 rounded-lg"><p class="text-gray-600">Video not available</p></div>';
+                    }
+                  }}
+                >
+                  <source src="/assets/reels3.mp4" type="video/mp4" />
+                  <source src="./assets/reels3.mp4" type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
                   </div>
-                </Card>
-                <Card className="p-4">
-                  <div className="flex items-center gap-3">
-                    <Truck className="h-6 w-6 text-primary" />
-                    <span className="font-semibold">Fast Delivery</span>
+              <div className="relative group bg-gray-100 rounded-lg overflow-hidden">
+                <video
+                  className="w-full h-64 object-cover"
+                  controls
+                  muted
+                  preload="metadata"
+                  poster="/assets/poster1.png"
+                  onError={(e) => {
+                    console.log('Video 4 failed to load:', e);
+                    const target = e.target as HTMLVideoElement;
+                    target.style.display = 'none';
+                    const parent = target.parentElement;
+                    if (parent) {
+                      parent.innerHTML = '<div class="w-full h-64 flex items-center justify-center bg-gray-200 rounded-lg"><p class="text-gray-600">Video not available</p></div>';
+                    }
+                  }}
+                >
+                  <source src="/assets/reels4.mp4" type="video/mp4" />
+                  <source src="./assets/reels4.mp4" type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
                   </div>
-                </Card>
+              <div className="relative group bg-gray-100 rounded-lg overflow-hidden">
+                <video
+                  className="w-full h-64 object-cover"
+                  controls
+                  muted
+                  preload="metadata"
+                  poster="/assets/poster2.png"
+                  onError={(e) => {
+                    console.log('Video 5 failed to load:', e);
+                    const target = e.target as HTMLVideoElement;
+                    target.style.display = 'none';
+                    const parent = target.parentElement;
+                    if (parent) {
+                      parent.innerHTML = '<div class="w-full h-64 flex items-center justify-center bg-gray-200 rounded-lg"><p class="text-gray-600">Video not available</p></div>';
+                    }
+                  }}
+                >
+                  <source src="/assets/reel5.mp4" type="video/mp4" />
+                  <source src="./assets/reel5.mp4" type="video/mp4" />
+                  Your browser does not support the video tag.
+                </video>
+              </div>
+            </div>
+          </div>
+
+          {/* Logo Designs Section */}
+          <div className="mb-12">
+            <h3 className="text-2xl font-semibold text-primary mb-6 text-center">Logo Designs</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              <div className="aspect-[4/3] rounded-lg overflow-hidden border shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105 cursor-pointer">
+                <img 
+                  src="/assets/showlogo1.png" 
+                  alt="Logo Design 1"
+                  className="w-full h-full object-cover"
+                />
+                  </div>
+              <div className="aspect-[4/3] rounded-lg overflow-hidden border shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105 cursor-pointer">
+                <img 
+                  src="/assets/showlogo2.png" 
+                  alt="Logo Design 2"
+                  className="w-full h-full object-cover"
+                />
+                  </div>
+              <div className="aspect-[4/3] rounded-lg overflow-hidden border shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105 cursor-pointer">
+                <img 
+                  src="/assets/showlogo3.png" 
+                  alt="Logo Design 3"
+                  className="w-full h-full object-cover"
+                />
               </div>
             </div>
           </div>
         </div>
       </section>
 
-      {/* CTA Section */}
-      <section className="bg-gradient-to-r from-primary to-accent text-white py-16">
-        <div className="mx-auto max-w-7xl px-4 text-center">
-          <h2 className="text-3xl font-bold mb-4">Let's Build Something Incredible Together</h2>
-          <p className="text-xl mb-8 max-w-3xl mx-auto">
-            Your brand deserves to be seen, remembered, and admired — and that's exactly what we do at Incuva.
-            Join hundreds of satisfied clients who have trusted us with their creative and printing needs.
+      {/* Call to Action */}
+      <section className="bg-primary/5 py-16">
+        <div className="mx-auto max-w-7xl px-4">
+          <div className="text-center">
+            <h2 className="text-3xl font-bold text-primary mb-4">Ready to Create Something Amazing?</h2>
+            <p className="text-xl text-gray-700 max-w-2xl mx-auto mb-8">
+              Let's bring your vision to life with our professional design and printing services.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Button size="lg" variant="secondary" asChild>
-              <a href="/contact">Get Started Today</a>
+              <Button size="lg" asChild>
+                <a href="/services">Start Your Project</a>
             </Button>
-            <Button size="lg" variant="outline" className="text-white border-white hover:bg-white hover:text-primary" asChild>
-              <a href="/services">Explore Services</a>
+              <Button size="lg" variant="outline" asChild>
+                <a href="/contact">Get Free Quote</a>
             </Button>
+            </div>
           </div>
       </div>
       </section>

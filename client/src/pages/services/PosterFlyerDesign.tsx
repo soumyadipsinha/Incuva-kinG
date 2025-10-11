@@ -8,9 +8,27 @@ export default function PosterFlyerDesignPage() {
         </p>
       </header>
       <section className="grid grid-cols-1 gap-6 md:grid-cols-3">
-        <div className="aspect-[4/3] rounded-lg border bg-muted" />
-        <div className="aspect-[4/3] rounded-lg border bg-muted" />
-        <div className="aspect-[4/3] rounded-lg border bg-muted" />
+        <div className="aspect-[4/3] rounded-lg overflow-hidden border shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105 cursor-pointer">
+          <img 
+            src="/assets/poster1.png" 
+            alt="Poster Design 1"
+            className="w-full h-full object-cover"
+          />
+        </div>
+        <div className="aspect-[4/3] rounded-lg overflow-hidden border shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105 cursor-pointer">
+          <img 
+            src="/assets/poster2.png" 
+            alt="Poster Design 2"
+            className="w-full h-full object-cover"
+          />
+        </div>
+        <div className="aspect-[4/3] rounded-lg overflow-hidden border shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105 cursor-pointer">
+          <img 
+            src="/assets/poster3.png" 
+            alt="Poster Design 3"
+            className="w-full h-full object-cover"
+          />
+        </div>
       </section>
     </main>
   );

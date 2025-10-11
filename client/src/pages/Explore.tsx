@@ -8,9 +8,9 @@ export default function Explore() {
   const [showMoreCategories, setShowMoreCategories] = useState(false);
   const [showMoreContent, setShowMoreContent] = useState(false);
   return (
-    <div className="min-h-screen bg-white">
+    <div className="min-h-screen bg-transparent">
       {/* Header Section */}
-      <div className="bg-white border-b">
+      <div className="bg-transparent border-b">
         <div className="max-w-7xl mx-auto px-4 py-6">
           <div className="flex items-center justify-center">
             {/* Logo */}

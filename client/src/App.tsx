@@ -1,5 +1,6 @@
 import Navbar from "@/components/layout/Navbar"
 import Footer from "@/components/layout/Footer"
+import ShippingNotice from "@/components/layout/ShippingNotice"
 import HomePage from "@/pages/Home"
 import ServicesPage from "@/pages/Services"
 import { BrowserRouter, Routes, Route } from "react-router-dom"
@@ -16,6 +17,7 @@ import CorporateBrandingPage from "@/pages/services/CorporateBranding"
 import QuotePage from "@/pages/Quote"
 import ContactPage from "@/pages/Contact"
 import AboutPage from "@/pages/About"
+import OurWorksPage from "@/pages/OurWorks"
 import CartPage from "@/pages/Cart"
 import AccountLoginPage from "@/pages/account/Login"
 import AccountSignupPage from "@/pages/account/Signup"
@@ -31,6 +33,7 @@ function App() {
   return (
     <BrowserRouter>
       <div className="min-h-svh w-full">
+        <ShippingNotice />
         <Navbar />
         <Routes>
           <Route path="/" element={<HomePage />} />
@@ -45,6 +48,7 @@ function App() {
           <Route path="/quote" element={<QuotePage />} />
           <Route path="/contact" element={<ContactPage />} />
           <Route path="/about" element={<AboutPage />} />
+          <Route path="/our-works" element={<OurWorksPage />} />
           <Route path="/cart" element={<CartPage />} />
           <Route path="/account/login" element={<AccountLoginPage />} />
           <Route path="/account/signup" element={<AccountSignupPage />} />

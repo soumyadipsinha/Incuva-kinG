@@ -8,9 +8,27 @@ export default function AlbumPrintingPage() {
         </p>
       </header>
       <section className="grid grid-cols-1 gap-6 md:grid-cols-3">
-        <div className="aspect-[4/3] rounded-lg border bg-muted" />
-        <div className="aspect-[4/3] rounded-lg border bg-muted" />
-        <div className="aspect-[4/3] rounded-lg border bg-muted" />
+        <div className="aspect-[4/3] rounded-lg overflow-hidden border shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105 cursor-pointer">
+          <img 
+            src="/assets/resumebanner.png" 
+            alt="Wedding Album Design"
+            className="w-full h-full object-cover"
+          />
+        </div>
+        <div className="aspect-[4/3] rounded-lg overflow-hidden border shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105 cursor-pointer">
+          <img 
+            src="/assets/broucher.png" 
+            alt="Event Album Design"
+            className="w-full h-full object-cover"
+          />
+        </div>
+        <div className="aspect-[4/3] rounded-lg overflow-hidden border shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105 cursor-pointer">
+          <img 
+            src="/assets/broucher2.png" 
+            alt="Photo Album Design"
+            className="w-full h-full object-cover"
+          />
+        </div>
       </section>
     </main>
   );

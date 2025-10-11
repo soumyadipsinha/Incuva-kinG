@@ -8,9 +8,27 @@ export default function LogoDesignPage() {
         </p>
       </header>
       <section className="grid grid-cols-1 gap-6 md:grid-cols-3">
-        <div className="aspect-[4/3] rounded-lg border bg-muted" />
-        <div className="aspect-[4/3] rounded-lg border bg-muted" />
-        <div className="aspect-[4/3] rounded-lg border bg-muted" />
+        <div className="aspect-[4/3] rounded-lg overflow-hidden border shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105 cursor-pointer">
+          <img 
+            src="/assets/showlogo1.png" 
+            alt="Professional Logo Design"
+            className="w-full h-full object-cover"
+          />
+        </div>
+        <div className="aspect-[4/3] rounded-lg overflow-hidden border shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105 cursor-pointer">
+          <img 
+            src="/assets/showlogo2.png" 
+            alt="Creative Logo Design"
+            className="w-full h-full object-cover"
+          />
+        </div>
+        <div className="aspect-[4/3] rounded-lg overflow-hidden border shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105 cursor-pointer">
+          <img 
+            src="/assets/showlogo3.png" 
+            alt="Modern Logo Design"
+            className="w-full h-full object-cover"
+          />
+        </div>
       </section>
     </main>
   );
