@@ -54,7 +54,7 @@ export default function ContactPage() {
               <CardContent className="text-center">
                 <div className="space-y-4 mb-6">
                   <div className="bg-primary/5 border border-primary/20 rounded-lg p-4">
-                    <div className="text-lg font-semibold text-primary break-all">soumyadipsinha273@gmail.com</div>
+                    <div className="text-lg font-semibold text-primary break-all">services@kingtechs.in</div>
                   </div>
                   <p className="text-sm text-muted-foreground">
                     For design orders, quotes, and project inquiries
@@ -109,7 +109,7 @@ Thank you!
               <CardContent className="text-center">
                 <div className="space-y-4 mb-6">
                   <div className="bg-blue-50 border border-blue-200 rounded-lg p-4">
-                    <div className="text-xl font-semibold text-blue-700">+91 98765 43210</div>
+                    <div className="text-xl font-semibold text-blue-700">+91 824034701</div>
                   </div>
                   <p className="text-sm text-muted-foreground">
                     Monday - Friday: 9 AM - 7 PM
@@ -119,7 +119,7 @@ Thank you!
                   className="w-full" 
                   variant="outline"
                   onClick={() => {
-                    window.open('tel:+919876543210');
+                    window.open('tel:824034701');
                   }}
                 >
                   <Phone className="mr-2 h-4 w-4" />

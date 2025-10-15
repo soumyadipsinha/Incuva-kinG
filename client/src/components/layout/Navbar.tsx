@@ -1,9 +1,11 @@
 import { Menu, ShoppingCart } from "lucide-react";
 import { Button } from "@/components/ui/button";
 import { useState } from "react";
+import { useAuth } from "@/context/AuthContext";
 
 export default function Navbar() {
   const [activeMenu, setActiveMenu] = useState<string | null>(null);
+  const { isAuthenticated, logout } = useAuth();
   return (
     <div className="sticky top-0 z-40 w-full px-2 sm:px-4 py-2">
       <header className="mx-auto max-w-7xl rounded-2xl bg-transparent backdrop-blur-sm border border-white/10 shadow-lg">
@@ -73,7 +75,13 @@ export default function Navbar() {
             <Menu className="h-4 w-4 sm:h-5 sm:w-5" />
           </Button>
            <a href="/about" className="text-xs sm:text-sm underline-offset-2 hover:underline hidden sm:block">About Us</a>
-          <a href="/account/login" className="text-xs sm:text-sm underline-offset-2 hover:underline hidden sm:block">Account</a>
+          {!isAuthenticated ? (
+            <a href="/account/login" className="text-xs sm:text-sm underline-offset-2 hover:underline hidden sm:block">Sign in</a>
+          ) : (
+            <div className="hidden sm:flex items-center gap-2">
+              <a href="/account/login" className="text-xs sm:text-sm underline-offset-2 hover:underline">Account</a>
+            </div>
+          )}
          
           <Button variant="ghost" size="icon" aria-label="Cart" asChild>
             <a href="/cart">

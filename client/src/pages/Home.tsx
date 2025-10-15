@@ -3,42 +3,105 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Badge } from "@/components/ui/badge";
 import Wordmark from "@/components/branding/Wordmark";
 import BannerSwiper from "@/components/branding/BannerSwiper";
-import { ArrowRight, CheckCircle, Star, Users, Award, Clock, Zap, Shield, Heart, Palette, FileText, Camera, Share2 } from "lucide-react";
+import { ArrowRight, CheckCircle, Star, Users, Award, Clock, Zap, Shield, Heart, Palette, FileText, Camera, Share2, ShoppingCart } from "lucide-react";
+import { useEffect, useMemo, useState } from "react";
+import { useCart } from "@/context/CartContext";
 
 export default function HomePage() {
+  // Use global cart context
+  const { addToCart } = useCart();
+  
+  // Global rotating assets list (exclude banner swiper images)
+  const assetImages = useMemo(
+    () => [
+      "/assets/_Blue and White Illustrated Earth Hour Facebook Post.png",
+      "/assets/Biru Hijau Selamat Hari Perawat Nasional Konten Instagram.png",
+      "/assets/broucher.png",
+      "/assets/broucher2.png",
+      "/assets/broucher3.png",
+      "/assets/buisnesscard1.png",
+      "/assets/buisnesscard2.png",
+      "/assets/buisnesscard4.png",
+      "/assets/buisnesscard5.png",
+      "/assets/canverastylealbum1.png",
+      "/assets/canverastylealbum2.png",
+      "/assets/canverastylealbum3.png",
+      "/assets/canverastylealbum4.png",
+      "/assets/canverastylealbum5.png",
+      "/assets/canverastylealbum6.png",
+      "/assets/doublesidedbanner.png",
+      "/assets/Earth Hour (Konten Instagram).png",
+      "/assets/flex1.jpg",
+      "/assets/flex2.jpg",
+      "/assets/flex3.jpg",
+      "/assets/free.png",
+      "/assets/GIVEAWAY (Konten Instagram).png",
+      "/assets/logo.png",
+      "/assets/logobanner.png",
+      "/assets/poster1.png",
+      "/assets/poster2.png",
+      "/assets/poster3.png",
+      "/assets/poster4.png",
+      "/assets/poster5.png",
+      "/assets/poster67.png",
+      "/assets/poster7.png",
+      "/assets/Red Black and White Dynamic Boxing Presentation.png",
+      "/assets/resumebanner.png",
+      "/assets/showlogo1.png",
+      "/assets/showlogo2.png",
+      "/assets/showlogo3.png",
+      "/assets/TIME TO HOLIDAY (Konten Instagram).png",
+      "/assets/White Modern Travel Instagram Post.png"
+    ],
+    []
+  );
+
+  const [tick, setTick] = useState(0);
+  useEffect(() => {
+    const id = setInterval(() => setTick((t) => t + 1), 3000);
+    return () => clearInterval(id);
+  }, []);
+
+  const imgAt = (offset: number) => assetImages[(tick + offset + assetImages.length) % assetImages.length];
+
   return (
     <main className="min-h-svh w-full bg-background">
       {/* Banner Swiper */}
       <BannerSwiper />
       
       {/* Hero */}
-      <section className="relative mx-auto max-w-5xl px-4 pb-10 pt-8 sm:pt-12 md:pt-20">
-        {/* Artistic blobs */}
+      <section className="relative mx-auto max-w-5xl px-4 pb-10 pt-8 sm:pt-12 md:pt-20 overflow-hidden">
+        {/* Enhanced Artistic blobs */}
         <div className="pointer-events-none absolute inset-0 -z-10">
           <div className="absolute -left-8 sm:-left-16 top-0 h-32 w-32 sm:h-40 sm:w-40 animate-[spin_20s_linear_infinite] rounded-full bg-accent/40 blur-2xl" />
           <div className="absolute bottom-0 right-0 h-40 w-40 sm:h-52 sm:w-52 animate-[spin_25s_linear_infinite_reverse] rounded-full bg-primary/10 blur-3xl" />
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 h-20 w-20 animate-pulse rounded-full bg-gradient-to-r from-blue-400/20 to-purple-400/20 blur-xl" />
+          <div className="absolute top-1/4 right-1/4 h-16 w-16 animate-bounce rounded-full bg-green-400/20 blur-lg" />
         </div>
+        
         <div className="flex flex-col items-center gap-3 text-center">
-          <Wordmark text="INKUVA" />
-          <p className="max-w-xl text-sm sm:text-base text-muted-foreground px-4">Professional design services for businesses, entrepreneurs, and creatives. From logos to complete brand identity - we bring your vision to life.</p>
-          <div className="flex flex-col sm:flex-row gap-4 mt-6 w-full sm:w-auto px-4 sm:px-0">
-            <Button size="lg" variant="outline" className="px-6 sm:px-8 py-4 text-base sm:text-lg w-full sm:w-auto" asChild>
+          <div className="animate-fade-in-up">
+            <Wordmark text="INKUVA" />
+          </div>
+          <p className="max-w-xl text-sm sm:text-base text-muted-foreground px-4 animate-fade-in-up animation-delay-200">Professional design services for businesses, entrepreneurs, and creatives. From logos to complete brand identity - we bring your vision to life.</p>
+          <div className="flex flex-col sm:flex-row gap-4 mt-6 w-full sm:w-auto px-4 sm:px-0 animate-fade-in-up animation-delay-400">
+            <Button size="lg" variant="outline" className="px-6 sm:px-8 py-4 text-base sm:text-lg w-full sm:w-auto hover:scale-105 transition-all duration-300 hover:shadow-lg" asChild>
               <a href="/services">
                 Choose Your Design
-                <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5" />
+                <ArrowRight className="ml-2 h-4 w-4 sm:h-5 sm:w-5 group-hover:translate-x-1 transition-transform duration-300" />
               </a>
             </Button>
-            <Button size="lg" variant="outline" className="px-6 sm:px-8 py-4 text-base sm:text-lg w-full sm:w-auto" asChild>
+            <Button size="lg" variant="outline" className="px-6 sm:px-8 py-4 text-base sm:text-lg w-full sm:w-auto hover:scale-105 transition-all duration-300 hover:shadow-lg" asChild>
               <a href="/explore">View Our Work</a>
             </Button>
           </div>
-          <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-8 mt-6">
-            <div className="flex items-center gap-2">
-              <Star className="h-4 w-4 sm:h-5 sm:w-5 text-amber-500 fill-current" />
+          <div className="flex flex-col sm:flex-row items-center gap-4 sm:gap-8 mt-6 animate-fade-in-up animation-delay-600">
+            <div className="flex items-center gap-2 hover:scale-110 transition-transform duration-300">
+              <Star className="h-4 w-4 sm:h-5 sm:w-5 text-amber-500 fill-current animate-pulse" />
               <span className="text-sm sm:text-base text-muted-foreground font-medium">4.9/5 Rating</span>
             </div>
-            <div className="flex items-center gap-2">
-              <Users className="h-4 w-4 sm:h-5 sm:w-5 text-amber-500" />
+            <div className="flex items-center gap-2 hover:scale-110 transition-transform duration-300">
+              <Users className="h-4 w-4 sm:h-5 sm:w-5 text-amber-500 animate-bounce" />
               <span className="text-sm sm:text-base text-muted-foreground font-medium">500+ Happy Clients</span>
             </div>
           </div>
@@ -48,15 +111,34 @@ export default function HomePage() {
       {/* Services Showcase */}
       <section className="mx-auto max-w-7xl px-4 pb-16 sm:pb-24">
         <div className="text-center mb-12 sm:mb-16">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-primary mb-4">Our Design Services</h2>
-          <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto px-4">
+          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-primary mb-4 animate-fade-in-up">Our Design Services</h2>
+          <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto px-4 animate-fade-in-up animation-delay-200">
             Professional design services at unbeatable prices. Choose from our range of design packages.
           </p>
         </div>
         
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
           {/* Logo Design */}
-          <Card className="group hover:shadow-xl transition-all duration-300 border">
+          <Card className="group hover:shadow-xl transition-all duration-300 border overflow-hidden animate-fade-in-up animation-delay-300 hover:scale-105 hover:-translate-y-2">
+            {/* Logo Images Section */}
+            <div className="aspect-[4/3] w-full overflow-hidden bg-gradient-to-br from-amber-50 to-amber-100">
+              <div className="grid grid-cols-2 gap-2 p-4 h-full">
+                {[
+                  "/assets/logo.png",
+                  "/assets/showlogo1.png",
+                  "/assets/showlogo2.png", 
+                  "/assets/showlogo3.png"
+                ].map((logoImg, idx) => (
+                  <div key={idx} className="bg-white rounded-lg p-2 flex items-center justify-center">
+                    <img 
+                      src={logoImg} 
+                      alt={`Logo ${idx + 1}`} 
+                      className="max-h-full max-w-full object-contain"
+                    />
+                  </div>
+                ))}
+              </div>
+            </div>
             <CardHeader>
               <div className="w-12 h-12 bg-amber-100 rounded-lg flex items-center justify-center mb-4">
                 <Award className="h-6 w-6 text-amber-600" />
@@ -94,7 +176,26 @@ export default function HomePage() {
           </Card>
 
           {/* Business Cards */}
-          <Card className="group hover:shadow-xl transition-all duration-300 border">
+          <Card className="group hover:shadow-xl transition-all duration-300 border overflow-hidden animate-fade-in-up animation-delay-500 hover:scale-105 hover:-translate-y-2">
+            {/* Business Card Images Section */}
+            <div className="aspect-[4/3] w-full overflow-hidden bg-gradient-to-br from-blue-50 to-blue-100">
+              <div className="grid grid-cols-2 gap-2 p-4 h-full">
+                {[
+                  "/assets/buisnesscard1.png",
+                  "/assets/buisnesscard2.png",
+                  "/assets/buisnesscard4.png",
+                  "/assets/buisnesscard5.png"
+                ].map((cardImg, idx) => (
+                  <div key={idx} className="bg-white rounded-lg p-2 flex items-center justify-center">
+                    <img 
+                      src={cardImg} 
+                      alt={`Business Card ${idx + 1}`} 
+                      className="max-h-full max-w-full object-contain"
+                    />
+                  </div>
+                ))}
+              </div>
+            </div>
             <CardHeader>
               <div className="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
                 <Users className="h-6 w-6 text-blue-600" />
@@ -132,7 +233,26 @@ export default function HomePage() {
           </Card>
 
           {/* Banner Design */}
-          <Card className="group hover:shadow-xl transition-all duration-300 border">
+          <Card className="group hover:shadow-xl transition-all duration-300 border overflow-hidden animate-fade-in-up animation-delay-700 hover:scale-105 hover:-translate-y-2">
+            {/* Banner/Flex Images Section */}
+            <div className="aspect-[4/3] w-full overflow-hidden bg-gradient-to-br from-green-50 to-green-100">
+              <div className="grid grid-cols-2 gap-2 p-4 h-full">
+                {[
+                  "/assets/flex1.jpg",
+                  "/assets/flex2.jpg",
+                  "/assets/flex3.jpg",
+                  "/assets/doublesidedbanner.png"
+                ].map((bannerImg, idx) => (
+                  <div key={idx} className="bg-white rounded-lg p-2 flex items-center justify-center">
+                    <img 
+                      src={bannerImg} 
+                      alt={`Banner ${idx + 1}`} 
+                      className="max-h-full max-w-full object-contain"
+                    />
+                  </div>
+                ))}
+              </div>
+            </div>
             <CardHeader>
               <div className="w-12 h-12 bg-green-100 rounded-lg flex items-center justify-center mb-4">
                 <Star className="h-6 w-6 text-green-600" />
@@ -185,21 +305,59 @@ export default function HomePage() {
       <section className="mx-auto max-w-7xl px-4 pb-16 sm:pb-24">
         <div className="grid grid-cols-1 gap-6 sm:gap-8 sm:grid-cols-2 lg:grid-cols-4">
           {[
-            { src: "/assets/poster1.png", title: "Poster Design", desc: "Creative • Print • Marketing" },
-            { src: "/assets/buisnesscard1.png", title: "Business Cards", desc: "Professional • Branding • Cards" },
-            { src: "/assets/flex1.jpg", title: "Flex Banners", desc: "Outdoor • Advertising • Banners" },
-            { src: "/assets/broucher.png", title: "Brochures", desc: "Marketing • Print • Collateral" },
+            { 
+              id: "home-poster-1",
+              title: "Poster Design", 
+              desc: "Creative • Print • Marketing",
+              price: "₹199",
+              description: "Professional poster design for events and marketing campaigns"
+            },
+            { 
+              id: "home-business-1",
+              title: "Business Cards", 
+              desc: "Professional • Branding • Cards",
+              price: "₹99",
+              description: "Professional business card design and printing"
+            },
+            { 
+              id: "home-flex-1",
+              title: "Flex Banners", 
+              desc: "Outdoor • Advertising • Banners",
+              price: "₹299",
+              description: "High-quality flex banner design and printing"
+            },
+            { 
+              id: "home-brochure-1",
+              title: "Brochures", 
+              desc: "Marketing • Print • Collateral",
+              price: "₹399",
+              description: "Professional brochure design and printing"
+            },
           ].map((item, idx) => (
-            <article key={idx} className="rounded-lg border bg-card p-6">
-              <div className="aspect-[3/4] w-full overflow-hidden rounded-md">
-                <img src={item.src} alt={item.title} className="h-full w-full object-cover" loading="lazy" />
+            <article key={idx} className={`rounded-2xl bg-card p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 animate-fade-in-up animation-delay-${(idx + 1) * 200} hover:scale-105 hover:rotate-1`}>
+              <div className="aspect-[3/4] w-full overflow-hidden rounded-xl group">
+                <img src={imgAt(idx)} alt={item.title} className="h-full w-full object-cover transition-all duration-700 group-hover:scale-110" loading="lazy" />
               </div>
               <div className="mt-4 flex items-center justify-between">
                 <div>
-                  <h3 className="text-sm font-medium text-primary">{item.title}</h3>
+                  <h3 className="text-sm font-medium text-primary group-hover:text-primary/80 transition-colors">{item.title}</h3>
                   <p className="text-xs text-muted-foreground">{item.desc}</p>
+                  <p className="text-sm font-bold text-green-600 mt-1">{item.price}</p>
                 </div>
-                <Button size="sm">Add</Button>
+                <Button 
+                  size="sm" 
+                  className="rounded-full hover:scale-110 transition-transform duration-300 hover:shadow-lg"
+                  onClick={() => addToCart({
+                    id: item.id,
+                    title: item.title,
+                    price: item.price,
+                    image: imgAt(idx),
+                    description: item.description
+                  })}
+                >
+                  <ShoppingCart className="w-3 h-3 mr-1" />
+                  Add
+                </Button>
               </div>
             </article>
           ))}
@@ -207,11 +365,18 @@ export default function HomePage() {
       </section>
 
       {/* Services Section with Scrolling */}
-      <section className="w-full bg-[#bfe0dd] py-12 sm:py-16">
-        <div className="mx-auto max-w-7xl px-4">
+      <section className="w-full bg-[#bfe0dd] py-12 sm:py-16 relative overflow-hidden">
+        {/* Animated background elements */}
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-10 left-10 w-20 h-20 bg-white/10 rounded-full animate-pulse"></div>
+          <div className="absolute bottom-10 right-10 w-16 h-16 bg-white/10 rounded-full animate-bounce"></div>
+          <div className="absolute top-1/2 left-1/4 w-12 h-12 bg-white/10 rounded-full animate-ping"></div>
+        </div>
+        
+        <div className="mx-auto max-w-7xl px-4 relative z-10">
           <div className="text-center mb-6 sm:mb-8">
-            <h2 className="text-2xl sm:text-3xl font-bold text-primary mb-4">Our Services</h2>
-            <p className="text-base sm:text-lg text-primary/80 px-4">Professional design and printing solutions for your business</p>
+            <h2 className="text-2xl sm:text-3xl font-bold text-primary mb-4 animate-fade-in-up">Our Services</h2>
+            <p className="text-base sm:text-lg text-primary/80 px-4 animate-fade-in-up animation-delay-200">Professional design and printing solutions for your business</p>
           </div>
           
           <div className="relative">
@@ -255,69 +420,61 @@ export default function HomePage() {
                 {
                   title: "Professional Logo Design Services",
                   desc: "Get a professional logo that represents your brand perfectly. Multiple concepts, unlimited revisions, and all file formats included.",
-                  image: "/assets/showlogo1.png",
                   href: "/services#logo-design"
                 },
                 {
                   title: "Business Card Design Solutions",
                   desc: "Single or double-sided business cards that make a lasting impression. Print ready files with multiple design options.",
-                  image: "/assets/buisnesscard1.png",
                   href: "/services/visiting-cards"
                 },
                 {
                   title: "Banner & Flex Design Services",
                   desc: "Eye-catching banners and flex designs for events and promotions. Custom sizes, high resolution, and print ready files.",
-                  image: "/assets/flex1.jpg",
                   href: "/services/flex-printing"
                 },
                 {
                   title: "Complete Brand Identity Package",
                   desc: "From logos to complete brand identity - we bring your vision to life with professional design services.",
-                  image: "/assets/broucher.png",
                   href: "/services#corporate-branding"
                 },
                 {
                   title: "Social Media Graphics",
                   desc: "Engaging social media posts, reels, and stories that boost your online presence and engagement.",
-                  image: "/assets/White Modern Travel Instagram Post.png",
                   href: "/services#social-media"
                 },
                 {
                   title: "Poster & Flyer Design",
                   desc: "Eye-catching posters and flyers for events, promotions, and marketing campaigns.",
-                  image: "/assets/poster1.png",
                   href: "/services/poster-flyer-design"
                 },
                 {
                   title: "Album & Photo Services",
                   desc: "Professional wedding albums, photo books, and Canvera-style printing services.",
-                  image: "/assets/resumebanner.png",
                   href: "/services/album-printing"
                 },
                 {
                   title: "Printing Services",
                   desc: "High-quality printing for business cards, banners, brochures, and all your business needs.",
-                  image: "/assets/doublesidedbanner.png",
                   href: "/services#printing"
                 }
               ].map((item, i) => (
-                <article key={i} className="flex-shrink-0 w-72 sm:w-80 space-y-3 bg-white rounded-lg shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-1">
-                  <div className="aspect-[4/3] w-full overflow-hidden rounded-t-lg">
+                <article key={i} className="flex-shrink-0 w-72 sm:w-80 space-y-3 bg-white rounded-lg shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-1 hover:scale-105 hover:rotate-1">
+                  <div className="aspect-[4/3] w-full overflow-hidden rounded-t-lg group">
                     <img 
-                      src={item.image} 
+                      src={imgAt(i + 10)} 
                       alt={item.title}
-                      className="w-full h-full object-cover hover:scale-105 transition-transform duration-300"
+                      className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-500"
                     />
                   </div>
                   <div className="p-3 sm:p-4">
-                    <h3 className="text-base sm:text-lg font-medium leading-snug text-primary md:text-xl mb-2">{item.title}</h3>
+                    <h3 className="text-base sm:text-lg font-medium leading-snug text-primary md:text-xl mb-2 group-hover:text-primary/80 transition-colors">{item.title}</h3>
                     <p className="text-xs sm:text-sm text-primary/80 mb-3">{item.desc}</p>
                     <a 
                       href={item.href}
-                      className="inline-flex items-center text-xs sm:text-sm font-medium text-primary hover:text-primary/80 transition-colors"
+                      className="inline-flex items-center text-xs sm:text-sm font-medium text-primary hover:text-primary/80 transition-all duration-300 hover:translate-x-1"
                     >
                       Learn More
-                      <svg className="ml-1 w-3 h-3 sm:w-4 sm:h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                      <svg className="ml-1 w-3 h-3 sm:w-4 sm:h-4 group-hover:translate-x-1 transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                         <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                       </svg>
                     </a>
@@ -350,9 +507,9 @@ export default function HomePage() {
           </div>
           <div className="aspect-video w-full rounded-lg overflow-hidden border shadow-md">
             <img 
-              src="/assets/broucher.png" 
+              src={imgAt(20)} 
               alt="Professional Design Services"
-              className="w-full h-full object-cover"
+              className="w-full h-full object-cover transition-opacity duration-700"
             />
           </div>
         </div>
@@ -361,54 +518,82 @@ export default function HomePage() {
       {/* PosterMyWall-inspired: Templates showcase (added) */}
       <section className="mx-auto max-w-7xl px-4 pb-16">
         <div className="mb-4 flex items-baseline justify-between">
-          <h3 className="text-xl font-semibold text-primary">Popular design services</h3>
-          <a href="/services" className="text-sm underline-offset-2 hover:underline">More services</a>
+          <h3 className="text-xl font-semibold text-primary animate-fade-in-up">Popular design services</h3>
+          <a href="/services" className="text-sm underline-offset-2 hover:underline transition-all duration-300 hover:scale-105">More services</a>
         </div>
         <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
           {[
             {
               title: "Logo Design",
-              img: "https://images.unsplash.com/photo-1600880292089-90e7e86ef2b6?auto=format&fit=crop&w=1200&q=60",
               href: "/services#logo-design",
+              imageType: "logo"
             },
             {
               title: "Business Cards",
-              img: "https://images.unsplash.com/photo-1520975916090-3105956dac38?auto=format&fit=crop&w=1200&q=60",
               href: "/services/visiting-cards",
+              imageType: "business"
             },
             {
               title: "Banner Design",
-              img: "https://images.unsplash.com/photo-1505236858219-8359eb29e329?auto=format&fit=crop&w=1200&q=60",
               href: "/services/flex-printing",
+              imageType: "flex"
             },
             {
               title: "Poster Design",
-              img: "https://images.unsplash.com/photo-1526948531399-320e7e40f0ca?auto=format&fit=crop&w=1200&q=60",
               href: "/services/poster-flyer-design",
+              imageType: "poster"
             },
-          ].map((item, i) => (
-            <Card key={i} className="overflow-hidden">
-              <div className="aspect-[4/3] w-full overflow-hidden bg-muted">
-                <img src={item.img} alt={item.title} className="h-full w-full object-cover" loading="lazy" />
-              </div>
-              <CardHeader>
-                <CardTitle className="line-clamp-2 text-base">{item.title}</CardTitle>
-              </CardHeader>
-              <CardContent className="flex items-center gap-2 text-xs text-muted-foreground">
-                <Badge variant="outline">Design</Badge>
-                <span>•</span>
-                <span>Professional</span>
-              </CardContent>
-              <CardContent className="flex items-center justify-between">
-                <Button size="sm" asChild>
-                  <a href="/contact">Order Now</a>
-                </Button>
-                <Button size="sm" variant="outline" asChild>
-                  <a href={item.href}>Learn More</a>
-                </Button>
-              </CardContent>
-            </Card>
-          ))}
+          ].map((item, i) => {
+            // Filter images based on service type
+            let serviceImage;
+            if (item.imageType === "logo") {
+              // Logo-related images: logo.png, logobanner.png, showlogo1.png, showlogo2.png, showlogo3.png
+              const logoImages = [
+                "/assets/logo.png",
+                "/assets/logobanner.png", 
+                "/assets/showlogo1.png",
+                "/assets/showlogo2.png",
+                "/assets/showlogo3.png"
+              ];
+              serviceImage = logoImages[tick % logoImages.length];
+            } else if (item.imageType === "flex") {
+              // Flex-related images: flex1.jpg, flex2.jpg, flex3.jpg, doublesidedbanner.png
+              const flexImages = [
+                "/assets/flex1.jpg",
+                "/assets/flex2.jpg", 
+                "/assets/flex3.jpg",
+                "/assets/doublesidedbanner.png"
+              ];
+              serviceImage = flexImages[tick % flexImages.length];
+            } else {
+              // For other services, use the rotating asset images
+              serviceImage = imgAt(i + 24);
+            }
+
+            return (
+              <Card key={i} className={`overflow-hidden animate-fade-in-up animation-delay-${(i + 1) * 200} hover:scale-105 hover:-translate-y-2 transition-all duration-300 hover:shadow-xl`}>
+                <div className="aspect-[4/3] w-full overflow-hidden bg-muted group">
+                  <img src={serviceImage} alt={item.title} className="h-full w-full object-cover transition-all duration-700 group-hover:scale-110" loading="lazy" />
+                </div>
+                <CardHeader>
+                  <CardTitle className="line-clamp-2 text-base group-hover:text-primary/80 transition-colors">{item.title}</CardTitle>
+                </CardHeader>
+                <CardContent className="flex items-center gap-2 text-xs text-muted-foreground">
+                  <Badge variant="outline" className="hover:scale-110 transition-transform duration-300">Design</Badge>
+                  <span>•</span>
+                  <span>Professional</span>
+                </CardContent>
+                <CardContent className="flex items-center justify-between">
+                  <Button size="sm" asChild className="hover:scale-110 transition-transform duration-300">
+                    <a href="/contact">Order Now</a>
+                  </Button>
+                  <Button size="sm" variant="outline" asChild className="hover:scale-110 transition-transform duration-300">
+                    <a href={item.href}>Learn More</a>
+                  </Button>
+                </CardContent>
+              </Card>
+            );
+          })}
         </div>
       </section>
 

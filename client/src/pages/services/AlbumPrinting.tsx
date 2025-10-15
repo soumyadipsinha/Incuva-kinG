@@ -1,4 +1,13 @@
 export default function AlbumPrintingPage() {
+  const albumImages = [
+    '/assets/canverastylealbum1.png',
+    '/assets/canverastylealbum2.png',
+    '/assets/canverastylealbum3.png',
+    '/assets/canverastylealbum4.png',
+    '/assets/canverastylealbum5.png',
+    '/assets/canverastylealbum6.png'
+  ];
+
   return (
     <main className="mx-auto max-w-7xl px-4 py-14">
       <header className="mb-6">
@@ -8,27 +17,15 @@ export default function AlbumPrintingPage() {
         </p>
       </header>
       <section className="grid grid-cols-1 gap-6 md:grid-cols-3">
-        <div className="aspect-[4/3] rounded-lg overflow-hidden border shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105 cursor-pointer">
-          <img 
-            src="/assets/resumebanner.png" 
-            alt="Wedding Album Design"
-            className="w-full h-full object-cover"
-          />
-        </div>
-        <div className="aspect-[4/3] rounded-lg overflow-hidden border shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105 cursor-pointer">
-          <img 
-            src="/assets/broucher.png" 
-            alt="Event Album Design"
-            className="w-full h-full object-cover"
-          />
-        </div>
-        <div className="aspect-[4/3] rounded-lg overflow-hidden border shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105 cursor-pointer">
-          <img 
-            src="/assets/broucher2.png" 
-            alt="Photo Album Design"
-            className="w-full h-full object-cover"
-          />
-        </div>
+        {albumImages.map((src, index) => (
+          <div key={src} className="aspect-[4/3] rounded-lg overflow-hidden border shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105 cursor-pointer">
+            <img 
+              src={src} 
+              alt={`Canvera Style Album ${index + 1}`}
+              className="w-full h-full object-cover"
+            />
+          </div>
+        ))}
       </section>
     </main>
   );

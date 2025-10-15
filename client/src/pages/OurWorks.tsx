@@ -32,7 +32,19 @@ export default function OurWorksPage() {
     { type: 'video', src: '/assets/reel5.mp4', alt: 'Video Reel 5' },
     { type: 'image', src: '/assets/showlogo1.png', alt: 'Logo Design 1' },
     { type: 'image', src: '/assets/showlogo2.png', alt: 'Logo Design 2' },
-    { type: 'image', src: '/assets/showlogo3.png', alt: 'Logo Design 3' }
+    { type: 'image', src: '/assets/showlogo3.png', alt: 'Logo Design 3' },
+    // Canvera style album images
+    { type: 'image', src: '/assets/canverastylealbum1.png', alt: 'Canvera Style Album 1' },
+    { type: 'image', src: '/assets/canverastylealbum2.png', alt: 'Canvera Style Album 2' },
+    { type: 'image', src: '/assets/canverastylealbum3.png', alt: 'Canvera Style Album 3' },
+    { type: 'image', src: '/assets/canverastylealbum4.png', alt: 'Canvera Style Album 4' },
+    { type: 'image', src: '/assets/canverastylealbum5.png', alt: 'Canvera Style Album 5' },
+    { type: 'image', src: '/assets/canverastylealbum6.png', alt: 'Canvera Style Album 6' },
+    // T-shirt printing images
+    { type: 'image', src: '/assets/tshirst1.jpg', alt: 'Custom T-Shirt Printing 1' },
+    { type: 'image', src: '/assets/tshirt2.jpg', alt: 'Custom T-Shirt Printing 2' },
+    { type: 'image', src: '/assets/tshirt3.jpg', alt: 'Custom T-Shirt Printing 3' },
+    { type: 'image', src: '/assets/tshirt4.jpg', alt: 'Custom T-Shirt Printing 4' }
   ];
 
   const openLightbox = (src: string, type: 'image' | 'video', index: number) => {
@@ -460,6 +472,96 @@ export default function OurWorksPage() {
                   alt="Logo Design 3"
                   className="w-full h-full object-cover"
                 />
+              </div>
+            </div>
+          </div>
+
+          {/* Our Best Canvera Style Albums */}
+          <div className="mb-12">
+            <h3 className="text-2xl font-semibold text-primary mb-6 text-center">Our Best Canvera Style Albums</h3>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+              {[
+                '/assets/canverastylealbum1.png',
+                '/assets/canverastylealbum2.png',
+                '/assets/canverastylealbum3.png',
+                '/assets/canverastylealbum4.png',
+                '/assets/canverastylealbum5.png',
+                '/assets/canverastylealbum6.png'
+              ].map((src, i) => (
+                <div
+                  key={src}
+                  className="aspect-[4/3] rounded-lg overflow-hidden border shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105 cursor-pointer"
+                  onClick={() => openLightbox(src, 'image', allMedia.findIndex(m => m.src === src))}
+                >
+                  <img
+                    src={src}
+                    alt={`Canvera Style Album ${i + 1}`}
+                    className="w-full h-full object-cover"
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+
+          {/* T-Shirt Printing Section - Featured */}
+          <div className="mb-12">
+            <div className="text-center mb-8">
+              <h3 className="text-3xl font-bold text-primary mb-4">🎯 Our Most Favorable T-Shirt Printing</h3>
+              <p className="text-lg text-gray-600 max-w-2xl mx-auto">
+                Custom t-shirt printing with premium quality sublimation technology. Perfect for events, businesses, and personal use.
+              </p>
+              <div className="mt-4 flex flex-col sm:flex-row gap-4 justify-center">
+                <Button size="lg" className="bg-gradient-to-r from-blue-600 to-purple-600 hover:from-blue-700 hover:to-purple-700 text-white" asChild>
+                  <a href="/services">Order T-Shirt Printing</a>
+                </Button>
+                <Button size="lg" variant="outline" asChild>
+                  <a href="/contact">Get Quote</a>
+                </Button>
+              </div>
+            </div>
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+              {[
+                '/assets/tshirst1.jpg',
+                '/assets/tshirt2.jpg',
+                '/assets/tshirt3.jpg',
+                '/assets/tshirt4.jpg'
+              ].map((src, i) => (
+                <div
+                  key={src}
+                  className="group aspect-[3/4] rounded-lg overflow-hidden border shadow-md hover:shadow-xl transition-all duration-300 hover:scale-105 cursor-pointer relative"
+                  onClick={() => openLightbox(src, 'image', allMedia.findIndex(m => m.src === src))}
+                >
+                  <img
+                    src={src}
+                    alt={`Custom T-Shirt Printing ${i + 1}`}
+                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-300"
+                  />
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    <div className="absolute bottom-4 left-4 right-4 text-white">
+                      <h4 className="font-semibold text-sm mb-1">Custom T-Shirt Design</h4>
+                      <p className="text-xs opacity-90">Premium Sublimation Print</p>
+                    </div>
+                  </div>
+                  <div className="absolute top-2 right-2 bg-red-500 text-white px-2 py-1 rounded-full text-xs font-semibold">
+                    Popular
+                  </div>
+                </div>
+              ))}
+            </div>
+            <div className="mt-8 text-center">
+              <div className="inline-flex items-center gap-4 bg-gradient-to-r from-blue-50 to-purple-50 rounded-lg p-4 border">
+                <div className="text-center">
+                  <div className="text-2xl font-bold text-blue-600">₹299</div>
+                  <div className="text-sm text-gray-600">Starting Price</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-2xl font-bold text-green-600">24hrs</div>
+                  <div className="text-sm text-gray-600">Fast Delivery</div>
+                </div>
+                <div className="text-center">
+                  <div className="text-2xl font-bold text-purple-600">Premium</div>
+                  <div className="text-sm text-gray-600">Quality</div>
+                </div>
               </div>
             </div>
           </div>
