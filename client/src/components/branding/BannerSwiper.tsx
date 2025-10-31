@@ -42,7 +42,7 @@ export default function BannerSwiper() {
 
   return (
     <div className="w-full">
-      <div className="w-full">
+      <div className="w-full group">
         <Swiper
           modules={[Autoplay, Pagination, Navigation]}
           autoplay={{ delay: 3000, disableOnInteraction: false }}
@@ -50,7 +50,7 @@ export default function BannerSwiper() {
           pagination={{ clickable: true }}
           navigation
           slidesPerView={1}
-          className="w-full"
+          className="w-full [&_.swiper-button-next]:opacity-0 [&_.swiper-button-prev]:opacity-0 group-hover:[&_.swiper-button-next]:opacity-100 group-hover:[&_.swiper-button-prev]:opacity-100 [&_.swiper-button-next]:transition-opacity [&_.swiper-button-prev]:transition-opacity [&_.swiper-button-next]:duration-300 [&_.swiper-button-prev]:duration-300"
         >
           {slides.map((s, idx) => (
             <SwiperSlide key={idx}>
@@ -59,7 +59,7 @@ export default function BannerSwiper() {
                   <img
                     src={s.src}
                     alt={s.alt}
-                    className="h-56 w-full object-cover sm:h-72 md:h-96 lg:h-[32rem]"
+                    className="h-56 w-full object-cover sm:h-72 md:h-96 lg:h-[32rem] rounded-2xl"
                     loading="eager"
                   />
                 </div>

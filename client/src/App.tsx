@@ -1,6 +1,7 @@
 import Navbar from "@/components/layout/Navbar"
 import Footer from "@/components/layout/Footer"
 import ShippingNotice from "@/components/layout/ShippingNotice"
+import FloatingChatButton from "@/components/layout/FloatingChatButton"
 import HomePage from "@/pages/Home"
 import ServicesPage from "@/pages/Services"
 import { BrowserRouter, Routes, Route } from "react-router-dom"
@@ -18,6 +19,11 @@ import BrochureDesignPage from "@/pages/services/BrochureDesign"
 import PosterFlyerDesignPage from "@/pages/services/PosterFlyerDesign"
 import BannerHoardingDesignPage from "@/pages/services/BannerHoardingDesign"
 import CorporateBrandingPage from "@/pages/services/CorporateBranding"
+import CertificatePage from "@/pages/services/Certificate"
+import IDCardPage from "@/pages/services/IDCard"
+import VisitingCardPage from "@/pages/services/VisitingCard"
+import BusinessCardsPage from "@/pages/services/BusinessCards"
+import BannerDesignPage from "@/pages/services/BannerDesign"
 import QuotePage from "@/pages/Quote"
 import ContactPage from "@/pages/Contact"
 import AboutPage from "@/pages/About"
@@ -31,7 +37,16 @@ import FlexPrintingExplore from "@/pages/explore/FlexPrinting"
 import LogoDesignExplore from "@/pages/explore/LogoDesign"
 import BusinessCardsExplore from "@/pages/explore/BusinessCards"
 import BannersExplore from "@/pages/explore/Banners"
+import AlbumPrintingExplore from "@/pages/explore/AlbumPrinting"
+import BrochureDesignExplore from "@/pages/explore/BrochureDesign"
+import VinylPrintingExplore from "@/pages/explore/VinylPrinting"
+import PosterFlyerDesignExplore from "@/pages/explore/PosterFlyerDesign"
+import CorporateBrandingExplore from "@/pages/explore/CorporateBranding"
 import PricingPage from "@/pages/Pricing"
+import ProductDetailPage from "@/pages/ProductDetail"
+import CheckOutPage from "@/pages/CheckOut"
+import RequirementsPage from "@/pages/Requirements"
+import ChatWithUsPage from "@/pages/ChatWithUs"
 
 function App() {
   return (
@@ -47,6 +62,8 @@ function App() {
             <Route path="/" element={<HomePage />} />
             <Route path="/account/login" element={<AccountLoginPage />} />
             <Route path="/account/signup" element={<AccountSignupPage />} />
+            <Route path="/requirements" element={<RequirementsPage />} />
+            <Route path="/chat-with-us" element={<ChatWithUsPage />} />
 
             {/* Protected routes */}
             <Route path="/explore" element={<ProtectedRoute><ExplorePage /></ProtectedRoute>} />
@@ -54,6 +71,11 @@ function App() {
             <Route path="/explore/logo-design" element={<ProtectedRoute><LogoDesignExplore /></ProtectedRoute>} />
             <Route path="/explore/business-cards" element={<ProtectedRoute><BusinessCardsExplore /></ProtectedRoute>} />
             <Route path="/explore/banners" element={<ProtectedRoute><BannersExplore /></ProtectedRoute>} />
+            <Route path="/explore/album-printing" element={<ProtectedRoute><AlbumPrintingExplore /></ProtectedRoute>} />
+            <Route path="/explore/brochure-design" element={<ProtectedRoute><BrochureDesignExplore /></ProtectedRoute>} />
+            <Route path="/explore/vinyl-printing" element={<ProtectedRoute><VinylPrintingExplore /></ProtectedRoute>} />
+            <Route path="/explore/poster-flyer-design" element={<ProtectedRoute><PosterFlyerDesignExplore /></ProtectedRoute>} />
+            <Route path="/explore/corporate-branding" element={<ProtectedRoute><CorporateBrandingExplore /></ProtectedRoute>} />
             <Route path="/pricing" element={<ProtectedRoute><PricingPage /></ProtectedRoute>} />
             <Route path="/banners" element={<ProtectedRoute><BannersPage /></ProtectedRoute>} />
             <Route path="/services" element={<ProtectedRoute><ServicesPage /></ProtectedRoute>} />
@@ -68,12 +90,20 @@ function App() {
             <Route path="/services/catalog-brochure" element={<ProtectedRoute><CatalogBrochurePage /></ProtectedRoute>} />
             <Route path="/services/visiting-cards" element={<ProtectedRoute><VisitingCardsPage /></ProtectedRoute>} />
             <Route path="/services/logo-design" element={<ProtectedRoute><LogoDesignPage /></ProtectedRoute>} />
+            <Route path="/services/business-cards" element={<ProtectedRoute><BusinessCardsPage /></ProtectedRoute>} />
+            <Route path="/services/banner-design" element={<ProtectedRoute><BannerDesignPage /></ProtectedRoute>} />
             <Route path="/services/brochure-design" element={<ProtectedRoute><BrochureDesignPage /></ProtectedRoute>} />
             <Route path="/services/poster-flyer-design" element={<ProtectedRoute><PosterFlyerDesignPage /></ProtectedRoute>} />
             <Route path="/services/banner-hoarding-design" element={<ProtectedRoute><BannerHoardingDesignPage /></ProtectedRoute>} />
             <Route path="/services/corporate-branding" element={<ProtectedRoute><CorporateBrandingPage /></ProtectedRoute>} />
+            <Route path="/services/certificate" element={<ProtectedRoute><CertificatePage /></ProtectedRoute>} />
+            <Route path="/services/id-card" element={<ProtectedRoute><IDCardPage /></ProtectedRoute>} />
+            <Route path="/services/visiting-card" element={<ProtectedRoute><VisitingCardPage /></ProtectedRoute>} />
+            <Route path="/product/:id" element={<ProtectedRoute><ProductDetailPage /></ProtectedRoute>} />
+            <Route path="/checkout" element={<ProtectedRoute><CheckOutPage /></ProtectedRoute>} />
           </Routes>
           <Footer />
+          <FloatingChatButton />
         </div>
           </CartProvider>
         </ToastProvider>

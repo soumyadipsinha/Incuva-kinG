@@ -6,10 +6,12 @@ import BannerSwiper from "@/components/branding/BannerSwiper";
 import { ArrowRight, CheckCircle, Star, Users, Award, Clock, Zap, Shield, Heart, Palette, FileText, Camera, Share2, ShoppingCart } from "lucide-react";
 import { useEffect, useMemo, useState } from "react";
 import { useCart } from "@/context/CartContext";
+import { useNavigate } from "react-router-dom";
 
 export default function HomePage() {
   // Use global cart context
   const { addToCart } = useCart();
+  const navigate = useNavigate();
   
   // Global rotating assets list (exclude banner swiper images)
   const assetImages = useMemo(
@@ -84,7 +86,7 @@ export default function HomePage() {
             <Wordmark text="INKUVA" />
           </div>
           <p className="max-w-xl text-sm sm:text-base text-muted-foreground px-4 animate-fade-in-up animation-delay-200">Professional design services for businesses, entrepreneurs, and creatives. From logos to complete brand identity - we bring your vision to life.</p>
-          <div className="flex flex-col sm:flex-row gap-4 mt-6 w-full sm:w-auto px-4 sm:px-0 animate-fade-in-up animation-delay-400">
+          <div className="flex flex-col sm:flex-row gap-4 mt-6 w-full max-w-md sm:max-w-none sm:w-auto px-4 sm:px-0 animate-fade-in-up animation-delay-400">
             <Button size="lg" variant="outline" className="px-6 sm:px-8 py-4 text-base sm:text-lg w-full sm:w-auto hover:scale-105 transition-all duration-300 hover:shadow-lg" asChild>
               <a href="/services">
                 Choose Your Design
@@ -111,13 +113,13 @@ export default function HomePage() {
       {/* Services Showcase */}
       <section className="mx-auto max-w-7xl px-4 pb-16 sm:pb-24">
         <div className="text-center mb-12 sm:mb-16">
-          <h2 className="text-2xl sm:text-3xl md:text-4xl font-bold text-primary mb-4 animate-fade-in-up">Our Design Services</h2>
+          <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-primary mb-4 animate-fade-in-up">Our Design Services</h2>
           <p className="text-lg sm:text-xl text-muted-foreground max-w-2xl mx-auto px-4 animate-fade-in-up animation-delay-200">
             Professional design services at unbeatable prices. Choose from our range of design packages.
           </p>
         </div>
         
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 sm:gap-8">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 md:gap-8">
           {/* Logo Design */}
           <Card className="group hover:shadow-xl transition-all duration-300 border overflow-hidden animate-fade-in-up animation-delay-300 hover:scale-105 hover:-translate-y-2">
             {/* Logo Images Section */}
@@ -169,7 +171,7 @@ export default function HomePage() {
                   </li>
                 </ul>
                 <Button className="w-full" variant="outline" asChild>
-                  <a href="/quote">Order Now</a>
+                  <a href="/requirements">Order Now</a>
                 </Button>
               </div>
             </CardContent>
@@ -226,7 +228,7 @@ export default function HomePage() {
                   </li>
                 </ul>
                 <Button className="w-full" variant="outline" asChild>
-                  <a href="/quote">Order Now</a>
+                  <a href="/requirements">Order Now</a>
                 </Button>
               </div>
             </CardContent>
@@ -283,7 +285,7 @@ export default function HomePage() {
                   </li>
                 </ul>
                 <Button className="w-full" variant="outline" asChild>
-                  <a href="/quote">Order Now</a>
+                  <a href="/requirements">Order Now</a>
                 </Button>
               </div>
             </CardContent>
@@ -303,7 +305,7 @@ export default function HomePage() {
 
       {/* Product grid */}
       <section className="mx-auto max-w-7xl px-4 pb-16 sm:pb-24">
-        <div className="grid grid-cols-1 gap-6 sm:gap-8 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid grid-cols-1 gap-4 sm:gap-6 md:gap-8 sm:grid-cols-2 lg:grid-cols-4">
           {[
             { 
               id: "home-poster-1",
@@ -334,8 +336,8 @@ export default function HomePage() {
               description: "Professional brochure design and printing"
             },
           ].map((item, idx) => (
-            <article key={idx} className={`rounded-2xl bg-card p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 animate-fade-in-up animation-delay-${(idx + 1) * 200} hover:scale-105 hover:rotate-1`}>
-              <div className="aspect-[3/4] w-full overflow-hidden rounded-xl group">
+            <article key={idx} className={`rounded-2xl bg-card p-6 shadow-lg hover:shadow-xl transition-all duration-300 hover:-translate-y-1 animate-fade-in-up animation-delay-${(idx + 1) * 200} hover:scale-105`}>
+              <div className="aspect-[3/4] w-full overflow-hidden rounded-xl bg-white group">
                 <img src={imgAt(idx)} alt={item.title} className="h-full w-full object-cover transition-all duration-700 group-hover:scale-110" loading="lazy" />
               </div>
               <div className="mt-4 flex items-center justify-between">
@@ -347,16 +349,10 @@ export default function HomePage() {
                 <Button 
                   size="sm" 
                   className="rounded-full hover:scale-110 transition-transform duration-300 hover:shadow-lg"
-                  onClick={() => addToCart({
-                    id: item.id,
-                    title: item.title,
-                    price: item.price,
-                    image: imgAt(idx),
-                    description: item.description
-                  })}
+                  onClick={() => navigate(`/product/${item.id}`)}
                 >
                   <ShoppingCart className="w-3 h-3 mr-1" />
-                  Add
+                  View Details
                 </Button>
               </div>
             </article>
@@ -375,45 +371,49 @@ export default function HomePage() {
         
         <div className="mx-auto max-w-7xl px-4 relative z-10">
           <div className="text-center mb-6 sm:mb-8">
-            <h2 className="text-2xl sm:text-3xl font-bold text-primary mb-4 animate-fade-in-up">Our Services</h2>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-primary mb-4 animate-fade-in-up">Our Services</h2>
             <p className="text-base sm:text-lg text-primary/80 px-4 animate-fade-in-up animation-delay-200">Professional design and printing solutions for your business</p>
           </div>
           
-          <div className="relative">
-            {/* Left Arrow */}
-            <button 
-              className="absolute left-0 top-1/2 -translate-y-1/2 z-10 bg-white/90 hover:bg-white shadow-lg rounded-full p-2 sm:p-3 transition-all duration-300 hover:scale-110 hidden sm:block"
-              onClick={() => {
-                const container = document.getElementById('services-scroll');
-                if (container) {
-                  container.scrollBy({ left: -300, behavior: 'smooth' });
-                }
-              }}
-            >
-              <svg className="w-4 h-4 sm:w-6 sm:h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-              </svg>
-            </button>
+          <div className="relative group">
+            {/* Left Hover Zone - Shows arrow when hovering over left edge */}
+            <div className="absolute left-0 top-0 w-20 h-full z-10 hidden sm:block">
+              <button 
+                className="absolute left-2 top-1/2 -translate-y-1/2 bg-white/95 hover:bg-white shadow-lg rounded-full p-2 sm:p-3 transition-all duration-300 hover:scale-110 opacity-0 group-hover:opacity-100"
+                onClick={() => {
+                  const container = document.getElementById('services-scroll');
+                  if (container) {
+                    container.scrollBy({ left: -300, behavior: 'smooth' });
+                  }
+                }}
+              >
+                <svg className="w-4 h-4 sm:w-6 sm:h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                </svg>
+              </button>
+            </div>
 
-            {/* Right Arrow */}
-            <button 
-              className="absolute right-0 top-1/2 -translate-y-1/2 z-10 bg-white/90 hover:bg-white shadow-lg rounded-full p-2 sm:p-3 transition-all duration-300 hover:scale-110 hidden sm:block"
-              onClick={() => {
-                const container = document.getElementById('services-scroll');
-                if (container) {
-                  container.scrollBy({ left: 300, behavior: 'smooth' });
-                }
-              }}
-            >
-              <svg className="w-4 h-4 sm:w-6 sm:h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-              </svg>
-            </button>
+            {/* Right Hover Zone - Shows arrow when hovering over right edge */}
+            <div className="absolute right-0 top-0 w-20 h-full z-10 hidden sm:block">
+              <button 
+                className="absolute right-2 top-1/2 -translate-y-1/2 bg-white/95 hover:bg-white shadow-lg rounded-full p-2 sm:p-3 transition-all duration-300 hover:scale-110 opacity-0 group-hover:opacity-100"
+                onClick={() => {
+                  const container = document.getElementById('services-scroll');
+                  if (container) {
+                    container.scrollBy({ left: 300, behavior: 'smooth' });
+                  }
+                }}
+              >
+                <svg className="w-4 h-4 sm:w-6 sm:h-6 text-primary" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
+                </svg>
+              </button>
+            </div>
 
             {/* Scrollable Services Container */}
             <div 
               id="services-scroll"
-              className="flex gap-4 sm:gap-6 overflow-x-auto scrollbar-hide pb-4 touch-pan-x"
+              className="flex gap-3 sm:gap-4 md:gap-6 overflow-x-auto scrollbar-hide pb-4 touch-pan-x"
               style={{ scrollbarWidth: 'none', msOverflowStyle: 'none' }}
             >
               {[
@@ -458,8 +458,8 @@ export default function HomePage() {
                   href: "/services#printing"
                 }
               ].map((item, i) => (
-                <article key={i} className="flex-shrink-0 w-72 sm:w-80 space-y-3 bg-white rounded-lg shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-1 hover:scale-105 hover:rotate-1">
-                  <div className="aspect-[4/3] w-full overflow-hidden rounded-t-lg group">
+                <article key={i} className="flex-shrink-0 w-64 sm:w-72 md:w-80 space-y-3 bg-white rounded-lg shadow-md hover:shadow-lg transition-all duration-300 hover:-translate-y-1 hover:scale-105">
+                  <div className="aspect-[4/3] w-full overflow-hidden rounded-t-lg bg-white group">
                     <img 
                       src={imgAt(i + 10)} 
                       alt={item.title}
@@ -487,25 +487,25 @@ export default function HomePage() {
       </section>
 
       {/* PosterMyWall-inspired: Hero CTA (added) */}
-      <section className="mx-auto max-w-7xl px-4 py-16">
-        <div className="grid items-center gap-8 md:grid-cols-2">
+      <section className="mx-auto max-w-7xl px-4 py-12 sm:py-16">
+        <div className="grid items-center gap-6 sm:gap-8 md:grid-cols-2">
           <div>
-            <h2 className="text-3xl font-semibold leading-tight text-primary md:text-4xl">
+            <h2 className="text-4xl font-semibold leading-tight text-primary md:text-5xl lg:text-6xl animate-fade-in-up">
               Captivate your audience with beautiful designs
             </h2>
             <p className="mt-3 text-sm text-muted-foreground">
               Choose from our professional design services to showcase your brand, promote your business, or create stunning visuals.
             </p>
-            <div className="mt-6 flex gap-3">
-              <Button asChild>
-                <a href="/quote">Get Your Quote</a>
+            <div className="mt-6 flex flex-col sm:flex-row gap-3">
+              <Button asChild className="w-full sm:w-auto">
+                <a href="/requirements">Order Now</a>
               </Button>
-              <Button variant="outline" asChild>
+              <Button variant="outline" asChild className="w-full sm:w-auto">
                 <a href="/services">Browse Services</a>
               </Button>
             </div>
           </div>
-          <div className="aspect-video w-full rounded-lg overflow-hidden border shadow-md">
+          <div className="aspect-video w-full rounded-2xl overflow-hidden border shadow-md">
             <img 
               src={imgAt(20)} 
               alt="Professional Design Services"
@@ -518,10 +518,10 @@ export default function HomePage() {
       {/* PosterMyWall-inspired: Templates showcase (added) */}
       <section className="mx-auto max-w-7xl px-4 pb-16">
         <div className="mb-4 flex items-baseline justify-between">
-          <h3 className="text-xl font-semibold text-primary animate-fade-in-up">Popular design services</h3>
+          <h3 className="text-2xl sm:text-3xl font-semibold text-primary animate-fade-in-up">Popular design services</h3>
           <a href="/services" className="text-sm underline-offset-2 hover:underline transition-all duration-300 hover:scale-105">More services</a>
         </div>
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+        <div className="grid grid-cols-1 gap-4 sm:gap-6 md:gap-8 sm:grid-cols-2 lg:grid-cols-4">
           {[
             {
               title: "Logo Design",
@@ -549,8 +549,8 @@ export default function HomePage() {
             if (item.imageType === "logo") {
               // Logo-related images: logo.png, logobanner.png, showlogo1.png, showlogo2.png, showlogo3.png
               const logoImages = [
-                "/assets/logo.png",
-                "/assets/logobanner.png", 
+                
+                
                 "/assets/showlogo1.png",
                 "/assets/showlogo2.png",
                 "/assets/showlogo3.png"
@@ -562,7 +562,7 @@ export default function HomePage() {
                 "/assets/flex1.jpg",
                 "/assets/flex2.jpg", 
                 "/assets/flex3.jpg",
-                "/assets/doublesidedbanner.png"
+                
               ];
               serviceImage = flexImages[tick % flexImages.length];
             } else {
@@ -572,7 +572,7 @@ export default function HomePage() {
 
             return (
               <Card key={i} className={`overflow-hidden animate-fade-in-up animation-delay-${(i + 1) * 200} hover:scale-105 hover:-translate-y-2 transition-all duration-300 hover:shadow-xl`}>
-                <div className="aspect-[4/3] w-full overflow-hidden bg-muted group">
+                <div className="aspect-[4/3] w-full overflow-hidden bg-white group">
                   <img src={serviceImage} alt={item.title} className="h-full w-full object-cover transition-all duration-700 group-hover:scale-110" loading="lazy" />
                 </div>
                 <CardHeader>
@@ -585,7 +585,7 @@ export default function HomePage() {
                 </CardContent>
                 <CardContent className="flex items-center justify-between">
                   <Button size="sm" asChild className="hover:scale-110 transition-transform duration-300">
-                    <a href="/contact">Order Now</a>
+                    <a href="/requirements">Order Now</a>
                   </Button>
                   <Button size="sm" variant="outline" asChild className="hover:scale-110 transition-transform duration-300">
                     <a href={item.href}>Learn More</a>
@@ -599,8 +599,8 @@ export default function HomePage() {
 
       {/* PosterMyWall-inspired: Categories & sizes (added) */}
       <section className="mx-auto max-w-7xl px-4 pb-16">
-        <h3 className="mb-4 text-xl font-semibold text-primary">Browse by category</h3>
-        <div className="flex flex-wrap gap-2">
+        <h3 className="mb-4 text-2xl sm:text-3xl font-semibold text-primary animate-fade-in-up">Browse by category</h3>
+        <div className="flex flex-wrap gap-2 sm:gap-3">
           {["Logo Design", "Business Cards", "Banners", "Posters", "Brochures", "Social Media"].map((c) => (
             <a key={c} href="/services" className="transition-opacity hover:opacity-80">
               <Badge variant="secondary">{c}</Badge>
@@ -612,8 +612,8 @@ export default function HomePage() {
       {/* PosterMyWall-inspired: Feature highlights (added) */}
       <section className="w-full border-t bg-secondary/40 py-16">
         <div className="mx-auto max-w-7xl px-4">
-          <h3 className="mb-8 text-center text-xl font-semibold text-primary">Design in 5 easy steps</h3>
-          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-5">
+          <h3 className="mb-8 text-center text-2xl sm:text-3xl font-semibold text-primary animate-fade-in-up">Design in 5 easy steps</h3>
+          <div className="grid grid-cols-1 gap-4 sm:gap-6 md:gap-8 sm:grid-cols-2 lg:grid-cols-5">
             {[
               { n: 1, t: "Choose a service", d: "Pick from our design services." },
               { n: 2, t: "Get a quote", d: "Get transparent pricing instantly." },
@@ -621,7 +621,7 @@ export default function HomePage() {
               { n: 4, t: "Review designs", d: "Get multiple concepts to choose from." },
               { n: 5, t: "Get final files", d: "Download print-ready files." },
             ].map((item) => (
-              <div key={item.n} className="rounded-lg border bg-card p-5">
+              <div key={item.n} className="rounded-2xl border bg-card p-5">
                 <div className="mb-2 text-sm text-muted-foreground">Step {item.n}</div>
                 <div className="font-medium text-primary">{item.t}</div>
                 <div className="text-sm text-muted-foreground">{item.d}</div>
@@ -633,14 +633,14 @@ export default function HomePage() {
 
       {/* PosterMyWall-inspired: Bottom CTA (added) */}
       <section className="mx-auto max-w-7xl px-4 pb-24">
-        <div className="rounded-lg border bg-card p-8 text-center">
-          <h3 className="text-2xl font-semibold text-primary">Professional design services</h3>
+        <div className="rounded-3xl border bg-card p-8 text-center">
+          <h3 className="text-3xl sm:text-4xl font-semibold text-primary animate-fade-in-up">Professional design services</h3>
           <p className="mx-auto mt-2 max-w-2xl text-sm text-muted-foreground">
             Create stunning designs for your business. From logos to complete brand identity - we bring your vision to life.
           </p>
-          <div className="mt-6 flex justify-center gap-3">
-            <Button asChild>
-              <a href="/services">Start your project</a>
+          <div className="mt-6 flex flex-col sm:flex-row justify-center items-center gap-3">
+            <Button asChild className="w-full sm:w-auto">
+              <a href="/services">Choose Your Design</a>
             </Button>
             <a href="/services" className="text-sm underline-offset-2 hover:underline">Explore services</a>
           </div>
@@ -650,8 +650,8 @@ export default function HomePage() {
       {/* Testimonials (added) */}
       <section className="w-full border-t bg-secondary/30 py-16">
         <div className="mx-auto max-w-7xl px-4">
-          <h3 className="mb-8 text-center text-xl font-semibold text-primary">What our customers say</h3>
-          <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+          <h3 className="mb-8 text-center text-2xl sm:text-3xl font-semibold text-primary animate-fade-in-up">What our customers say</h3>
+          <div className="grid grid-cols-1 gap-4 sm:gap-6 md:gap-8 md:grid-cols-3">
             {[
               {
                 name: "Ayesha K.",

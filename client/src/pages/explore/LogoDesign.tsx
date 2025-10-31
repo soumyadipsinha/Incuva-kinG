@@ -87,18 +87,29 @@ export default function LogoDesignExplore() {
   return (
     <main className="min-h-screen bg-background">
       {/* Header */}
-      <section className="border-b bg-secondary/30">
-        <div className="mx-auto max-w-7xl px-4 py-8">
+      <section className="relative bg-gradient-to-br from-primary/10 via-secondary/20 to-accent/10 py-12 sm:py-16 overflow-hidden">
+        {/* Animated background elements */}
+        <div className="absolute inset-0 pointer-events-none">
+          <div className="absolute top-20 left-10 w-20 h-20 bg-primary/20 rounded-full animate-pulse"></div>
+          <div className="absolute top-40 right-20 w-16 h-16 bg-accent/20 rounded-full animate-bounce"></div>
+          <div className="absolute bottom-20 left-1/4 w-12 h-12 bg-secondary/20 rounded-full animate-ping"></div>
+        </div>
+        
+        <div className="mx-auto max-w-7xl px-4 relative">
           <div className="flex items-center gap-4">
-            <Button variant="outline" size="sm" asChild>
+            <Button variant="outline" size="sm" className="hover:scale-105 transition-transform duration-300" asChild>
               <a href="/explore">
                 <ArrowLeft className="mr-2 h-4 w-4" />
                 Back to Explore
               </a>
             </Button>
-            <div>
-              <h1 className="text-3xl font-bold text-primary">Logo Design Portfolio</h1>
-              <p className="text-muted-foreground">Browse our collection of professional logo designs</p>
+            <div className="animate-fade-in-up">
+              <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-primary mb-2 animate-fade-in-up">
+                Logo Design <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Portfolio</span>
+              </h1>
+              <p className="text-lg text-muted-foreground animate-fade-in-up animation-delay-200">
+                Browse our collection of professional logo designs
+              </p>
             </div>
           </div>
         </div>
@@ -106,7 +117,7 @@ export default function LogoDesignExplore() {
 
       <div className="mx-auto max-w-7xl px-4 py-8">
         {/* Filters */}
-        <div className="mb-8 flex flex-wrap items-center gap-4">
+        <div className="mb-8 flex flex-wrap items-center gap-3 sm:gap-4">
           <div className="flex items-center gap-2">
             <Filter className="h-5 w-5 text-muted-foreground" />
             <span className="font-medium">Filters:</span>
@@ -138,7 +149,7 @@ export default function LogoDesignExplore() {
             </SelectContent>
           </Select>
 
-          <Input placeholder="Search logos..." className="w-64" />
+          <Input placeholder="Search logos..." className="w-full sm:w-64" />
           
           <div className="ml-auto flex items-center gap-2">
             <Button variant="outline" size="sm">
@@ -151,23 +162,23 @@ export default function LogoDesignExplore() {
         </div>
 
         {/* Design Grid */}
-        <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
-          {logoDesigns.map((design) => (
-            <Card key={design.id} className="group overflow-hidden">
-              <div className="aspect-square w-full overflow-hidden bg-muted">
+        <div className="grid grid-cols-1 gap-4 sm:gap-6 md:gap-8 sm:grid-cols-2 lg:grid-cols-3">
+          {logoDesigns.map((design, index) => (
+            <Card key={design.id} className={`group overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-2 rounded-2xl animate-fade-in-up animation-delay-${(index + 1) * 200}`}>
+              <div className="aspect-square w-full overflow-hidden bg-white relative">
                 <img
                   src={design.image}
                   alt={design.title}
-                  className="h-full w-full object-contain p-4 transition-transform group-hover:scale-105"
+                  className="h-full w-full object-contain p-6 transition-transform group-hover:scale-110 duration-500"
                   loading="lazy"
                 />
-                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-colors" />
-                <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-opacity">
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/20 transition-all duration-300" />
+                <div className="absolute top-4 right-4 opacity-0 group-hover:opacity-100 transition-all duration-300">
                   <div className="flex gap-2">
-                    <Button size="sm" variant="secondary" className="h-8 w-8 p-0">
+                    <Button size="sm" variant="secondary" className="h-8 w-8 p-0 rounded-full bg-white/90 hover:bg-white">
                       <Heart className="h-4 w-4" />
                     </Button>
-                    <Button size="sm" variant="secondary" className="h-8 w-8 p-0">
+                    <Button size="sm" variant="secondary" className="h-8 w-8 p-0 rounded-full bg-white/90 hover:bg-white">
                       <Share2 className="h-4 w-4" />
                     </Button>
                   </div>
@@ -208,7 +219,7 @@ export default function LogoDesignExplore() {
 
                   <div className="flex gap-2">
                     <Button className="flex-1" size="sm" asChild>
-                      <a href="/quote">Order Now</a>
+                      <a href="/requirements">Order Now</a>
                     </Button>
                     <Button variant="outline" size="sm">
                       <Eye className="h-4 w-4" />

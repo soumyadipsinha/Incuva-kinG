@@ -37,8 +37,8 @@ export default function AccountLoginPage() {
       "/assets/flex3.jpg",
       "/assets/free.png",
       "/assets/GIVEAWAY (Konten Instagram).png",
-      "/assets/logo.png",
-      "/assets/logobanner.png",
+    
+    
       "/assets/poster1.png",
       "/assets/poster2.png",
       "/assets/poster3.png",
@@ -47,10 +47,7 @@ export default function AccountLoginPage() {
       "/assets/poster67.png",
       "/assets/poster7.png",
       "/assets/Red Black and White Dynamic Boxing Presentation.png",
-      "/assets/resumebanner.png",
-      "/assets/showlogo1.png",
-      "/assets/showlogo2.png",
-      "/assets/showlogo3.png",
+      
       "/assets/TIME TO HOLIDAY (Konten Instagram).png",
       "/assets/White Modern Travel Instagram Post.png"
     ],
@@ -94,7 +91,7 @@ export default function AccountLoginPage() {
           {isAuthenticated && (
             <div className="mt-4 flex items-center gap-3">
               <span className="text-sm text-muted-foreground">You are currently logged in.</span>
-              <Button variant="outline" onClick={handleLogout}>Logout</Button>
+            
             </div>
           )}
           <form className="mt-6 sm:mt-8 space-y-4" onSubmit={handleSubmit}>

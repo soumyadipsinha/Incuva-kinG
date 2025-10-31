@@ -3,38 +3,38 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Button } from "@/components/ui/button";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Badge } from "@/components/ui/badge";
-import { CheckCircle, Ruler, ShoppingCart, ArrowRight, Star, Clock, Users, Heart, Zap, Shield, Award, Palette } from "lucide-react";
+import { CheckCircle, Palette, Ruler, ShoppingCart, ArrowRight, Star, Clock, Users, Heart, Zap, Shield, Award } from "lucide-react";
 
-export default function VinylPrintingPage() {
-  const [selectedType, setSelectedType] = useState("");
+export default function BannerDesignPage() {
+  const [selectedType] = useState("");
   const [selectedSize, setSelectedSize] = useState("");
-  const [selectedMaterial, setSelectedMaterial] = useState("");
+  const [selectedFormat, setSelectedFormat] = useState("");
 
-  const vinylTypes = [
+  const bannerTypes = [
     { 
-      name: "Standard Vinyl", 
+      name: "Flex Banner", 
+      price: "₹199", 
+      originalPrice: "₹299",
+      description: "Flexible banner design for outdoor use",
+      features: ["Custom Sizes", "High Resolution (300 DPI)", "Print Ready Files", "1-2 Days Delivery", "Multiple Formats", "Weather Resistant Design"],
+      popular: true,
+      discount: "33% OFF"
+    },
+    { 
+      name: "Vinyl Banner", 
+      price: "₹249", 
+      originalPrice: "₹399",
+      description: "Vinyl banner design for long-term outdoor use",
+      features: ["Custom Sizes", "High Resolution (300 DPI)", "Print Ready Files", "1-2 Days Delivery", "Multiple Formats", "UV Resistant Design", "Long Lasting"],
+      popular: false,
+      discount: "38% OFF"
+    },
+    { 
+      name: "Fabric Banner", 
       price: "₹299", 
       originalPrice: "₹499",
-      description: "Standard vinyl printing for indoor use",
-      features: ["Standard Vinyl", "High Resolution (300 DPI)", "Print Ready Files", "1-2 Days Delivery", "Multiple Formats", "Indoor Use"],
-      popular: false,
-      discount: "40% OFF"
-    },
-    { 
-      name: "Outdoor Vinyl", 
-      price: "₹399", 
-      originalPrice: "₹699",
-      description: "Outdoor vinyl printing with weather resistance",
-      features: ["Outdoor Vinyl", "Weather Resistant", "High Resolution (300 DPI)", "Print Ready Files", "1-2 Days Delivery", "Multiple Formats", "UV Protection", "Long Lasting"],
-      popular: true,
-      discount: "43% OFF"
-    },
-    { 
-      name: "Premium Vinyl", 
-      price: "₹599", 
-      originalPrice: "₹999",
-      description: "Premium vinyl printing with advanced features",
-      features: ["Premium Vinyl", "Advanced Features", "High Resolution (300 DPI)", "Print Ready Files", "1-2 Days Delivery", "Multiple Formats", "Premium Materials", "Custom Finishes"],
+      description: "Fabric banner design for indoor/outdoor use",
+      features: ["Custom Sizes", "High Resolution (300 DPI)", "Print Ready Files", "1-2 Days Delivery", "Multiple Formats", "Eco-Friendly", "Washable"],
       popular: false,
       discount: "40% OFF"
     }
@@ -49,15 +49,16 @@ export default function VinylPrintingPage() {
     { value: "custom", label: "Custom Size" }
   ];
 
-  const materialOptions = [
-    { value: "standard", label: "Standard Vinyl" },
-    { value: "outdoor", label: "Outdoor Vinyl" },
-    { value: "premium", label: "Premium Vinyl" },
-    { value: "transparent", label: "Transparent Vinyl" },
-    { value: "reflective", label: "Reflective Vinyl" }
+  const formatOptions = [
+    { value: "psd", label: "PSD (Photoshop)" },
+    { value: "ai", label: "AI (Illustrator)" },
+    { value: "pdf", label: "PDF (Print Ready)" },
+    { value: "png", label: "PNG (High Resolution)" },
+    { value: "jpg", label: "JPG (High Resolution)" },
+    { value: "all", label: "All Formats" }
   ];
 
-  const selectedTypeData = vinylTypes.find(type => type.name === selectedType);
+  const selectedTypeData = bannerTypes.find(type => type.name === selectedType);
 
   return (
     <main className="min-h-screen bg-white">
@@ -68,13 +69,13 @@ export default function VinylPrintingPage() {
             <div className="text-center mb-12">
               <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-semibold mb-6">
                 <Zap className="h-4 w-4" />
-                <span>Professional Vinyl Printing</span>
+                <span>Professional Banner Design</span>
               </div>
               <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground leading-tight mb-4">
-                Durable Vinyl Prints That Last
+                Eye-Catching Banners That Convert
               </h1>
               <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-8">
-                Professional vinyl printing services with weather-resistant materials and high-resolution designs for indoor and outdoor use.
+                Create stunning banners that grab attention and drive results with professional designs for flex, vinyl, and fabric banners.
               </p>
               
               {/* Trust Indicators - Compact */}
@@ -85,7 +86,7 @@ export default function VinylPrintingPage() {
                 </div>
                 <div className="flex items-center gap-2 bg-card px-4 py-2 rounded-full">
                   <Users className="h-4 w-4 text-primary" />
-                  <span className="text-sm font-semibold text-card-foreground">600+ Prints</span>
+                  <span className="text-sm font-semibold text-card-foreground">800+ Banners</span>
                 </div>
                 <div className="flex items-center gap-2 bg-card px-4 py-2 rounded-full">
                   <Clock className="h-4 w-4 text-primary" />
@@ -97,7 +98,7 @@ export default function VinylPrintingPage() {
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground px-6 py-3 rounded-full">
                   <ShoppingCart className="mr-2 h-4 w-4" />
-                  Design Your Vinyl Print
+                  Design Your Banner
                 </Button>
                 <Button size="lg" variant="outline" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground px-6 py-3 rounded-full" onClick={() => window.location.href = "/our-works"}>
                   <ArrowRight className="mr-2 h-4 w-4" />
@@ -109,13 +110,6 @@ export default function VinylPrintingPage() {
             {/* Feature Cards - Compact Grid */}
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
               <div className="bg-card rounded-2xl p-4 text-center shadow-lg hover:shadow-xl transition-all duration-300">
-                <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mx-auto mb-3 shadow-md">
-                  <Shield className="h-6 w-6 text-primary" />
-                </div>
-                <h3 className="font-semibold text-card-foreground text-sm mb-1">Weather Resistant</h3>
-                <p className="text-xs text-muted-foreground">Durable materials</p>
-              </div>
-              <div className="bg-card rounded-2xl p-4 text-center shadow-lg hover:shadow-xl transition-all duration-300">
                 <div className="w-12 h-12 bg-accent rounded-xl flex items-center justify-center mx-auto mb-3 shadow-md">
                   <Ruler className="h-6 w-6 text-accent-foreground" />
                 </div>
@@ -124,7 +118,14 @@ export default function VinylPrintingPage() {
               </div>
               <div className="bg-card rounded-2xl p-4 text-center shadow-lg hover:shadow-xl transition-all duration-300">
                 <div className="w-12 h-12 bg-secondary rounded-xl flex items-center justify-center mx-auto mb-3 shadow-md">
-                  <Palette className="h-6 w-6 text-secondary-foreground" />
+                  <Shield className="h-6 w-6 text-secondary-foreground" />
+                </div>
+                <h3 className="font-semibold text-card-foreground text-sm mb-1">Weather Resistant</h3>
+                <p className="text-xs text-muted-foreground">Durable materials</p>
+              </div>
+              <div className="bg-card rounded-2xl p-4 text-center shadow-lg hover:shadow-xl transition-all duration-300">
+                <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mx-auto mb-3 shadow-md">
+                  <Palette className="h-6 w-6 text-primary" />
                 </div>
                 <h3 className="font-semibold text-card-foreground text-sm mb-1">High Resolution</h3>
                 <p className="text-xs text-muted-foreground">300 DPI quality</p>
@@ -141,21 +142,21 @@ export default function VinylPrintingPage() {
         </div>
       </section>
 
-      {/* Vinyl Types - Compact & Beautiful */}
+      {/* Banner Types - Compact & Beautiful */}
       <section className="py-16 bg-secondary/10">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-12">
               <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
-                Choose Your Vinyl Type
+                Choose Your Banner Type
               </h2>
               <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                Professional vinyl printing with weather-resistant materials and high-resolution designs for every need.
+                Professional banner designs for every need. Select the perfect material and style for your business.
               </p>
             </div>
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {vinylTypes.map((type, index) => (
+              {bannerTypes.map((type, index) => (
                 <Card 
                   key={index} 
                   className={`group relative overflow-hidden bg-card transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 rounded-3xl shadow-lg ${
@@ -235,7 +236,7 @@ export default function VinylPrintingPage() {
                 <CardHeader>
                   <CardTitle className="text-2xl sm:text-3xl text-center">Customize Your {selectedType}</CardTitle>
                   <CardDescription className="text-center">
-                    Choose size and material for your vinyl print
+                    Choose size and format for your banner design
                   </CardDescription>
                 </CardHeader>
                 <CardContent className="space-y-8">
@@ -243,12 +244,12 @@ export default function VinylPrintingPage() {
                   <div className="space-y-6">
                     <h3 className="text-xl font-semibold text-gray-900 flex items-center gap-2">
                       <Ruler className="h-5 w-5 text-primary" />
-                      Vinyl Size
+                      Banner Size
                     </h3>
                     <div>
                       <Select value={selectedSize} onValueChange={setSelectedSize}>
                         <SelectTrigger className="w-full">
-                          <SelectValue placeholder="Select vinyl size" />
+                          <SelectValue placeholder="Select banner size" />
                         </SelectTrigger>
                         <SelectContent>
                           {sizeOptions.map((option) => (
@@ -261,19 +262,19 @@ export default function VinylPrintingPage() {
                     </div>
                   </div>
 
-                  {/* Material Selection */}
+                  {/* Format Selection */}
                   <div className="space-y-6">
                     <h3 className="text-xl font-semibold text-gray-900 flex items-center gap-2">
-                      <Shield className="h-5 w-5 text-primary" />
-                      Material Type
+                      <Palette className="h-5 w-5 text-primary" />
+                      File Format
                     </h3>
                     <div>
-                      <Select value={selectedMaterial} onValueChange={setSelectedMaterial}>
+                      <Select value={selectedFormat} onValueChange={setSelectedFormat}>
                         <SelectTrigger className="w-full">
-                          <SelectValue placeholder="Select material type" />
+                          <SelectValue placeholder="Select file format" />
                         </SelectTrigger>
                         <SelectContent>
-                          {materialOptions.map((option) => (
+                          {formatOptions.map((option) => (
                             <SelectItem key={option.value} value={option.value}>
                               {option.label}
                             </SelectItem>
@@ -288,11 +289,11 @@ export default function VinylPrintingPage() {
                     <h3 className="text-xl font-semibold text-gray-900 mb-4">Order Summary</h3>
                     <div className="space-y-2">
                       <div className="flex justify-between">
-                        <span>Vinyl Type:</span>
+                        <span>Banner Type:</span>
                         <span className="font-semibold">{selectedType}</span>
                       </div>
                       <div className="flex justify-between">
-                        <span>Base Price:</span>
+                        <span>Price:</span>
                         <span className="font-semibold">{selectedTypeData?.price}</span>
                       </div>
                       {selectedSize && (
@@ -301,10 +302,10 @@ export default function VinylPrintingPage() {
                           <span className="font-semibold">{sizeOptions.find(opt => opt.value === selectedSize)?.label}</span>
                         </div>
                       )}
-                      {selectedMaterial && (
+                      {selectedFormat && (
                         <div className="flex justify-between">
-                          <span>Material:</span>
-                          <span className="font-semibold">{materialOptions.find(opt => opt.value === selectedMaterial)?.label}</span>
+                          <span>Format:</span>
+                          <span className="font-semibold">{formatOptions.find(opt => opt.value === selectedFormat)?.label}</span>
                         </div>
                       )}
                     </div>
@@ -344,44 +345,44 @@ export default function VinylPrintingPage() {
           <div className="max-w-5xl mx-auto">
             <div className="text-center mb-12">
               <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
-                Why Choose Our Vinyl Printing?
+                Why Choose Our Banner Design?
               </h2>
               <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                Professional vinyl printing with weather-resistant materials and high-resolution designs for every need.
+                Professional banner designs that grab attention and drive results for your business.
               </p>
             </div>
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               <div className="text-center group">
                 <div className="w-16 h-16 bg-gradient-to-br from-secondary to-accent rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg">
-                  <Shield className="h-8 w-8 text-primary" />
+                  <Palette className="h-8 w-8 text-primary" />
                 </div>
-                <h3 className="text-lg font-bold text-foreground mb-2">Weather Resistant</h3>
-                <p className="text-sm text-muted-foreground">Durable materials that withstand weather conditions.</p>
+                <h3 className="text-lg font-bold text-foreground mb-2">Custom Design</h3>
+                <p className="text-sm text-muted-foreground">Tailored designs that match your brand perfectly.</p>
               </div>
               
               <div className="text-center group">
                 <div className="w-16 h-16 bg-gradient-to-br from-accent to-secondary rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg">
                   <Ruler className="h-8 w-8 text-accent-foreground" />
                 </div>
-                <h3 className="text-lg font-bold text-foreground mb-2">Custom Sizes</h3>
-                <p className="text-sm text-muted-foreground">Any size you need for your vinyl prints.</p>
+                <h3 className="text-lg font-bold text-foreground mb-2">Flexible Sizes</h3>
+                <p className="text-sm text-muted-foreground">Custom sizes for any banner requirement.</p>
               </div>
               
               <div className="text-center group">
                 <div className="w-16 h-16 bg-gradient-to-br from-secondary to-accent rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg">
-                  <Palette className="h-8 w-8 text-primary" />
+                  <Clock className="h-8 w-8 text-primary" />
                 </div>
-                <h3 className="text-lg font-bold text-foreground mb-2">High Resolution</h3>
-                <p className="text-sm text-muted-foreground">High-resolution designs with professional quality.</p>
+                <h3 className="text-lg font-bold text-foreground mb-2">Quick Delivery</h3>
+                <p className="text-sm text-muted-foreground">Fast turnaround without compromising quality.</p>
               </div>
 
               <div className="text-center group">
                 <div className="w-16 h-16 bg-gradient-to-br from-accent to-secondary rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg">
-                  <Clock className="h-8 w-8 text-accent-foreground" />
+                  <Award className="h-8 w-8 text-accent-foreground" />
                 </div>
-                <h3 className="text-lg font-bold text-foreground mb-2">Fast Delivery</h3>
-                <p className="text-sm text-muted-foreground">Quick turnaround times when you need them.</p>
+                <h3 className="text-lg font-bold text-foreground mb-2">Professional Quality</h3>
+                <p className="text-sm text-muted-foreground">High-resolution designs with professional finishing.</p>
               </div>
             </div>
           </div>
@@ -393,15 +394,15 @@ export default function VinylPrintingPage() {
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-3xl sm:text-4xl font-bold text-primary-foreground mb-4">
-              Ready to Create Your Vinyl Prints?
+              Ready to Create Your Perfect Banner?
             </h2>
             <p className="text-lg text-primary-foreground/80 mb-8 max-w-xl mx-auto">
-              Join hundreds of businesses who trust us with their vinyl printing needs.
+              Join hundreds of businesses who trust us with their banner designs.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" className="bg-background text-foreground hover:bg-background/90 px-6 py-3 rounded-full font-semibold">
                 <ShoppingCart className="mr-2 h-4 w-4" />
-                Design Your Vinyl Prints Now
+                Design Your Banner Now
               </Button>
               <Button size="lg" variant="outline" className="border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary px-6 py-3 rounded-full font-semibold" onClick={() => window.location.href = "/our-works"}>
                 <ArrowRight className="mr-2 h-4 w-4" />

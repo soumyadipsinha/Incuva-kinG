@@ -643,6 +643,474 @@ export default function ServicesPage() {
       specifications: ["Logo + Brochure + Flex", "5 Social Media Posts", "Complete Branding"],
       category: "packages",
       description: "Complete business launch kit with all essential branding materials"
+    },
+    
+    // ID Card Services
+    {
+      id: "id-card-digital",
+      title: "ID Card with Digital Strap",
+      price: "₹35",
+      image: "/assets/buisnesscard1.png",
+      location: "Kolkata",
+      supplier: "Incuva Print Solutions",
+      rating: 4.6,
+      reviewCount: 89,
+      yearsInBusiness: 5,
+      responseRate: 88,
+      isGstVerified: true,
+      isTrustSealVerified: true,
+      isLeadingSupplier: true,
+      isStarSupplier: false,
+      specifications: ["Digital Strap", "High Quality Print", "Durable Material"],
+      category: "printing",
+      description: "Professional ID cards with digital strap for security and durability"
+    },
+    {
+      id: "id-card-fiber",
+      title: "ID Card Fiber Plate",
+      price: "₹5",
+      image: "/assets/buisnesscard2.png",
+      location: "Kolkata",
+      supplier: "Incuva Print Solutions",
+      rating: 4.4,
+      reviewCount: 67,
+      yearsInBusiness: 5,
+      responseRate: 85,
+      isGstVerified: true,
+      isTrustSealVerified: true,
+      isLeadingSupplier: true,
+      isStarSupplier: false,
+      specifications: ["Fiber Plate", "Minimum 14 pieces", "Professional Finish"],
+      category: "printing",
+      description: "Cost-effective ID cards with fiber plate material, minimum order 14 pieces"
+    },
+    
+    // Visiting Card Services
+    {
+      id: "visiting-card-normal",
+      title: "Visiting Card - Normal Quality",
+      price: "₹1",
+      image: "/assets/buisnesscard1.png",
+      location: "Kolkata",
+      supplier: "Incuva Print Solutions",
+      rating: 4.3,
+      reviewCount: 156,
+      yearsInBusiness: 5,
+      responseRate: 82,
+      isGstVerified: true,
+      isTrustSealVerified: true,
+      isLeadingSupplier: true,
+      isStarSupplier: false,
+      specifications: ["Normal Paper", "Minimum 500 pieces", "Standard Quality"],
+      category: "printing",
+      description: "Standard visiting cards with normal paper quality, minimum order 500 pieces"
+    },
+    {
+      id: "visiting-card-premium",
+      title: "Visiting Card - Premium Quality",
+      price: "₹2.8",
+      image: "/assets/buisnesscard2.png",
+      location: "Kolkata",
+      supplier: "Incuva Print Solutions",
+      rating: 4.7,
+      reviewCount: 134,
+      yearsInBusiness: 5,
+      responseRate: 91,
+      isGstVerified: true,
+      isTrustSealVerified: true,
+      isLeadingSupplier: true,
+      isStarSupplier: false,
+      specifications: ["Premium Paper", "280/360 GSM", "Laminated Option ₹3"],
+      category: "printing",
+      description: "Premium visiting cards with high-quality paper, laminated option available"
+    },
+    {
+      id: "visiting-card-velvet",
+      title: "Visiting Card - Velvet Paper",
+      price: "₹4.8",
+      image: "/assets/buisnesscard1.png",
+      location: "Kolkata",
+      supplier: "Incuva Print Solutions",
+      rating: 4.8,
+      reviewCount: 98,
+      yearsInBusiness: 5,
+      responseRate: 93,
+      isGstVerified: true,
+      isTrustSealVerified: true,
+      isLeadingSupplier: true,
+      isStarSupplier: false,
+      specifications: ["Velvet Paper", "280/360 GSM", "Laminated ₹3.4"],
+      category: "printing",
+      description: "Luxury visiting cards with velvet paper finish, laminated option available"
+    },
+    {
+      id: "visiting-card-glossy",
+      title: "Visiting Card - Glossy Finish",
+      price: "₹1",
+      image: "/assets/buisnesscard2.png",
+      location: "Kolkata",
+      supplier: "Incuva Print Solutions",
+      rating: 4.4,
+      reviewCount: 112,
+      yearsInBusiness: 5,
+      responseRate: 86,
+      isGstVerified: true,
+      isTrustSealVerified: true,
+      isLeadingSupplier: true,
+      isStarSupplier: false,
+      specifications: ["Glossy Finish", "Standard Quality", "Shiny Surface"],
+      category: "printing",
+      description: "Visiting cards with glossy finish for a shiny, professional look"
+    },
+    {
+      id: "visiting-card-matt",
+      title: "Visiting Card - Matt Finish",
+      price: "₹1.7",
+      image: "/assets/buisnesscard1.png",
+      location: "Kolkata",
+      supplier: "Incuva Print Solutions",
+      rating: 4.5,
+      reviewCount: 89,
+      yearsInBusiness: 5,
+      responseRate: 87,
+      isGstVerified: true,
+      isTrustSealVerified: true,
+      isLeadingSupplier: true,
+      isStarSupplier: false,
+      specifications: ["Matt Finish", "Premium Quality", "Non-reflective Surface"],
+      category: "printing",
+      description: "Visiting cards with matt finish for a sophisticated, non-reflective look"
+    },
+    
+    // Vinyl Printing Services
+    {
+      id: "vinyl-sticker",
+      title: "Vinyl Sticker Printing",
+      price: "₹35/sq ft",
+      image: "/assets/poster1.png",
+      location: "Kolkata",
+      supplier: "Incuva Print Solutions",
+      rating: 4.6,
+      reviewCount: 145,
+      yearsInBusiness: 5,
+      responseRate: 89,
+      isGstVerified: true,
+      isTrustSealVerified: true,
+      isLeadingSupplier: true,
+      isStarSupplier: false,
+      specifications: ["Vinyl Material", "Weather Resistant", "Custom Sizes"],
+      category: "printing",
+      description: "High-quality vinyl stickers with weather-resistant material"
+    },
+    {
+      id: "vinyl-sandboard-3mm",
+      title: "Vinyl Sandboard 3mm",
+      price: "₹95/sq ft",
+      image: "/assets/flex1.jpg",
+      location: "Kolkata",
+      supplier: "Incuva Print Solutions",
+      rating: 4.5,
+      reviewCount: 78,
+      yearsInBusiness: 5,
+      responseRate: 85,
+      isGstVerified: true,
+      isTrustSealVerified: true,
+      isLeadingSupplier: true,
+      isStarSupplier: false,
+      specifications: ["3mm Thickness", "Sandboard Material", "Durable"],
+      category: "printing",
+      description: "Vinyl sandboard with 3mm thickness for outdoor applications"
+    },
+    {
+      id: "vinyl-sandboard-5mm",
+      title: "Vinyl Sandboard 5mm",
+      price: "₹118/sq ft",
+      image: "/assets/flex2.jpg",
+      location: "Kolkata",
+      supplier: "Incuva Print Solutions",
+      rating: 4.7,
+      reviewCount: 92,
+      yearsInBusiness: 5,
+      responseRate: 88,
+      isGstVerified: true,
+      isTrustSealVerified: true,
+      isLeadingSupplier: true,
+      isStarSupplier: false,
+      specifications: ["5mm Thickness", "Sandboard Material", "Extra Durable"],
+      category: "printing",
+      description: "Vinyl sandboard with 5mm thickness for heavy-duty outdoor use"
+    },
+    {
+      id: "vinyl-sandboard-8mm",
+      title: "Vinyl Sandboard 8mm",
+      price: "₹135/sq ft",
+      image: "/assets/flex3.jpg",
+      location: "Kolkata",
+      supplier: "Incuva Print Solutions",
+      rating: 4.8,
+      reviewCount: 67,
+      yearsInBusiness: 5,
+      responseRate: 91,
+      isGstVerified: true,
+      isTrustSealVerified: true,
+      isLeadingSupplier: true,
+      isStarSupplier: false,
+      specifications: ["8mm Thickness", "Sandboard Material", "Maximum Durability"],
+      category: "printing",
+      description: "Vinyl sandboard with 8mm thickness for maximum durability and strength"
+    },
+    
+    // Certificate Services
+    {
+      id: "certificate-200gsm",
+      title: "Certificate - 200 GSM",
+      price: "₹25/piece",
+      image: "/assets/poster2.png",
+      location: "Kolkata",
+      supplier: "Incuva Print Solutions",
+      rating: 4.3,
+      reviewCount: 89,
+      yearsInBusiness: 5,
+      responseRate: 83,
+      isGstVerified: true,
+      isTrustSealVerified: true,
+      isLeadingSupplier: true,
+      isStarSupplier: false,
+      specifications: ["200 GSM Paper", "Standard Quality", "Professional Print"],
+      category: "printing",
+      description: "Professional certificates with 200 GSM paper quality"
+    },
+    {
+      id: "certificate-260gsm",
+      title: "Certificate - 260 GSM",
+      price: "₹28/piece",
+      image: "/assets/poster3.png",
+      location: "Kolkata",
+      supplier: "Incuva Print Solutions",
+      rating: 4.4,
+      reviewCount: 76,
+      yearsInBusiness: 5,
+      responseRate: 85,
+      isGstVerified: true,
+      isTrustSealVerified: true,
+      isLeadingSupplier: true,
+      isStarSupplier: false,
+      specifications: ["260 GSM Paper", "Good Quality", "Professional Print"],
+      category: "printing",
+      description: "Professional certificates with 260 GSM paper quality"
+    },
+    {
+      id: "certificate-300gsm",
+      title: "Certificate - 300 GSM",
+      price: "₹30/piece",
+      image: "/assets/poster4.png",
+      location: "Kolkata",
+      supplier: "Incuva Print Solutions",
+      rating: 4.6,
+      reviewCount: 98,
+      yearsInBusiness: 5,
+      responseRate: 87,
+      isGstVerified: true,
+      isTrustSealVerified: true,
+      isLeadingSupplier: true,
+      isStarSupplier: false,
+      specifications: ["300 GSM Paper", "Premium Quality", "Professional Print"],
+      category: "printing",
+      description: "Professional certificates with 300 GSM premium paper quality"
+    },
+    {
+      id: "certificate-320gsm",
+      title: "Certificate - 320 GSM",
+      price: "₹32/piece",
+      image: "/assets/poster5.png",
+      location: "Kolkata",
+      supplier: "Incuva Print Solutions",
+      rating: 4.7,
+      reviewCount: 112,
+      yearsInBusiness: 5,
+      responseRate: 89,
+      isGstVerified: true,
+      isTrustSealVerified: true,
+      isLeadingSupplier: true,
+      isStarSupplier: false,
+      specifications: ["320 GSM Paper", "High Quality", "Professional Print"],
+      category: "printing",
+      description: "Professional certificates with 320 GSM high-quality paper"
+    },
+    {
+      id: "certificate-360gsm",
+      title: "Certificate - 360 GSM",
+      price: "₹34/piece",
+      image: "/assets/poster67.png",
+      location: "Kolkata",
+      supplier: "Incuva Print Solutions",
+      rating: 4.8,
+      reviewCount: 134,
+      yearsInBusiness: 5,
+      responseRate: 91,
+      isGstVerified: true,
+      isTrustSealVerified: true,
+      isLeadingSupplier: true,
+      isStarSupplier: false,
+      specifications: ["360 GSM Paper", "Premium Quality", "Professional Print"],
+      category: "printing",
+      description: "Professional certificates with 360 GSM premium paper quality"
+    },
+    {
+      id: "certificate-460gsm",
+      title: "Certificate - 460 GSM",
+      price: "₹35/piece",
+      image: "/assets/poster7.png",
+      location: "Kolkata",
+      supplier: "Incuva Print Solutions",
+      rating: 4.9,
+      reviewCount: 89,
+      yearsInBusiness: 5,
+      responseRate: 93,
+      isGstVerified: true,
+      isTrustSealVerified: true,
+      isLeadingSupplier: true,
+      isStarSupplier: false,
+      specifications: ["460 GSM Paper", "Luxury Quality", "Professional Print"],
+      category: "printing",
+      description: "Professional certificates with 460 GSM luxury paper quality"
+    },
+    
+    // ID Card Services
+    {
+      id: "id-card-digital-strap",
+      title: "ID Card with Digital Strap",
+      price: "₹35/piece",
+      image: "/assets/buisnesscard1.png",
+      location: "Kolkata",
+      supplier: "Incuva Print Solutions",
+      rating: 4.6,
+      reviewCount: 45,
+      yearsInBusiness: 5,
+      responseRate: 88,
+      isGstVerified: true,
+      isTrustSealVerified: true,
+      isLeadingSupplier: true,
+      isStarSupplier: false,
+      specifications: ["Digital Strap", "High Quality Print", "Durable Material", "Minimum 14 pieces"],
+      category: "printing",
+      description: "Professional ID cards with digital strap for secure identification"
+    },
+    {
+      id: "id-card-fiber-plate",
+      title: "ID Card Fiber Plate",
+      price: "₹5/piece",
+      image: "/assets/buisnesscard2.png",
+      location: "Kolkata",
+      supplier: "Incuva Print Solutions",
+      rating: 4.2,
+      reviewCount: 38,
+      yearsInBusiness: 5,
+      responseRate: 85,
+      isGstVerified: true,
+      isTrustSealVerified: true,
+      isLeadingSupplier: true,
+      isStarSupplier: false,
+      specifications: ["Fiber Plate Material", "Cost Effective", "Professional Finish", "Minimum 14 pieces"],
+      category: "printing",
+      description: "Budget-friendly ID cards with fiber plate material"
+    },
+    
+    // Visiting Card Services
+    {
+      id: "visiting-card-normal",
+      title: "Visiting Card - Normal Quality",
+      price: "₹1/piece",
+      image: "/assets/buisnesscard1.png",
+      location: "Kolkata",
+      supplier: "Incuva Print Solutions",
+      rating: 4.1,
+      reviewCount: 156,
+      yearsInBusiness: 5,
+      responseRate: 90,
+      isGstVerified: true,
+      isTrustSealVerified: true,
+      isLeadingSupplier: true,
+      isStarSupplier: false,
+      specifications: ["Normal Paper Quality", "Standard Print", "Minimum 500 pieces"],
+      category: "printing",
+      description: "Standard quality visiting cards with normal paper"
+    },
+    {
+      id: "visiting-card-premium",
+      title: "Visiting Card - Premium Quality",
+      price: "₹2.8/piece",
+      image: "/assets/buisnesscard2.png",
+      location: "Kolkata",
+      supplier: "Incuva Print Solutions",
+      rating: 4.5,
+      reviewCount: 89,
+      yearsInBusiness: 5,
+      responseRate: 92,
+      isGstVerified: true,
+      isTrustSealVerified: true,
+      isLeadingSupplier: true,
+      isStarSupplier: false,
+      specifications: ["Premium Paper", "280/360 GSM", "Laminated Option ₹3", "High Quality Print"],
+      category: "printing",
+      description: "Premium quality visiting cards with 280/360 GSM paper"
+    },
+    {
+      id: "visiting-card-velvet",
+      title: "Visiting Card - Velvet Paper",
+      price: "₹4.8/piece",
+      image: "/assets/buisnesscard1.png",
+      location: "Kolkata",
+      supplier: "Incuva Print Solutions",
+      rating: 4.7,
+      reviewCount: 67,
+      yearsInBusiness: 5,
+      responseRate: 89,
+      isGstVerified: true,
+      isTrustSealVerified: true,
+      isLeadingSupplier: true,
+      isStarSupplier: false,
+      specifications: ["Velvet Paper", "280/360 GSM", "Laminated Option ₹3.4", "Luxury Finish"],
+      category: "printing",
+      description: "Luxury visiting cards with velvet paper finish"
+    },
+    {
+      id: "visiting-card-glossy",
+      title: "Visiting Card - Glossy Finish",
+      price: "₹1/piece",
+      image: "/assets/buisnesscard2.png",
+      location: "Kolkata",
+      supplier: "Incuva Print Solutions",
+      rating: 4.3,
+      reviewCount: 78,
+      yearsInBusiness: 5,
+      responseRate: 87,
+      isGstVerified: true,
+      isTrustSealVerified: true,
+      isLeadingSupplier: true,
+      isStarSupplier: false,
+      specifications: ["Glossy Finish", "Shiny Surface", "Standard Quality", "Professional Look"],
+      category: "printing",
+      description: "Visiting cards with glossy finish for professional appearance"
+    },
+    {
+      id: "visiting-card-matt",
+      title: "Visiting Card - Matt Finish",
+      price: "₹1.7/piece",
+      image: "/assets/buisnesscard1.png",
+      location: "Kolkata",
+      supplier: "Incuva Print Solutions",
+      rating: 4.4,
+      reviewCount: 54,
+      yearsInBusiness: 5,
+      responseRate: 86,
+      isGstVerified: true,
+      isTrustSealVerified: true,
+      isLeadingSupplier: true,
+      isStarSupplier: false,
+      specifications: ["Matt Finish", "Non-reflective", "Premium Quality", "Sophisticated Look"],
+      category: "printing",
+      description: "Visiting cards with matt finish for sophisticated appearance"
     }
   ];
 
@@ -709,7 +1177,7 @@ export default function ServicesPage() {
                   placeholder="Search services..."
                   value={query}
                   onChange={(e) => setQuery(e.target.value)}
-                  className="pl-7 sm:pl-10 pr-3 sm:pr-4 py-2 sm:py-3 w-full text-sm rounded-full"
+                  className="pl-7 sm:pl-10 pr-3 sm:pr-4 py-2 sm:py-3 w-full text-sm rounded-2xl"
                 />
               </div>
             </div>
@@ -720,7 +1188,7 @@ export default function ServicesPage() {
                 variant={viewMode === "grid" ? "default" : "outline"}
                 size="sm"
                 onClick={() => setViewMode("grid")}
-                className="h-8 w-8 sm:h-9 sm:w-9 p-0 rounded-full"
+                className="h-8 w-8 sm:h-9 sm:w-9 p-0 rounded-2xl"
               >
                 <Grid3X3 className="w-3 h-3 sm:w-4 sm:h-4" />
               </Button>
@@ -728,7 +1196,7 @@ export default function ServicesPage() {
                 variant={viewMode === "list" ? "default" : "outline"}
                 size="sm"
                 onClick={() => setViewMode("list")}
-                className="h-8 w-8 sm:h-9 sm:w-9 p-0 rounded-full"
+                className="h-8 w-8 sm:h-9 sm:w-9 p-0 rounded-2xl"
               >
                 <List className="w-3 h-3 sm:w-4 sm:h-4" />
               </Button>
@@ -736,11 +1204,11 @@ export default function ServicesPage() {
                 variant="outline"
                 size="sm"
                 onClick={() => setShowCart(!showCart)}
-                className="h-8 w-8 sm:h-9 sm:w-9 p-0 relative rounded-full"
+                className="h-8 w-8 sm:h-9 sm:w-9 p-0 relative rounded-2xl"
               >
                 <ShoppingCart className="w-3 h-3 sm:w-4 sm:h-4" />
                 {getTotalItems() > 0 && (
-                  <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-full h-4 w-4 flex items-center justify-center">
+                  <span className="absolute -top-1 -right-1 bg-red-500 text-white text-xs rounded-2xl h-4 w-4 flex items-center justify-center">
                     {getTotalItems()}
                   </span>
                 )}
@@ -760,7 +1228,7 @@ export default function ServicesPage() {
                 variant={selectedCategory === category.id ? "default" : "outline"}
                 size="sm"
                 onClick={() => setSelectedCategory(category.id)}
-                className="whitespace-nowrap flex-shrink-0 text-xs sm:text-sm px-2 sm:px-3 py-1 sm:py-2 h-7 sm:h-8 rounded-full"
+                className="whitespace-nowrap flex-shrink-0 text-xs sm:text-sm px-2 sm:px-3 py-1 sm:py-2 h-7 sm:h-8 rounded-2xl"
               >
                 <span className="mr-1 sm:mr-2 text-xs sm:text-sm">{category.icon}</span>
                 <span className="hidden sm:inline">{category.name}</span>
@@ -775,7 +1243,7 @@ export default function ServicesPage() {
       <div className="container mx-auto px-3 py-3 sm:px-4 sm:py-4">
         <div className="flex items-center justify-between mb-3 sm:mb-4">
           <div>
-            <h1 className="text-lg sm:text-xl md:text-2xl font-bold text-gray-900">Design & Printing Services</h1>
+            <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold text-gray-900 animate-fade-in-up">Design & Printing Services</h1>
             <p className="text-xs sm:text-sm text-gray-600">Showing {filteredServices.length} services</p>
           </div>
           <div className="flex items-center gap-1 sm:gap-2">
@@ -791,7 +1259,7 @@ export default function ServicesPage() {
             : "grid-cols-1"
         }`}>
           {filteredServices.map((service) => (
-            <Card key={service.id} className="group hover:shadow-lg transition-all duration-300 rounded-2xl overflow-hidden">
+            <Card key={service.id} className="group hover:shadow-lg transition-all duration-300 rounded-3xl overflow-hidden">
               {/* Supplier Info Header */}
               <div className="p-1.5 sm:p-2 border-b bg-gray-50">
                 <div className="flex items-center justify-between mb-1">
@@ -804,9 +1272,9 @@ export default function ServicesPage() {
                     )}
                     {service.isTrustSealVerified && (
                       <div className="flex items-center gap-0.5">
-                        <Shield className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-blue-600" />
-                        <span className="text-xs text-blue-600 font-medium hidden sm:inline">TrustSeal</span>
-                        <span className="text-xs text-blue-600 font-medium sm:hidden">✓</span>
+                        <Shield className="w-2.5 h-2.5 sm:w-3 sm:h-3 text-cyan-600" />
+                        <span className="text-xs text-cyan-600 font-medium hidden sm:inline">TrustSeal</span>
+                        <span className="text-xs text-cyan-600 font-medium sm:hidden">✓</span>
                       </div>
                     )}
                   </div>
@@ -820,7 +1288,7 @@ export default function ServicesPage() {
                   </div>
                 </div>
                 <div className="flex items-center justify-between">
-                  <Button variant="outline" size="sm" className="text-xs h-5 sm:h-6 px-1.5 sm:px-2 rounded-full" asChild>
+                  <Button variant="outline" size="sm" className="text-xs h-5 sm:h-6 px-1.5 sm:px-2 rounded-2xl" asChild>
                     <a href="/contact">
                       <Phone className="w-2 h-2 sm:w-2.5 sm:h-2.5 mr-0.5" />
                       <span className="hidden sm:inline">Call</span>
@@ -860,7 +1328,7 @@ export default function ServicesPage() {
                   <img
                     src={service.image}
                     alt={service.title}
-                    className="w-full h-24 sm:h-28 md:h-32 object-cover rounded-xl mb-1.5 sm:mb-2"
+                    className="w-full h-24 sm:h-28 md:h-32 object-cover rounded-2xl mb-1.5 sm:mb-2"
                   />
                   <CardTitle className="text-xs sm:text-sm md:text-base leading-tight">{service.title}</CardTitle>
                 </div>
@@ -870,8 +1338,14 @@ export default function ServicesPage() {
                 <div className="space-y-1.5 sm:space-y-2">
                   <div className="text-base sm:text-lg md:text-xl font-bold text-green-600">{service.price}</div>
                   
-                  <Button className="w-full bg-green-600 hover:bg-green-700 text-white h-7 sm:h-8 text-xs rounded-full" asChild>
-                    <a href="/contact">
+                  <Button className="w-full bg-green-600 hover:bg-green-700 text-white h-7 sm:h-8 text-xs rounded-2xl" asChild>
+                    <a href={
+                      service.id.startsWith('certificate') ? '/services/certificate' :
+                      service.id.startsWith('id-card') ? '/services/id-card' :
+                      service.id.startsWith('visiting-card') ? '/services/visiting-card' :
+                      service.id.startsWith('vinyl') ? '/services/vinyl-printing' :
+                      '/requirements'
+                    }>
                       <Phone className="w-3 h-3 sm:w-3.5 sm:h-3.5 mr-1" />
                       Contact Supplier
                     </a>
@@ -879,7 +1353,7 @@ export default function ServicesPage() {
                   
                   <Button 
                     variant="outline" 
-                    className="w-full border-blue-600 text-blue-600 hover:bg-blue-50 h-7 sm:h-8 text-xs rounded-full"
+                    className="w-full border-cyan-600 text-cyan-600 hover:bg-cyan-50 h-7 sm:h-8 text-xs rounded-2xl"
                     onClick={() => handleAddToCart(service)}
                   >
                     <ShoppingCart className="w-3 h-3 sm:w-3.5 sm:h-3.5 mr-1" />
@@ -924,14 +1398,14 @@ export default function ServicesPage() {
       {/* Cart Section */}
       {showCart && (
         <div className="fixed inset-0 bg-black bg-opacity-50 z-50 flex items-center justify-center p-4">
-          <div className="bg-white rounded-2xl max-w-2xl w-full max-h-[80vh] overflow-hidden">
+          <div className="bg-white rounded-3xl max-w-2xl w-full max-h-[80vh] overflow-hidden">
             <div className="flex items-center justify-between p-4 border-b">
               <h2 className="text-lg font-semibold">Shopping Cart ({getTotalItems()} items)</h2>
               <Button
                 variant="outline"
                 size="sm"
                 onClick={() => setShowCart(false)}
-                className="h-8 w-8 p-0 rounded-full"
+                className="h-8 w-8 p-0 rounded-2xl"
               >
                 <X className="w-4 h-4" />
               </Button>
@@ -946,11 +1420,11 @@ export default function ServicesPage() {
               ) : (
                 <div className="space-y-4">
                   {cartItems.map((item) => (
-                    <div key={item.id} className="flex items-center gap-4 p-3 border rounded-xl">
+                    <div key={item.id} className="flex items-center gap-4 p-3 border rounded-2xl">
                       <img
                         src={item.image}
                         alt={item.title}
-                        className="w-16 h-16 object-cover rounded-xl"
+                        className="w-16 h-16 object-cover rounded-2xl"
                       />
                       <div className="flex-1">
                         <h3 className="font-medium text-sm">{item.title}</h3>
@@ -961,7 +1435,7 @@ export default function ServicesPage() {
                           variant="outline"
                           size="sm"
                           onClick={() => updateQuantity(item.id, item.quantity - 1)}
-                          className="h-8 w-8 p-0 rounded-full"
+                          className="h-8 w-8 p-0 rounded-2xl"
                         >
                           -
                         </Button>
@@ -970,7 +1444,7 @@ export default function ServicesPage() {
                           variant="outline"
                           size="sm"
                           onClick={() => updateQuantity(item.id, item.quantity + 1)}
-                          className="h-8 w-8 p-0 rounded-full"
+                          className="h-8 w-8 p-0 rounded-2xl"
                         >
                           +
                         </Button>
@@ -978,7 +1452,7 @@ export default function ServicesPage() {
                           variant="outline"
                           size="sm"
                           onClick={() => removeFromCart(item.id)}
-                          className="h-8 w-8 p-0 text-red-600 hover:bg-red-50 rounded-full"
+                          className="h-8 w-8 p-0 text-red-600 hover:bg-red-50 rounded-2xl"
                         >
                           <Trash2 className="w-4 h-4" />
                         </Button>
@@ -993,8 +1467,8 @@ export default function ServicesPage() {
               <div className="p-4 border-t bg-gray-50">
                 <div className="flex items-center justify-between mb-4">
                   <span className="font-semibold">Total Items: {getTotalItems()}</span>
-                  <Button className="bg-green-600 hover:bg-green-700 text-white rounded-full" asChild>
-                    <a href="/contact">Proceed to Contact</a>
+                  <Button className="bg-green-600 hover:bg-green-700 text-white rounded-2xl" asChild>
+                    <a href="/requirements">Proceed to Contact</a>
                   </Button>
                 </div>
               </div>

@@ -360,6 +360,23 @@
       transform: rotate(0deg) scale(1);
     }
   }
+  
+  /* Custom Cyan Colors */
+  .bg-cyan-50 { background-color: #f0fdff; }
+  .bg-cyan-100 { background-color: #ccfbf1; }
+  .bg-cyan-500 { background-color: #03ffff; }
+  .bg-cyan-600 { background-color: #00e6e6; }
+  .bg-cyan-700 { background-color: #00cccc; }
+  
+  .text-cyan-500 { color: #03ffff; }
+  .text-cyan-600 { color: #00e6e6; }
+  .text-cyan-700 { color: #00cccc; }
+  .text-cyan-800 { color: #00b3b3; }
+  
+  .border-cyan-200 { border-color: #a7f3d0; }
+  .border-cyan-500 { border-color: #03ffff; }
+  
+  .ring-cyan-500 { --tw-ring-color: #03ffff; }
 }
 
 /* Brand font: Rza Trial 400 */

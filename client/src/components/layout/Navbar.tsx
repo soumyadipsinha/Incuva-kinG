@@ -8,7 +8,7 @@ export default function Navbar() {
   const { isAuthenticated, logout } = useAuth();
   return (
     <div className="sticky top-0 z-40 w-full px-2 sm:px-4 py-2">
-      <header className="mx-auto max-w-7xl rounded-2xl bg-transparent backdrop-blur-sm border border-white/10 shadow-lg">
+      <header className="mx-auto max-w-7xl rounded-3xl bg-transparent backdrop-blur-md border border-white/20 shadow-lg">
         <div className="flex h-14 sm:h-16 items-center px-2 sm:px-4">
           {/* Left: primary links */}
           <nav className="hidden gap-6 text-sm font-medium md:flex flex-1">
@@ -92,13 +92,13 @@ export default function Navbar() {
         </div>
         
         {/* Mobile drawer */}
-        <div id="mobile-drawer" className="hidden border-t border-white/10 bg-transparent backdrop-blur-sm md:hidden rounded-b-2xl">
+        <div id="mobile-drawer" className="hidden border-t border-white/20 bg-transparent backdrop-blur-md md:hidden rounded-b-2xl">
           <div className="px-3 sm:px-4 py-3 sm:py-4">
             <nav className="grid gap-2 sm:gap-3 text-sm">
               <a href="/services" className="font-medium">Shop</a>
               <a href="/explore" className="font-medium">Explore</a>
               <a href="/our-works" className="font-medium">Our Works</a>
-              <a href="/quote" className="font-medium">Get a Quote</a>
+              <a href="/requirements" className="font-medium">Order Now</a>
               <a href="/contact" className="font-medium">Contact</a>
               <a href="/about" className="font-medium">About Us</a>
             </nav>

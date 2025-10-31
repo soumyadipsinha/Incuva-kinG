@@ -105,8 +105,8 @@ export default function VisitingCardsPage() {
         <h3 className="text-lg sm:text-xl font-semibold text-primary mb-3 sm:mb-4">Ready to Order Your Business Cards?</h3>
         <p className="text-sm sm:text-base text-muted-foreground mb-4 sm:mb-6">Get professional business cards that make a lasting impression</p>
         <div className="flex flex-col sm:flex-row gap-3 sm:gap-4 justify-center w-full sm:w-auto">
-          <a href="/quote" className="inline-flex items-center justify-center px-6 py-3 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors w-full sm:w-auto">
-            Get Quote
+          <a href="/requirements" className="inline-flex items-center justify-center px-6 py-3 bg-primary text-white rounded-lg hover:bg-primary/90 transition-colors w-full sm:w-auto">
+            Order Now
           </a>
           <a href="/contact" className="inline-flex items-center justify-center px-6 py-3 border border-primary text-primary rounded-lg hover:bg-primary hover:text-white transition-colors w-full sm:w-auto">
             Contact Us

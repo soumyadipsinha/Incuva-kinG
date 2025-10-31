@@ -3,61 +3,51 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Button } from "@/components/ui/button";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Badge } from "@/components/ui/badge";
-import { CheckCircle, Ruler, ShoppingCart, ArrowRight, Star, Clock, Users, Heart, Zap, Shield, Award, Palette } from "lucide-react";
+import { CheckCircle, FileText, CreditCard, ShoppingCart, ArrowRight, Star, Clock, Users, Heart, Zap, Shield, Award } from "lucide-react";
 
-export default function VinylPrintingPage() {
+export default function BusinessCardsPage() {
   const [selectedType, setSelectedType] = useState("");
-  const [selectedSize, setSelectedSize] = useState("");
-  const [selectedMaterial, setSelectedMaterial] = useState("");
+  const [selectedQuantity, setSelectedQuantity] = useState("");
+  const [selectedPaper, setSelectedPaper] = useState("");
 
-  const vinylTypes = [
+  const businessCardTypes = [
     { 
-      name: "Standard Vinyl", 
-      price: "₹299", 
-      originalPrice: "₹499",
-      description: "Standard vinyl printing for indoor use",
-      features: ["Standard Vinyl", "High Resolution (300 DPI)", "Print Ready Files", "1-2 Days Delivery", "Multiple Formats", "Indoor Use"],
+      name: "Single Side", 
+      price: "₹99", 
+      originalPrice: "₹149",
+      description: "Business card with design on one side only",
+      features: ["Single Side Design", "Print Ready Files", "Standard Size (3.5\" x 2\")", "1-2 Days Delivery", "PNG & JPG Files"],
       popular: false,
-      discount: "40% OFF"
+      discount: "34% OFF"
     },
     { 
-      name: "Outdoor Vinyl", 
-      price: "₹399", 
-      originalPrice: "₹699",
-      description: "Outdoor vinyl printing with weather resistance",
-      features: ["Outdoor Vinyl", "Weather Resistant", "High Resolution (300 DPI)", "Print Ready Files", "1-2 Days Delivery", "Multiple Formats", "UV Protection", "Long Lasting"],
+      name: "Double Side", 
+      price: "₹149", 
+      originalPrice: "₹249",
+      description: "Business card with design on both sides",
+      features: ["Double Side Design", "Print Ready Files", "Standard Size (3.5\" x 2\")", "1-2 Days Delivery", "PNG & JPG Files", "Professional Layout"],
       popular: true,
-      discount: "43% OFF"
-    },
-    { 
-      name: "Premium Vinyl", 
-      price: "₹599", 
-      originalPrice: "₹999",
-      description: "Premium vinyl printing with advanced features",
-      features: ["Premium Vinyl", "Advanced Features", "High Resolution (300 DPI)", "Print Ready Files", "1-2 Days Delivery", "Multiple Formats", "Premium Materials", "Custom Finishes"],
-      popular: false,
       discount: "40% OFF"
     }
   ];
 
-  const sizeOptions = [
-    { value: "2x3", label: "2 ft x 3 ft (6 sq ft)" },
-    { value: "3x4", label: "3 ft x 4 ft (12 sq ft)" },
-    { value: "4x6", label: "4 ft x 6 ft (24 sq ft)" },
-    { value: "6x8", label: "6 ft x 8 ft (48 sq ft)" },
-    { value: "8x10", label: "8 ft x 10 ft (80 sq ft)" },
-    { value: "custom", label: "Custom Size" }
+  const quantityOptions = [
+    { value: "100", label: "100 pieces" },
+    { value: "250", label: "250 pieces" },
+    { value: "500", label: "500 pieces" },
+    { value: "1000", label: "1000 pieces" },
+    { value: "2000", label: "2000 pieces" }
   ];
 
-  const materialOptions = [
-    { value: "standard", label: "Standard Vinyl" },
-    { value: "outdoor", label: "Outdoor Vinyl" },
-    { value: "premium", label: "Premium Vinyl" },
-    { value: "transparent", label: "Transparent Vinyl" },
-    { value: "reflective", label: "Reflective Vinyl" }
+  const paperOptions = [
+    { value: "standard", label: "Standard Paper (300 GSM)" },
+    { value: "premium", label: "Premium Paper (350 GSM)" },
+    { value: "luxury", label: "Luxury Paper (400 GSM)" },
+    { value: "matt", label: "Matt Finish" },
+    { value: "glossy", label: "Glossy Finish" }
   ];
 
-  const selectedTypeData = vinylTypes.find(type => type.name === selectedType);
+  const selectedTypeData = businessCardTypes.find(type => type.name === selectedType);
 
   return (
     <main className="min-h-screen bg-white">
@@ -68,24 +58,24 @@ export default function VinylPrintingPage() {
             <div className="text-center mb-12">
               <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-semibold mb-6">
                 <Zap className="h-4 w-4" />
-                <span>Professional Vinyl Printing</span>
+                <span>Professional Business Cards</span>
               </div>
               <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground leading-tight mb-4">
-                Durable Vinyl Prints That Last
+                Make a Lasting First Impression
               </h1>
               <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-8">
-                Professional vinyl printing services with weather-resistant materials and high-resolution designs for indoor and outdoor use.
+                Professional business cards that represent your brand perfectly with single or double side designs and premium paper options.
               </p>
               
               {/* Trust Indicators - Compact */}
               <div className="flex flex-wrap justify-center items-center gap-6 mb-8">
                 <div className="flex items-center gap-2 bg-card px-4 py-2 rounded-full">
                   <Star className="h-4 w-4 text-amber-500 fill-current" />
-                  <span className="text-sm font-semibold text-card-foreground">4.7/5 Rating</span>
+                  <span className="text-sm font-semibold text-card-foreground">4.8/5 Rating</span>
                 </div>
                 <div className="flex items-center gap-2 bg-card px-4 py-2 rounded-full">
                   <Users className="h-4 w-4 text-primary" />
-                  <span className="text-sm font-semibold text-card-foreground">600+ Prints</span>
+                  <span className="text-sm font-semibold text-card-foreground">1000+ Cards</span>
                 </div>
                 <div className="flex items-center gap-2 bg-card px-4 py-2 rounded-full">
                   <Clock className="h-4 w-4 text-primary" />
@@ -97,11 +87,11 @@ export default function VinylPrintingPage() {
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground px-6 py-3 rounded-full">
                   <ShoppingCart className="mr-2 h-4 w-4" />
-                  Design Your Vinyl Print
+                  Design Your Cards
                 </Button>
                 <Button size="lg" variant="outline" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground px-6 py-3 rounded-full" onClick={() => window.location.href = "/our-works"}>
                   <ArrowRight className="mr-2 h-4 w-4" />
-                  View Gallery
+                  View Samples
                 </Button>
               </div>
             </div>
@@ -110,24 +100,24 @@ export default function VinylPrintingPage() {
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
               <div className="bg-card rounded-2xl p-4 text-center shadow-lg hover:shadow-xl transition-all duration-300">
                 <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mx-auto mb-3 shadow-md">
-                  <Shield className="h-6 w-6 text-primary" />
+                  <FileText className="h-6 w-6 text-primary" />
                 </div>
-                <h3 className="font-semibold text-card-foreground text-sm mb-1">Weather Resistant</h3>
-                <p className="text-xs text-muted-foreground">Durable materials</p>
+                <h3 className="font-semibold text-card-foreground text-sm mb-1">Professional Design</h3>
+                <p className="text-xs text-muted-foreground">Clean, modern layouts</p>
               </div>
               <div className="bg-card rounded-2xl p-4 text-center shadow-lg hover:shadow-xl transition-all duration-300">
                 <div className="w-12 h-12 bg-accent rounded-xl flex items-center justify-center mx-auto mb-3 shadow-md">
-                  <Ruler className="h-6 w-6 text-accent-foreground" />
+                  <Shield className="h-6 w-6 text-accent-foreground" />
                 </div>
-                <h3 className="font-semibold text-card-foreground text-sm mb-1">Custom Sizes</h3>
-                <p className="text-xs text-muted-foreground">Any size you need</p>
+                <h3 className="font-semibold text-card-foreground text-sm mb-1">Premium Quality</h3>
+                <p className="text-xs text-muted-foreground">High-grade materials</p>
               </div>
               <div className="bg-card rounded-2xl p-4 text-center shadow-lg hover:shadow-xl transition-all duration-300">
                 <div className="w-12 h-12 bg-secondary rounded-xl flex items-center justify-center mx-auto mb-3 shadow-md">
-                  <Palette className="h-6 w-6 text-secondary-foreground" />
+                  <CreditCard className="h-6 w-6 text-secondary-foreground" />
                 </div>
-                <h3 className="font-semibold text-card-foreground text-sm mb-1">High Resolution</h3>
-                <p className="text-xs text-muted-foreground">300 DPI quality</p>
+                <h3 className="font-semibold text-card-foreground text-sm mb-1">Standard Size</h3>
+                <p className="text-xs text-muted-foreground">3.5" x 2" format</p>
               </div>
               <div className="bg-card rounded-2xl p-4 text-center shadow-lg hover:shadow-xl transition-all duration-300">
                 <div className="w-12 h-12 bg-accent rounded-xl flex items-center justify-center mx-auto mb-3 shadow-md">
@@ -141,21 +131,21 @@ export default function VinylPrintingPage() {
         </div>
       </section>
 
-      {/* Vinyl Types - Compact & Beautiful */}
+      {/* Business Card Types - Compact & Beautiful */}
       <section className="py-16 bg-secondary/10">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-12">
               <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
-                Choose Your Vinyl Type
+                Choose Your Business Card Type
               </h2>
               <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                Professional vinyl printing with weather-resistant materials and high-resolution designs for every need.
+                Professional business card designs that make a lasting impression. Select the perfect style for your business.
               </p>
             </div>
             
-            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {vinylTypes.map((type, index) => (
+            <div className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto">
+              {businessCardTypes.map((type, index) => (
                 <Card 
                   key={index} 
                   className={`group relative overflow-hidden bg-card transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 rounded-3xl shadow-lg ${
@@ -175,7 +165,7 @@ export default function VinylPrintingPage() {
 
                   <CardHeader className="text-center pt-6 pb-4">
                     <div className="w-16 h-16 mx-auto mb-4 rounded-2xl overflow-hidden shadow-md bg-gradient-to-br from-accent to-secondary flex items-center justify-center">
-                      <img src={`/assets/flex${index + 1}.jpg`} alt={type.name} className="w-10 h-10 object-cover" />
+                      <img src={`/assets/buisnesscard${index + 1}.png`} alt={type.name} className="w-10 h-10 object-cover" />
                     </div>
                     <CardTitle className="text-xl font-bold text-card-foreground mb-2">{type.name}</CardTitle>
                     <div className="space-y-1 mb-3">
@@ -233,25 +223,25 @@ export default function VinylPrintingPage() {
             <div className="max-w-4xl mx-auto">
               <Card className="shadow-lg">
                 <CardHeader>
-                  <CardTitle className="text-2xl sm:text-3xl text-center">Customize Your {selectedType}</CardTitle>
+                  <CardTitle className="text-2xl sm:text-3xl text-center">Customize Your {selectedType} Business Card</CardTitle>
                   <CardDescription className="text-center">
-                    Choose size and material for your vinyl print
+                    Choose quantity and paper quality for your business cards
                   </CardDescription>
                 </CardHeader>
                 <CardContent className="space-y-8">
-                  {/* Size Selection */}
+                  {/* Quantity Selection */}
                   <div className="space-y-6">
                     <h3 className="text-xl font-semibold text-gray-900 flex items-center gap-2">
-                      <Ruler className="h-5 w-5 text-primary" />
-                      Vinyl Size
+                      <CreditCard className="h-5 w-5 text-primary" />
+                      Quantity
                     </h3>
                     <div>
-                      <Select value={selectedSize} onValueChange={setSelectedSize}>
+                      <Select value={selectedQuantity} onValueChange={setSelectedQuantity}>
                         <SelectTrigger className="w-full">
-                          <SelectValue placeholder="Select vinyl size" />
+                          <SelectValue placeholder="Select quantity" />
                         </SelectTrigger>
                         <SelectContent>
-                          {sizeOptions.map((option) => (
+                          {quantityOptions.map((option) => (
                             <SelectItem key={option.value} value={option.value}>
                               {option.label}
                             </SelectItem>
@@ -261,19 +251,19 @@ export default function VinylPrintingPage() {
                     </div>
                   </div>
 
-                  {/* Material Selection */}
+                  {/* Paper Selection */}
                   <div className="space-y-6">
                     <h3 className="text-xl font-semibold text-gray-900 flex items-center gap-2">
-                      <Shield className="h-5 w-5 text-primary" />
-                      Material Type
+                      <FileText className="h-5 w-5 text-primary" />
+                      Paper Quality
                     </h3>
                     <div>
-                      <Select value={selectedMaterial} onValueChange={setSelectedMaterial}>
+                      <Select value={selectedPaper} onValueChange={setSelectedPaper}>
                         <SelectTrigger className="w-full">
-                          <SelectValue placeholder="Select material type" />
+                          <SelectValue placeholder="Select paper quality" />
                         </SelectTrigger>
                         <SelectContent>
-                          {materialOptions.map((option) => (
+                          {paperOptions.map((option) => (
                             <SelectItem key={option.value} value={option.value}>
                               {option.label}
                             </SelectItem>
@@ -288,23 +278,23 @@ export default function VinylPrintingPage() {
                     <h3 className="text-xl font-semibold text-gray-900 mb-4">Order Summary</h3>
                     <div className="space-y-2">
                       <div className="flex justify-between">
-                        <span>Vinyl Type:</span>
+                        <span>Card Type:</span>
                         <span className="font-semibold">{selectedType}</span>
                       </div>
                       <div className="flex justify-between">
                         <span>Base Price:</span>
                         <span className="font-semibold">{selectedTypeData?.price}</span>
                       </div>
-                      {selectedSize && (
+                      {selectedQuantity && (
                         <div className="flex justify-between">
-                          <span>Size:</span>
-                          <span className="font-semibold">{sizeOptions.find(opt => opt.value === selectedSize)?.label}</span>
+                          <span>Quantity:</span>
+                          <span className="font-semibold">{quantityOptions.find(opt => opt.value === selectedQuantity)?.label}</span>
                         </div>
                       )}
-                      {selectedMaterial && (
+                      {selectedPaper && (
                         <div className="flex justify-between">
-                          <span>Material:</span>
-                          <span className="font-semibold">{materialOptions.find(opt => opt.value === selectedMaterial)?.label}</span>
+                          <span>Paper Quality:</span>
+                          <span className="font-semibold">{paperOptions.find(opt => opt.value === selectedPaper)?.label}</span>
                         </div>
                       )}
                     </div>
@@ -344,44 +334,44 @@ export default function VinylPrintingPage() {
           <div className="max-w-5xl mx-auto">
             <div className="text-center mb-12">
               <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
-                Why Choose Our Vinyl Printing?
+                Why Choose Our Business Cards?
               </h2>
               <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                Professional vinyl printing with weather-resistant materials and high-resolution designs for every need.
+                Professional business cards that make a lasting impression on your clients and represent your brand.
               </p>
             </div>
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               <div className="text-center group">
                 <div className="w-16 h-16 bg-gradient-to-br from-secondary to-accent rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg">
-                  <Shield className="h-8 w-8 text-primary" />
+                  <FileText className="h-8 w-8 text-primary" />
                 </div>
-                <h3 className="text-lg font-bold text-foreground mb-2">Weather Resistant</h3>
-                <p className="text-sm text-muted-foreground">Durable materials that withstand weather conditions.</p>
+                <h3 className="text-lg font-bold text-foreground mb-2">Professional Design</h3>
+                <p className="text-sm text-muted-foreground">Clean, modern designs that represent your brand professionally.</p>
               </div>
               
               <div className="text-center group">
                 <div className="w-16 h-16 bg-gradient-to-br from-accent to-secondary rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg">
-                  <Ruler className="h-8 w-8 text-accent-foreground" />
+                  <CreditCard className="h-8 w-8 text-accent-foreground" />
                 </div>
-                <h3 className="text-lg font-bold text-foreground mb-2">Custom Sizes</h3>
-                <p className="text-sm text-muted-foreground">Any size you need for your vinyl prints.</p>
+                <h3 className="text-lg font-bold text-foreground mb-2">High Quality</h3>
+                <p className="text-sm text-muted-foreground">Premium paper quality with various finish options.</p>
               </div>
               
               <div className="text-center group">
                 <div className="w-16 h-16 bg-gradient-to-br from-secondary to-accent rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg">
-                  <Palette className="h-8 w-8 text-primary" />
+                  <Clock className="h-8 w-8 text-primary" />
                 </div>
-                <h3 className="text-lg font-bold text-foreground mb-2">High Resolution</h3>
-                <p className="text-sm text-muted-foreground">High-resolution designs with professional quality.</p>
+                <h3 className="text-lg font-bold text-foreground mb-2">Fast Delivery</h3>
+                <p className="text-sm text-muted-foreground">Quick turnaround times when you need them most.</p>
               </div>
 
               <div className="text-center group">
                 <div className="w-16 h-16 bg-gradient-to-br from-accent to-secondary rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg">
-                  <Clock className="h-8 w-8 text-accent-foreground" />
+                  <Award className="h-8 w-8 text-accent-foreground" />
                 </div>
-                <h3 className="text-lg font-bold text-foreground mb-2">Fast Delivery</h3>
-                <p className="text-sm text-muted-foreground">Quick turnaround times when you need them.</p>
+                <h3 className="text-lg font-bold text-foreground mb-2">Brand Consistency</h3>
+                <p className="text-sm text-muted-foreground">Designs that match your brand identity perfectly.</p>
               </div>
             </div>
           </div>
@@ -393,19 +383,19 @@ export default function VinylPrintingPage() {
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-3xl sm:text-4xl font-bold text-primary-foreground mb-4">
-              Ready to Create Your Vinyl Prints?
+              Ready to Design Your Perfect Business Cards?
             </h2>
             <p className="text-lg text-primary-foreground/80 mb-8 max-w-xl mx-auto">
-              Join hundreds of businesses who trust us with their vinyl printing needs.
+              Join thousands of professionals who trust us with their business card designs.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" className="bg-background text-foreground hover:bg-background/90 px-6 py-3 rounded-full font-semibold">
                 <ShoppingCart className="mr-2 h-4 w-4" />
-                Design Your Vinyl Prints Now
+                Design Your Cards Now
               </Button>
               <Button size="lg" variant="outline" className="border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary px-6 py-3 rounded-full font-semibold" onClick={() => window.location.href = "/our-works"}>
                 <ArrowRight className="mr-2 h-4 w-4" />
-                View Our Gallery
+                View Our Samples
               </Button>
             </div>
           </div>

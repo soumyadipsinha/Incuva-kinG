@@ -3,61 +3,59 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Button } from "@/components/ui/button";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { Badge } from "@/components/ui/badge";
-import { CheckCircle, Ruler, ShoppingCart, ArrowRight, Star, Clock, Users, Heart, Zap, Shield, Award, Palette } from "lucide-react";
+import { CheckCircle, Award, ShoppingCart, ArrowRight, Star, Clock, Users, Heart, Zap, Shield, FileText, GraduationCap } from "lucide-react";
 
-export default function VinylPrintingPage() {
+export default function CertificatePage() {
   const [selectedType, setSelectedType] = useState("");
   const [selectedSize, setSelectedSize] = useState("");
-  const [selectedMaterial, setSelectedMaterial] = useState("");
+  const [selectedPaper, setSelectedPaper] = useState("");
 
-  const vinylTypes = [
+  const certificateTypes = [
     { 
-      name: "Standard Vinyl", 
-      price: "₹299", 
-      originalPrice: "₹499",
-      description: "Standard vinyl printing for indoor use",
-      features: ["Standard Vinyl", "High Resolution (300 DPI)", "Print Ready Files", "1-2 Days Delivery", "Multiple Formats", "Indoor Use"],
+      name: "Standard Certificate", 
+      price: "₹99", 
+      originalPrice: "₹149",
+      description: "Professional certificate design for recognition",
+      features: ["Professional Design", "Print Ready Files", "Standard Size (8.5\" x 11\")", "1-2 Days Delivery", "PNG & JPG Files", "High Resolution"],
       popular: false,
-      discount: "40% OFF"
+      discount: "34% OFF"
     },
     { 
-      name: "Outdoor Vinyl", 
-      price: "₹399", 
-      originalPrice: "₹699",
-      description: "Outdoor vinyl printing with weather resistance",
-      features: ["Outdoor Vinyl", "Weather Resistant", "High Resolution (300 DPI)", "Print Ready Files", "1-2 Days Delivery", "Multiple Formats", "UV Protection", "Long Lasting"],
+      name: "Premium Certificate", 
+      price: "₹149", 
+      originalPrice: "₹249",
+      description: "Premium certificate with elegant design elements",
+      features: ["Premium Design", "Elegant Elements", "Print Ready Files", "Standard Size (8.5\" x 11\")", "1-2 Days Delivery", "Multiple Formats", "Gold Accents", "Custom Border"],
       popular: true,
-      discount: "43% OFF"
+      discount: "40% OFF"
     },
     { 
-      name: "Premium Vinyl", 
-      price: "₹599", 
-      originalPrice: "₹999",
-      description: "Premium vinyl printing with advanced features",
-      features: ["Premium Vinyl", "Advanced Features", "High Resolution (300 DPI)", "Print Ready Files", "1-2 Days Delivery", "Multiple Formats", "Premium Materials", "Custom Finishes"],
+      name: "Corporate Certificate", 
+      price: "₹199", 
+      originalPrice: "₹349",
+      description: "Corporate certificate with company branding",
+      features: ["Corporate Design", "Company Branding", "Print Ready Files", "Standard Size (8.5\" x 11\")", "1-2 Days Delivery", "Multiple Formats", "Custom Layout", "Logo Integration"],
       popular: false,
-      discount: "40% OFF"
+      discount: "43% OFF"
     }
   ];
 
   const sizeOptions = [
-    { value: "2x3", label: "2 ft x 3 ft (6 sq ft)" },
-    { value: "3x4", label: "3 ft x 4 ft (12 sq ft)" },
-    { value: "4x6", label: "4 ft x 6 ft (24 sq ft)" },
-    { value: "6x8", label: "6 ft x 8 ft (48 sq ft)" },
-    { value: "8x10", label: "8 ft x 10 ft (80 sq ft)" },
+    { value: "8.5x11", label: "8.5\" x 11\" (Standard)" },
+    { value: "11x14", label: "11\" x 14\" (Large)" },
+    { value: "8x10", label: "8\" x 10\" (Medium)" },
     { value: "custom", label: "Custom Size" }
   ];
 
-  const materialOptions = [
-    { value: "standard", label: "Standard Vinyl" },
-    { value: "outdoor", label: "Outdoor Vinyl" },
-    { value: "premium", label: "Premium Vinyl" },
-    { value: "transparent", label: "Transparent Vinyl" },
-    { value: "reflective", label: "Reflective Vinyl" }
+  const paperOptions = [
+    { value: "standard", label: "Standard Paper (80 GSM)" },
+    { value: "premium", label: "Premium Paper (100 GSM)" },
+    { value: "cardstock", label: "Cardstock (200 GSM)" },
+    { value: "parchment", label: "Parchment Paper" },
+    { value: "certificate", label: "Certificate Paper" }
   ];
 
-  const selectedTypeData = vinylTypes.find(type => type.name === selectedType);
+  const selectedTypeData = certificateTypes.find(type => type.name === selectedType);
 
   return (
     <main className="min-h-screen bg-white">
@@ -68,24 +66,24 @@ export default function VinylPrintingPage() {
             <div className="text-center mb-12">
               <div className="inline-flex items-center gap-2 bg-primary/10 text-primary px-4 py-2 rounded-full text-sm font-semibold mb-6">
                 <Zap className="h-4 w-4" />
-                <span>Professional Vinyl Printing</span>
+                <span>Professional Certificates</span>
               </div>
               <h1 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground leading-tight mb-4">
-                Durable Vinyl Prints That Last
+                Recognition & Achievement Certificates
               </h1>
               <p className="text-lg text-muted-foreground max-w-2xl mx-auto mb-8">
-                Professional vinyl printing services with weather-resistant materials and high-resolution designs for indoor and outdoor use.
+                Professional certificate designs for recognition, achievement, and corporate awards with elegant layouts and premium materials.
               </p>
               
               {/* Trust Indicators - Compact */}
               <div className="flex flex-wrap justify-center items-center gap-6 mb-8">
                 <div className="flex items-center gap-2 bg-card px-4 py-2 rounded-full">
                   <Star className="h-4 w-4 text-amber-500 fill-current" />
-                  <span className="text-sm font-semibold text-card-foreground">4.7/5 Rating</span>
+                  <span className="text-sm font-semibold text-card-foreground">4.8/5 Rating</span>
                 </div>
                 <div className="flex items-center gap-2 bg-card px-4 py-2 rounded-full">
                   <Users className="h-4 w-4 text-primary" />
-                  <span className="text-sm font-semibold text-card-foreground">600+ Prints</span>
+                  <span className="text-sm font-semibold text-card-foreground">300+ Certificates</span>
                 </div>
                 <div className="flex items-center gap-2 bg-card px-4 py-2 rounded-full">
                   <Clock className="h-4 w-4 text-primary" />
@@ -97,11 +95,11 @@ export default function VinylPrintingPage() {
               <div className="flex flex-col sm:flex-row gap-4 justify-center">
                 <Button size="lg" className="bg-primary hover:bg-primary/90 text-primary-foreground px-6 py-3 rounded-full">
                   <ShoppingCart className="mr-2 h-4 w-4" />
-                  Design Your Vinyl Print
+                  Design Your Certificate
                 </Button>
                 <Button size="lg" variant="outline" className="border-primary text-primary hover:bg-primary hover:text-primary-foreground px-6 py-3 rounded-full" onClick={() => window.location.href = "/our-works"}>
                   <ArrowRight className="mr-2 h-4 w-4" />
-                  View Gallery
+                  View Samples
                 </Button>
               </div>
             </div>
@@ -110,24 +108,24 @@ export default function VinylPrintingPage() {
             <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
               <div className="bg-card rounded-2xl p-4 text-center shadow-lg hover:shadow-xl transition-all duration-300">
                 <div className="w-12 h-12 bg-primary/10 rounded-xl flex items-center justify-center mx-auto mb-3 shadow-md">
-                  <Shield className="h-6 w-6 text-primary" />
+                  <Award className="h-6 w-6 text-primary" />
                 </div>
-                <h3 className="font-semibold text-card-foreground text-sm mb-1">Weather Resistant</h3>
-                <p className="text-xs text-muted-foreground">Durable materials</p>
+                <h3 className="font-semibold text-card-foreground text-sm mb-1">Elegant Design</h3>
+                <p className="text-xs text-muted-foreground">Professional layouts</p>
               </div>
               <div className="bg-card rounded-2xl p-4 text-center shadow-lg hover:shadow-xl transition-all duration-300">
                 <div className="w-12 h-12 bg-accent rounded-xl flex items-center justify-center mx-auto mb-3 shadow-md">
-                  <Ruler className="h-6 w-6 text-accent-foreground" />
+                  <GraduationCap className="h-6 w-6 text-accent-foreground" />
                 </div>
-                <h3 className="font-semibold text-card-foreground text-sm mb-1">Custom Sizes</h3>
-                <p className="text-xs text-muted-foreground">Any size you need</p>
+                <h3 className="font-semibold text-card-foreground text-sm mb-1">Recognition</h3>
+                <p className="text-xs text-muted-foreground">Achievement awards</p>
               </div>
               <div className="bg-card rounded-2xl p-4 text-center shadow-lg hover:shadow-xl transition-all duration-300">
                 <div className="w-12 h-12 bg-secondary rounded-xl flex items-center justify-center mx-auto mb-3 shadow-md">
-                  <Palette className="h-6 w-6 text-secondary-foreground" />
+                  <FileText className="h-6 w-6 text-secondary-foreground" />
                 </div>
-                <h3 className="font-semibold text-card-foreground text-sm mb-1">High Resolution</h3>
-                <p className="text-xs text-muted-foreground">300 DPI quality</p>
+                <h3 className="font-semibold text-card-foreground text-sm mb-1">Standard Size</h3>
+                <p className="text-xs text-muted-foreground">8.5" x 11"</p>
               </div>
               <div className="bg-card rounded-2xl p-4 text-center shadow-lg hover:shadow-xl transition-all duration-300">
                 <div className="w-12 h-12 bg-accent rounded-xl flex items-center justify-center mx-auto mb-3 shadow-md">
@@ -141,21 +139,21 @@ export default function VinylPrintingPage() {
         </div>
       </section>
 
-      {/* Vinyl Types - Compact & Beautiful */}
+      {/* Certificate Types - Compact & Beautiful */}
       <section className="py-16 bg-secondary/10">
         <div className="container mx-auto px-4">
           <div className="max-w-6xl mx-auto">
             <div className="text-center mb-12">
               <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
-                Choose Your Vinyl Type
+                Choose Your Certificate Type
               </h2>
               <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                Professional vinyl printing with weather-resistant materials and high-resolution designs for every need.
+                Professional certificate designs for recognition, achievement, and corporate awards with elegant layouts.
               </p>
             </div>
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              {vinylTypes.map((type, index) => (
+              {certificateTypes.map((type, index) => (
                 <Card 
                   key={index} 
                   className={`group relative overflow-hidden bg-card transition-all duration-300 hover:shadow-2xl hover:-translate-y-1 rounded-3xl shadow-lg ${
@@ -175,7 +173,7 @@ export default function VinylPrintingPage() {
 
                   <CardHeader className="text-center pt-6 pb-4">
                     <div className="w-16 h-16 mx-auto mb-4 rounded-2xl overflow-hidden shadow-md bg-gradient-to-br from-accent to-secondary flex items-center justify-center">
-                      <img src={`/assets/flex${index + 1}.jpg`} alt={type.name} className="w-10 h-10 object-cover" />
+                      <img src={`/assets/poster${index + 1}.png`} alt={type.name} className="w-10 h-10 object-cover" />
                     </div>
                     <CardTitle className="text-xl font-bold text-card-foreground mb-2">{type.name}</CardTitle>
                     <div className="space-y-1 mb-3">
@@ -235,20 +233,20 @@ export default function VinylPrintingPage() {
                 <CardHeader>
                   <CardTitle className="text-2xl sm:text-3xl text-center">Customize Your {selectedType}</CardTitle>
                   <CardDescription className="text-center">
-                    Choose size and material for your vinyl print
+                    Choose size and paper quality for your certificate
                   </CardDescription>
                 </CardHeader>
                 <CardContent className="space-y-8">
                   {/* Size Selection */}
                   <div className="space-y-6">
                     <h3 className="text-xl font-semibold text-gray-900 flex items-center gap-2">
-                      <Ruler className="h-5 w-5 text-primary" />
-                      Vinyl Size
+                      <Award className="h-5 w-5 text-primary" />
+                      Certificate Size
                     </h3>
                     <div>
                       <Select value={selectedSize} onValueChange={setSelectedSize}>
                         <SelectTrigger className="w-full">
-                          <SelectValue placeholder="Select vinyl size" />
+                          <SelectValue placeholder="Select certificate size" />
                         </SelectTrigger>
                         <SelectContent>
                           {sizeOptions.map((option) => (
@@ -261,19 +259,19 @@ export default function VinylPrintingPage() {
                     </div>
                   </div>
 
-                  {/* Material Selection */}
+                  {/* Paper Selection */}
                   <div className="space-y-6">
                     <h3 className="text-xl font-semibold text-gray-900 flex items-center gap-2">
-                      <Shield className="h-5 w-5 text-primary" />
-                      Material Type
+                      <FileText className="h-5 w-5 text-primary" />
+                      Paper Quality
                     </h3>
                     <div>
-                      <Select value={selectedMaterial} onValueChange={setSelectedMaterial}>
+                      <Select value={selectedPaper} onValueChange={setSelectedPaper}>
                         <SelectTrigger className="w-full">
-                          <SelectValue placeholder="Select material type" />
+                          <SelectValue placeholder="Select paper quality" />
                         </SelectTrigger>
                         <SelectContent>
-                          {materialOptions.map((option) => (
+                          {paperOptions.map((option) => (
                             <SelectItem key={option.value} value={option.value}>
                               {option.label}
                             </SelectItem>
@@ -288,7 +286,7 @@ export default function VinylPrintingPage() {
                     <h3 className="text-xl font-semibold text-gray-900 mb-4">Order Summary</h3>
                     <div className="space-y-2">
                       <div className="flex justify-between">
-                        <span>Vinyl Type:</span>
+                        <span>Certificate Type:</span>
                         <span className="font-semibold">{selectedType}</span>
                       </div>
                       <div className="flex justify-between">
@@ -301,10 +299,10 @@ export default function VinylPrintingPage() {
                           <span className="font-semibold">{sizeOptions.find(opt => opt.value === selectedSize)?.label}</span>
                         </div>
                       )}
-                      {selectedMaterial && (
+                      {selectedPaper && (
                         <div className="flex justify-between">
-                          <span>Material:</span>
-                          <span className="font-semibold">{materialOptions.find(opt => opt.value === selectedMaterial)?.label}</span>
+                          <span>Paper Quality:</span>
+                          <span className="font-semibold">{paperOptions.find(opt => opt.value === selectedPaper)?.label}</span>
                         </div>
                       )}
                     </div>
@@ -344,44 +342,44 @@ export default function VinylPrintingPage() {
           <div className="max-w-5xl mx-auto">
             <div className="text-center mb-12">
               <h2 className="text-3xl sm:text-4xl font-bold text-foreground mb-4">
-                Why Choose Our Vinyl Printing?
+                Why Choose Our Certificates?
               </h2>
               <p className="text-lg text-muted-foreground max-w-2xl mx-auto">
-                Professional vinyl printing with weather-resistant materials and high-resolution designs for every need.
+                Professional certificate designs for recognition, achievement, and corporate awards with elegant layouts.
               </p>
             </div>
             
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               <div className="text-center group">
                 <div className="w-16 h-16 bg-gradient-to-br from-secondary to-accent rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg">
-                  <Shield className="h-8 w-8 text-primary" />
+                  <Award className="h-8 w-8 text-primary" />
                 </div>
-                <h3 className="text-lg font-bold text-foreground mb-2">Weather Resistant</h3>
-                <p className="text-sm text-muted-foreground">Durable materials that withstand weather conditions.</p>
+                <h3 className="text-lg font-bold text-foreground mb-2">Elegant Design</h3>
+                <p className="text-sm text-muted-foreground">Professional and elegant certificate designs.</p>
               </div>
               
               <div className="text-center group">
                 <div className="w-16 h-16 bg-gradient-to-br from-accent to-secondary rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg">
-                  <Ruler className="h-8 w-8 text-accent-foreground" />
+                  <GraduationCap className="h-8 w-8 text-accent-foreground" />
                 </div>
-                <h3 className="text-lg font-bold text-foreground mb-2">Custom Sizes</h3>
-                <p className="text-sm text-muted-foreground">Any size you need for your vinyl prints.</p>
+                <h3 className="text-lg font-bold text-foreground mb-2">Recognition</h3>
+                <p className="text-sm text-muted-foreground">Perfect for achievement and recognition.</p>
               </div>
               
               <div className="text-center group">
                 <div className="w-16 h-16 bg-gradient-to-br from-secondary to-accent rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg">
-                  <Palette className="h-8 w-8 text-primary" />
+                  <Clock className="h-8 w-8 text-primary" />
                 </div>
-                <h3 className="text-lg font-bold text-foreground mb-2">High Resolution</h3>
-                <p className="text-sm text-muted-foreground">High-resolution designs with professional quality.</p>
+                <h3 className="text-lg font-bold text-foreground mb-2">Fast Delivery</h3>
+                <p className="text-sm text-muted-foreground">Quick turnaround times when you need them.</p>
               </div>
 
               <div className="text-center group">
                 <div className="w-16 h-16 bg-gradient-to-br from-accent to-secondary rounded-2xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg">
-                  <Clock className="h-8 w-8 text-accent-foreground" />
+                  <Shield className="h-8 w-8 text-accent-foreground" />
                 </div>
-                <h3 className="text-lg font-bold text-foreground mb-2">Fast Delivery</h3>
-                <p className="text-sm text-muted-foreground">Quick turnaround times when you need them.</p>
+                <h3 className="text-lg font-bold text-foreground mb-2">Premium Quality</h3>
+                <p className="text-sm text-muted-foreground">High-quality materials and printing.</p>
               </div>
             </div>
           </div>
@@ -393,19 +391,19 @@ export default function VinylPrintingPage() {
         <div className="container mx-auto px-4">
           <div className="max-w-3xl mx-auto text-center">
             <h2 className="text-3xl sm:text-4xl font-bold text-primary-foreground mb-4">
-              Ready to Create Your Vinyl Prints?
+              Ready to Create Your Professional Certificates?
             </h2>
             <p className="text-lg text-primary-foreground/80 mb-8 max-w-xl mx-auto">
-              Join hundreds of businesses who trust us with their vinyl printing needs.
+              Join hundreds of organizations who trust us with their certificate designs.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Button size="lg" className="bg-background text-foreground hover:bg-background/90 px-6 py-3 rounded-full font-semibold">
                 <ShoppingCart className="mr-2 h-4 w-4" />
-                Design Your Vinyl Prints Now
+                Design Your Certificates Now
               </Button>
               <Button size="lg" variant="outline" className="border-primary-foreground text-primary-foreground hover:bg-primary-foreground hover:text-primary px-6 py-3 rounded-full font-semibold" onClick={() => window.location.href = "/our-works"}>
                 <ArrowRight className="mr-2 h-4 w-4" />
-                View Our Gallery
+                View Our Samples
               </Button>
             </div>
           </div>

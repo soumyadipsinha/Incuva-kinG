@@ -1,12 +1,14 @@
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { ArrowRight, CheckCircle, Star, Users, Award, Clock, Zap, Shield, Heart, Palette, FileText, Camera, Share2, Target, Lightbulb, Globe, Package, Truck, ShoppingCart, Plus } from "lucide-react";
+import { ArrowRight, CheckCircle, Star, Users, Award, Clock, Zap, Shield, Heart, Palette, FileText, Camera, Share2, Target, Lightbulb, Globe, Package, Truck, ShoppingCart, Plus, Eye } from "lucide-react";
 import { useCart } from "@/context/CartContext";
+import { useNavigate } from "react-router-dom";
 
 export default function AboutPage() {
   // Use global cart context
   const { addToCart } = useCart();
+  const navigate = useNavigate();
 
   // Portfolio items with cart functionality
   const portfolioItems = [
@@ -238,14 +240,14 @@ export default function AboutPage() {
       <section className="relative bg-gradient-to-br from-primary/10 via-secondary/20 to-accent/10 py-12 sm:py-16 md:py-20 overflow-hidden">
         {/* Animated background elements */}
         <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-20 left-10 w-20 h-20 bg-primary/20 rounded-full animate-pulse"></div>
-          <div className="absolute top-40 right-20 w-16 h-16 bg-accent/20 rounded-full animate-bounce"></div>
-          <div className="absolute bottom-20 left-1/4 w-12 h-12 bg-secondary/20 rounded-full animate-ping"></div>
+          <div className="absolute top-20 left-10 w-20 h-20 bg-primary/20 rounded-2xl animate-pulse"></div>
+          <div className="absolute top-40 right-20 w-16 h-16 bg-accent/20 rounded-2xl animate-bounce"></div>
+          <div className="absolute bottom-20 left-1/4 w-12 h-12 bg-secondary/20 rounded-2xl animate-ping"></div>
         </div>
         
         <div className="mx-auto max-w-7xl px-4 relative">
           <div className="text-center">
-            <h1 className="text-3xl sm:text-4xl md:text-6xl font-bold text-primary mb-4 sm:mb-6 animate-fade-in-up">
+            <h1 className="text-4xl sm:text-5xl md:text-7xl font-bold text-primary mb-4 sm:mb-6 animate-fade-in-up">
               About <span className="font-black bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Incuva</span>
             </h1>
             <p className="text-lg sm:text-xl text-gray-700 max-w-3xl mx-auto mb-6 sm:mb-8 px-4 animate-fade-in-up animation-delay-200">
@@ -269,10 +271,10 @@ export default function AboutPage() {
           <div className="grid grid-cols-1 md:grid-cols-2 gap-8 sm:gap-12">
             <Card className="p-6 sm:p-8">
               <div className="flex items-center gap-3 sm:gap-4 mb-4 sm:mb-6">
-                <div className="p-2 sm:p-3 bg-primary/10 rounded-lg">
+                <div className="p-2 sm:p-3 bg-primary/10 rounded-2xl">
                   <Target className="h-6 w-6 sm:h-8 sm:w-8 text-primary" />
                 </div>
-                <h2 className="text-xl sm:text-2xl font-bold text-primary">Our Mission</h2>
+                <h2 className="text-2xl sm:text-3xl font-bold text-primary animate-fade-in-up">Our Mission</h2>
               </div>
               <p className="text-gray-700 text-base sm:text-lg leading-relaxed">
                 To make professional design and printing services accessible, affordable, and impactful for everyone — helping brands communicate better, connect deeper, and grow faster.
@@ -281,10 +283,10 @@ export default function AboutPage() {
 
             <Card className="p-6 sm:p-8">
               <div className="flex items-center gap-3 sm:gap-4 mb-4 sm:mb-6">
-                <div className="p-2 sm:p-3 bg-accent/10 rounded-lg">
+                <div className="p-2 sm:p-3 bg-accent/10 rounded-2xl">
                   <Lightbulb className="h-6 w-6 sm:h-8 sm:w-8 text-accent" />
                 </div>
-                <h2 className="text-xl sm:text-2xl font-bold text-primary">Our Vision</h2>
+                <h2 className="text-2xl sm:text-3xl font-bold text-primary animate-fade-in-up">Our Vision</h2>
               </div>
               <p className="text-gray-700 text-base sm:text-lg leading-relaxed">
                 To be India's most trusted creative design and printing brand by empowering businesses with visually stunning, high-quality, and cost-effective branding solutions.
@@ -298,20 +300,20 @@ export default function AboutPage() {
       <section className="bg-secondary/30 py-12 sm:py-16 relative overflow-hidden">
         {/* Animated background elements */}
         <div className="absolute inset-0 pointer-events-none">
-          <div className="absolute top-10 right-10 w-32 h-32 bg-primary/10 rounded-full animate-pulse"></div>
-          <div className="absolute bottom-10 left-10 w-24 h-24 bg-accent/10 rounded-full animate-bounce"></div>
+          <div className="absolute top-10 right-10 w-32 h-32 bg-primary/10 rounded-2xl animate-pulse"></div>
+          <div className="absolute bottom-10 left-10 w-24 h-24 bg-accent/10 rounded-2xl animate-bounce"></div>
         </div>
         
         <div className="mx-auto max-w-7xl px-4 relative">
           <div className="text-center mb-8 sm:mb-12">
-            <h2 className="text-2xl sm:text-3xl font-bold text-primary mb-4 animate-fade-in-up">Trusted by Thousands</h2>
+            <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold text-primary mb-4 animate-fade-in-up">Trusted by Thousands</h2>
             <p className="text-gray-700 px-4 animate-fade-in-up animation-delay-200">Join our growing community of satisfied clients</p>
           </div>
           <div className="grid grid-cols-2 md:grid-cols-4 gap-6 sm:gap-8">
             {stats.map((stat, index) => (
               <div key={index} className={`text-center hover:scale-105 transition-transform duration-300 animate-fade-in-up animation-delay-${(index + 1) * 200}`}>
                 <div className="flex justify-center mb-3 sm:mb-4">
-                  <div className="p-2 sm:p-3 bg-primary/10 rounded-full hover:bg-primary/20 transition-colors duration-300">
+                  <div className="p-2 sm:p-3 bg-primary/10 rounded-2xl hover:bg-primary/20 transition-colors duration-300">
                     {stat.icon}
                   </div>
                 </div>
@@ -327,7 +329,7 @@ export default function AboutPage() {
       <section className="py-16">
         <div className="mx-auto max-w-7xl px-4">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-primary mb-4 animate-fade-in-up">What We Offer</h2>
+            <h2 className="text-4xl sm:text-5xl font-bold text-primary mb-4 animate-fade-in-up">What We Offer</h2>
             <p className="text-gray-700 max-w-2xl mx-auto animate-fade-in-up animation-delay-200">
               From creative design to premium printing, we cover all your branding needs under one roof.
             </p>
@@ -337,7 +339,7 @@ export default function AboutPage() {
             {services.map((service, index) => (
               <Card key={index} className={`p-6 hover:shadow-xl transition-all duration-300 hover:-translate-y-2 rounded-2xl animate-fade-in-up animation-delay-${(index + 1) * 200}`}>
                 <div className="flex items-center gap-4 mb-4">
-                  <div className="p-2 bg-primary/10 rounded-lg hover:bg-primary/20 transition-colors duration-300">
+                  <div className="p-2 bg-primary/10 rounded-2xl hover:bg-primary/20 transition-colors duration-300">
                     {service.icon}
                   </div>
                   <h3 className="text-lg font-semibold text-primary group-hover:text-primary/80 transition-colors">{service.title}</h3>
@@ -359,7 +361,7 @@ export default function AboutPage() {
       <section className="bg-secondary/30 py-16">
         <div className="mx-auto max-w-7xl px-4">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-primary mb-4">Complete Printing Solutions</h2>
+            <h2 className="text-4xl sm:text-5xl font-bold text-primary mb-4 animate-fade-in-up">Complete Printing Solutions</h2>
             <p className="text-gray-700 max-w-2xl mx-auto">
               From small business cards to large-scale banners, we handle all your printing needs with precision and quality.
             </p>
@@ -380,7 +382,7 @@ export default function AboutPage() {
       <section className="py-16">
         <div className="mx-auto max-w-7xl px-4">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-primary mb-4">Why Choose Incuva?</h2>
+            <h2 className="text-4xl sm:text-5xl font-bold text-primary mb-4 animate-fade-in-up">Why Choose Incuva?</h2>
             <p className="text-gray-700 max-w-2xl mx-auto">
               We combine creativity, technology, and customer focus to deliver exceptional results every time.
             </p>
@@ -404,7 +406,7 @@ export default function AboutPage() {
       <section id="portfolio" className="py-16">
         <div className="mx-auto max-w-7xl px-4">
           <div className="text-center mb-12">
-            <h2 className="text-3xl font-bold text-primary mb-4">View Our Best Works</h2>
+            <h2 className="text-4xl sm:text-5xl font-bold text-primary mb-4 animate-fade-in-up">View Our Best Works</h2>
             <p className="text-gray-700 max-w-2xl mx-auto">
               Explore our portfolio of creative designs, printing solutions, and branding work that has helped businesses stand out.
             </p>
@@ -412,7 +414,7 @@ export default function AboutPage() {
 
           {/* Posters & Flyers Section */}
           <div className="mb-12">
-            <h3 className="text-2xl font-semibold text-primary mb-6 text-center">Posters & Flyers</h3>
+            <h3 className="text-3xl sm:text-4xl font-semibold text-primary mb-6 text-center animate-fade-in-up">Posters & Flyers</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {portfolioItems.filter(item => item.category === "Posters & Flyers").map((item, index) => (
                 <Card key={item.id} className="group overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-2 rounded-2xl">
@@ -426,11 +428,11 @@ export default function AboutPage() {
                     <div className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-all duration-300">
                       <Button
                         size="sm"
-                        className="rounded-full bg-white/90 hover:bg-white text-primary shadow-lg"
-                        onClick={() => addToCart(item)}
+                        className="rounded-2xl bg-white/90 hover:bg-white text-primary shadow-lg"
+                        onClick={() => navigate(`/product/${item.id}`)}
                       >
-                        <ShoppingCart className="w-4 h-4 mr-1" />
-                        Add to Cart
+                        <Eye className="w-4 h-4 mr-1" />
+                        View Details
                       </Button>
                     </div>
                     <div className="absolute bottom-3 left-3 opacity-0 group-hover:opacity-100 transition-all duration-300">
@@ -454,7 +456,7 @@ export default function AboutPage() {
 
           {/* Business Cards Section */}
           <div className="mb-12">
-            <h3 className="text-2xl font-semibold text-primary mb-6 text-center">Business Cards</h3>
+            <h3 className="text-3xl sm:text-4xl font-semibold text-primary mb-6 text-center animate-fade-in-up">Business Cards</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
               {portfolioItems.filter(item => item.category === "Business Cards").map((item, index) => (
                 <Card key={item.id} className="group overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-2 rounded-2xl">
@@ -468,11 +470,11 @@ export default function AboutPage() {
                     <div className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-all duration-300">
                       <Button
                         size="sm"
-                        className="rounded-full bg-white/90 hover:bg-white text-primary shadow-lg"
-                        onClick={() => addToCart(item)}
+                        className="rounded-2xl bg-white/90 hover:bg-white text-primary shadow-lg"
+                        onClick={() => navigate(`/product/${item.id}`)}
                       >
-                        <ShoppingCart className="w-4 h-4 mr-1" />
-                        Add to Cart
+                        <Eye className="w-4 h-4 mr-1" />
+                        View Details
                       </Button>
                     </div>
                     <div className="absolute bottom-3 left-3 opacity-0 group-hover:opacity-100 transition-all duration-300">
@@ -496,7 +498,7 @@ export default function AboutPage() {
 
           {/* Brochures Section */}
           <div className="mb-12">
-            <h3 className="text-2xl font-semibold text-primary mb-6 text-center">Brochures & Catalogs</h3>
+            <h3 className="text-3xl sm:text-4xl font-semibold text-primary mb-6 text-center animate-fade-in-up">Brochures & Catalogs</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {portfolioItems.filter(item => item.category === "Brochures & Catalogs").map((item, index) => (
                 <Card key={item.id} className="group overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-2 rounded-2xl">
@@ -510,11 +512,11 @@ export default function AboutPage() {
                     <div className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-all duration-300">
                       <Button
                         size="sm"
-                        className="rounded-full bg-white/90 hover:bg-white text-primary shadow-lg"
-                        onClick={() => addToCart(item)}
+                        className="rounded-2xl bg-white/90 hover:bg-white text-primary shadow-lg"
+                        onClick={() => navigate(`/product/${item.id}`)}
                       >
-                        <ShoppingCart className="w-4 h-4 mr-1" />
-                        Add to Cart
+                        <Eye className="w-4 h-4 mr-1" />
+                        View Details
                       </Button>
                     </div>
                     <div className="absolute bottom-3 left-3 opacity-0 group-hover:opacity-100 transition-all duration-300">
@@ -538,7 +540,7 @@ export default function AboutPage() {
 
           {/* Flex & Banners Section */}
           <div className="mb-12">
-            <h3 className="text-2xl font-semibold text-primary mb-6 text-center">Flex & Banners</h3>
+            <h3 className="text-3xl sm:text-4xl font-semibold text-primary mb-6 text-center animate-fade-in-up">Flex & Banners</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {portfolioItems.filter(item => item.category === "Flex & Banners").map((item, index) => (
                 <Card key={item.id} className="group overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-2 rounded-2xl">
@@ -552,11 +554,11 @@ export default function AboutPage() {
                     <div className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-all duration-300">
                       <Button
                         size="sm"
-                        className="rounded-full bg-white/90 hover:bg-white text-primary shadow-lg"
-                        onClick={() => addToCart(item)}
+                        className="rounded-2xl bg-white/90 hover:bg-white text-primary shadow-lg"
+                        onClick={() => navigate(`/product/${item.id}`)}
                       >
-                        <ShoppingCart className="w-4 h-4 mr-1" />
-                        Add to Cart
+                        <Eye className="w-4 h-4 mr-1" />
+                        View Details
                       </Button>
                     </div>
                     <div className="absolute bottom-3 left-3 opacity-0 group-hover:opacity-100 transition-all duration-300">
@@ -580,23 +582,23 @@ export default function AboutPage() {
 
           {/* Social Media & Reels Section */}
           <div className="mb-12">
-            <h3 className="text-2xl font-semibold text-primary mb-6 text-center">Social Media & Reels</h3>
+            <h3 className="text-3xl sm:text-4xl font-semibold text-primary mb-6 text-center animate-fade-in-up">Social Media & Reels</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              <div className="aspect-[4/3] rounded-lg overflow-hidden border shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105 cursor-pointer">
+              <div className="aspect-[4/3] rounded-2xl overflow-hidden border shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105 cursor-pointer">
                 <img 
                   src="/assets/White Modern Travel Instagram Post.png" 
                   alt="Social Media Post 1"
                   className="w-full h-full object-cover"
                 />
               </div>
-              <div className="aspect-[4/3] rounded-lg overflow-hidden border shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105 cursor-pointer">
+              <div className="aspect-[4/3] rounded-2xl overflow-hidden border shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105 cursor-pointer">
                 <img 
                   src="/assets/White Modern Travel Instagram Post.png" 
                   alt="Social Media Post 2"
                   className="w-full h-full object-cover"
                 />
               </div>
-              <div className="aspect-[4/3] rounded-lg overflow-hidden border shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105 cursor-pointer">
+              <div className="aspect-[4/3] rounded-2xl overflow-hidden border shadow-md hover:shadow-lg transition-all duration-300 hover:scale-105 cursor-pointer">
                 <img 
                   src="/assets/White Modern Travel Instagram Post.png" 
                   alt="Social Media Post 3"
@@ -608,9 +610,9 @@ export default function AboutPage() {
 
           {/* Video Reels Section */}
           <div className="mb-8">
-            <h4 className="text-xl font-semibold text-primary mb-4 text-center">Video Reels</h4>
+            <h4 className="text-2xl sm:text-3xl font-semibold text-primary mb-4 text-center animate-fade-in-up">Video Reels</h4>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
-              <div className="relative group bg-gray-100 rounded-lg overflow-hidden">
+              <div className="relative group bg-gray-100 rounded-2xl overflow-hidden">
                 <video
                   className="w-full h-64 object-cover"
                   controls
@@ -623,7 +625,7 @@ export default function AboutPage() {
                     target.style.display = 'none';
                     const parent = target.parentElement;
                     if (parent) {
-                      parent.innerHTML = '<div class="w-full h-64 flex items-center justify-center bg-gray-200 rounded-lg"><p class="text-gray-600">Video not available</p></div>';
+                      parent.innerHTML = '<div class="w-full h-64 flex items-center justify-center bg-gray-200 rounded-2xl"><p class="text-gray-600">Video not available</p></div>';
                     }
                   }}
                 >
@@ -632,7 +634,7 @@ export default function AboutPage() {
                   Your browser does not support the video tag.
                 </video>
               </div>
-              <div className="relative group bg-gray-100 rounded-lg overflow-hidden">
+              <div className="relative group bg-gray-100 rounded-2xl overflow-hidden">
                 <video
                   className="w-full h-64 object-cover"
                   controls
@@ -645,7 +647,7 @@ export default function AboutPage() {
                     target.style.display = 'none';
                     const parent = target.parentElement;
                     if (parent) {
-                      parent.innerHTML = '<div class="w-full h-64 flex items-center justify-center bg-gray-200 rounded-lg"><p class="text-gray-600">Video not available</p></div>';
+                      parent.innerHTML = '<div class="w-full h-64 flex items-center justify-center bg-gray-200 rounded-2xl"><p class="text-gray-600">Video not available</p></div>';
                     }
                   }}
                 >
@@ -654,7 +656,7 @@ export default function AboutPage() {
                   Your browser does not support the video tag.
                 </video>
               </div>
-              <div className="relative group bg-gray-100 rounded-lg overflow-hidden">
+              <div className="relative group bg-gray-100 rounded-2xl overflow-hidden">
                 <video
                   className="w-full h-64 object-cover"
                   controls
@@ -667,7 +669,7 @@ export default function AboutPage() {
                     target.style.display = 'none';
                     const parent = target.parentElement;
                     if (parent) {
-                      parent.innerHTML = '<div class="w-full h-64 flex items-center justify-center bg-gray-200 rounded-lg"><p class="text-gray-600">Video not available</p></div>';
+                      parent.innerHTML = '<div class="w-full h-64 flex items-center justify-center bg-gray-200 rounded-2xl"><p class="text-gray-600">Video not available</p></div>';
                     }
                   }}
                 >
@@ -676,7 +678,7 @@ export default function AboutPage() {
                   Your browser does not support the video tag.
                 </video>
                   </div>
-              <div className="relative group bg-gray-100 rounded-lg overflow-hidden">
+              <div className="relative group bg-gray-100 rounded-2xl overflow-hidden">
                 <video
                   className="w-full h-64 object-cover"
                   controls
@@ -689,7 +691,7 @@ export default function AboutPage() {
                     target.style.display = 'none';
                     const parent = target.parentElement;
                     if (parent) {
-                      parent.innerHTML = '<div class="w-full h-64 flex items-center justify-center bg-gray-200 rounded-lg"><p class="text-gray-600">Video not available</p></div>';
+                      parent.innerHTML = '<div class="w-full h-64 flex items-center justify-center bg-gray-200 rounded-2xl"><p class="text-gray-600">Video not available</p></div>';
                     }
                   }}
                 >
@@ -698,7 +700,7 @@ export default function AboutPage() {
                   Your browser does not support the video tag.
                 </video>
                   </div>
-              <div className="relative group bg-gray-100 rounded-lg overflow-hidden">
+              <div className="relative group bg-gray-100 rounded-2xl overflow-hidden">
                 <video
                   className="w-full h-64 object-cover"
                   controls
@@ -711,7 +713,7 @@ export default function AboutPage() {
                     target.style.display = 'none';
                     const parent = target.parentElement;
                     if (parent) {
-                      parent.innerHTML = '<div class="w-full h-64 flex items-center justify-center bg-gray-200 rounded-lg"><p class="text-gray-600">Video not available</p></div>';
+                      parent.innerHTML = '<div class="w-full h-64 flex items-center justify-center bg-gray-200 rounded-2xl"><p class="text-gray-600">Video not available</p></div>';
                     }
                   }}
                 >
@@ -725,7 +727,7 @@ export default function AboutPage() {
 
           {/* Logo Designs Section */}
           <div className="mb-12">
-            <h3 className="text-2xl font-semibold text-primary mb-6 text-center">Logo Designs</h3>
+            <h3 className="text-3xl sm:text-4xl font-semibold text-primary mb-6 text-center animate-fade-in-up">Logo Designs</h3>
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {portfolioItems.filter(item => item.category === "Logo Designs").map((item, index) => (
                 <Card key={item.id} className="group overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-2 rounded-2xl">
@@ -739,11 +741,11 @@ export default function AboutPage() {
                     <div className="absolute top-3 right-3 opacity-0 group-hover:opacity-100 transition-all duration-300">
                       <Button
                         size="sm"
-                        className="rounded-full bg-white/90 hover:bg-white text-primary shadow-lg"
-                        onClick={() => addToCart(item)}
+                        className="rounded-2xl bg-white/90 hover:bg-white text-primary shadow-lg"
+                        onClick={() => navigate(`/product/${item.id}`)}
                       >
-                        <ShoppingCart className="w-4 h-4 mr-1" />
-                        Add to Cart
+                        <Eye className="w-4 h-4 mr-1" />
+                        View Details
                       </Button>
                     </div>
                     <div className="absolute bottom-3 left-3 opacity-0 group-hover:opacity-100 transition-all duration-300">
@@ -771,7 +773,7 @@ export default function AboutPage() {
       <section className="bg-primary/5 py-16">
         <div className="mx-auto max-w-7xl px-4">
           <div className="text-center">
-            <h2 className="text-3xl font-bold text-primary mb-4">Ready to Create Something Amazing?</h2>
+            <h2 className="text-4xl sm:text-5xl font-bold text-primary mb-4 animate-fade-in-up">Ready to Create Something Amazing?</h2>
             <p className="text-xl text-gray-700 max-w-2xl mx-auto mb-8">
               Let's bring your vision to life with our professional design and printing services.
           </p>
@@ -780,7 +782,7 @@ export default function AboutPage() {
                 <a href="/services">Start Your Project</a>
             </Button>
               <Button size="lg" variant="outline" asChild>
-                <a href="/contact">Get Free Quote</a>
+                <a href="/requirements">Order Now</a>
             </Button>
             </div>
           </div>

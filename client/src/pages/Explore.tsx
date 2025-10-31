@@ -29,7 +29,7 @@ export default function Explore() {
                 <input
                   type="text"
                   placeholder="Search for printing services, design ideas, etc."
-                  className="w-full pl-10 pr-4 py-3 bg-gray-100 rounded-full border-0 focus:outline-none focus:ring-2 focus:ring-red-500"
+                  className="w-full pl-10 pr-4 py-3 bg-gray-100 rounded-2xl border-0 focus:outline-none focus:ring-2 focus:ring-red-500"
                 />
               </div>
             </div>
@@ -47,7 +47,7 @@ export default function Explore() {
           
           {/* Featured Cards */}
           <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8 transition-all duration-500 ease-in-out">
-             <Card className="relative overflow-hidden rounded-xl h-64 group cursor-pointer hover:-translate-y-1 hover:shadow-xl transition-all duration-300">
+             <Card className="relative overflow-hidden rounded-2xl h-64 group cursor-pointer hover:-translate-y-1 hover:shadow-xl transition-all duration-300">
                <a href="/explore/business-cards" className="block h-full">
                  <img 
                    src="https://picsum.photos/400/300?random=1" 
@@ -64,7 +64,7 @@ export default function Explore() {
                </a>
              </Card>
 
-            <Card className="relative overflow-hidden rounded-xl h-64 group cursor-pointer hover:-translate-y-1 hover:shadow-xl transition-all duration-300">
+            <Card className="relative overflow-hidden rounded-2xl h-64 group cursor-pointer hover:-translate-y-1 hover:shadow-xl transition-all duration-300">
               <a href="/explore/banners" className="block h-full">
                 <img 
                   src="https://picsum.photos/400/300?random=2" 
@@ -81,7 +81,7 @@ export default function Explore() {
               </a>
             </Card>
 
-            <Card className="relative overflow-hidden rounded-xl h-64 group cursor-pointer hover:-translate-y-1 hover:shadow-xl transition-all duration-300">
+            <Card className="relative overflow-hidden rounded-2xl h-64 group cursor-pointer hover:-translate-y-1 hover:shadow-xl transition-all duration-300">
               <a href="/explore/logo-design" className="block h-full">
                 <img 
                   src="https://picsum.photos/400/300?random=3" 
@@ -101,10 +101,10 @@ export default function Explore() {
             {/* Additional featured cards that show when "See more" is clicked */}
             {showMoreFeatured && (
               <>
-                <Card className="relative overflow-hidden rounded-xl h-64 group cursor-pointer hover:-translate-y-1 hover:shadow-xl transition-all duration-300">
-                  <a href="/services/album-printing" className="block h-full">
+                <Card className="relative overflow-hidden rounded-2xl h-64 group cursor-pointer hover:-translate-y-1 hover:shadow-xl transition-all duration-300">
+                  <a href="/explore/album-printing" className="block h-full">
                     <img 
-                      src="https://picsum.photos/400/300?random=4" 
+                      src="/assets/canverastylealbum1.png" 
                       alt="Wedding & Event Albums"
                       className="absolute inset-0 w-full h-full object-cover"
                     />
@@ -118,10 +118,10 @@ export default function Explore() {
                   </a>
                 </Card>
 
-                <Card className="relative overflow-hidden rounded-xl h-64 group cursor-pointer hover:-translate-y-1 hover:shadow-xl transition-all duration-300">
-                  <a href="/services/brochure-design" className="block h-full">
+                <Card className="relative overflow-hidden rounded-2xl h-64 group cursor-pointer hover:-translate-y-1 hover:shadow-xl transition-all duration-300">
+                  <a href="/explore/brochure-design" className="block h-full">
                     <img 
-                      src="https://picsum.photos/400/300?random=5" 
+                      src="/assets/broucher.png" 
                       alt="Brochure & Flyer Design"
                       className="absolute inset-0 w-full h-full object-cover"
                     />
@@ -135,8 +135,8 @@ export default function Explore() {
                   </a>
                 </Card>
 
-                <Card className="relative overflow-hidden rounded-xl h-64 group cursor-pointer hover:-translate-y-1 hover:shadow-xl transition-all duration-300">
-                  <a href="/services/vinyl-printing" className="block h-full">
+                <Card className="relative overflow-hidden rounded-2xl h-64 group cursor-pointer hover:-translate-y-1 hover:shadow-xl transition-all duration-300">
+                  <a href="/explore/vinyl-printing" className="block h-full">
                     <img 
                       src="https://picsum.photos/400/300?random=6" 
                       alt="Stickers & Decals"
@@ -157,7 +157,7 @@ export default function Explore() {
 
           <Button 
             variant="outline" 
-            className="rounded-full px-8"
+            className="rounded-2xl px-8"
             onClick={() => setShowMoreFeatured(!showMoreFeatured)}
           >
             {showMoreFeatured ? "Show less" : "See more"}
@@ -172,27 +172,27 @@ export default function Explore() {
             {/* Category Cards */}
             {[
               { name: "Printing", color: "from-orange-500 to-red-500" },
-              { name: "Design", color: "from-blue-500 to-purple-500" },
+              { name: "Design", color: "from-cyan-500 to-purple-500" },
               { name: "Branding", color: "from-green-500 to-teal-500" },
               { name: "Marketing", color: "from-pink-500 to-rose-500" },
-              { name: "Business Cards", color: "from-indigo-500 to-blue-500" },
+              { name: "Business Cards", color: "from-indigo-500 to-cyan-500" },
               { name: "Banners", color: "from-yellow-500 to-orange-500" },
               { name: "Brochures", color: "from-purple-500 to-pink-500" },
               { name: "Logos", color: "from-gray-500 to-slate-500" },
               // Additional categories that show when "See more" is clicked
               ...(showMoreCategories ? [
-                { name: "Flyers", color: "from-cyan-500 to-blue-500" },
-                { name: "Posters", color: "from-emerald-500 to-green-500" },
-                { name: "Stickers", color: "from-violet-500 to-purple-500" },
-                { name: "Albums", color: "from-rose-500 to-pink-500" },
-                { name: "Invitations", color: "from-amber-500 to-yellow-500" },
-                { name: "Labels", color: "from-teal-500 to-cyan-500" },
-                { name: "Packaging", color: "from-slate-500 to-gray-500" },
-                { name: "Signage", color: "from-red-500 to-rose-500" },
+                { name: "Poster Design", color: "from-cyan-500 to-cyan-500", link: "/explore/poster-flyer-design" },
+                { name: "Album Printing", color: "from-emerald-500 to-green-500", link: "/explore/album-printing" },
+                { name: "Vinyl Printing", color: "from-violet-500 to-purple-500", link: "/explore/vinyl-printing" },
+                { name: "Brochure Design", color: "from-rose-500 to-pink-500", link: "/explore/brochure-design" },
+                { name: "Corporate Branding", color: "from-amber-500 to-yellow-500", link: "/explore/corporate-branding" },
+                { name: "Flex Printing", color: "from-teal-500 to-cyan-500", link: "/explore/flex-printing" },
+                { name: "Logo Design", color: "from-slate-500 to-gray-500", link: "/explore/logo-design" },
+                { name: "Banner Design", color: "from-red-500 to-rose-500", link: "/explore/banners" },
               ] : []),
              ].map((category, index) => (
-               <Card key={index} className="relative overflow-hidden rounded-xl h-32 group cursor-pointer hover:-translate-y-1 hover:shadow-xl transition-all duration-300">
-                 <a href={`/services#${category.name.toLowerCase().replace(/\s+/g, '-')}`} className="block h-full">
+               <Card key={index} className="relative overflow-hidden rounded-2xl h-32 group cursor-pointer hover:-translate-y-1 hover:shadow-xl transition-all duration-300">
+                 <a href={category.link || `/services#${category.name.toLowerCase().replace(/\s+/g, '-')}`} className="block h-full">
                    <img 
                      src={`https://picsum.photos/300/200?random=${index + 10}`}
                      alt={category.name}
@@ -210,7 +210,7 @@ export default function Explore() {
           <div className="text-center">
             <Button 
               variant="outline" 
-              className="rounded-full px-8"
+              className="rounded-2xl px-8"
               onClick={() => setShowMoreCategories(!showMoreCategories)}
             >
               {showMoreCategories ? "Show less" : "See more"}
@@ -228,14 +228,14 @@ export default function Explore() {
               {
                 title: "25 Amazing Business Card Designs",
                 description: "Professional designs for every industry",
-                image: "bg-gradient-to-br from-blue-400 to-purple-500",
+                image: "bg-gradient-to-br from-cyan-400 to-purple-500",
                 height: "h-48",
                 category: "Business Cards"
               },
               {
                 title: "Logo Design Tutorial",
                 description: "Step-by-step guide to creating logos",
-                image: "bg-gradient-to-br from-green-400 to-blue-500",
+                image: "bg-gradient-to-br from-green-400 to-cyan-500",
                 height: "h-64",
                 category: "Logo Design"
               },
@@ -352,13 +352,13 @@ export default function Explore() {
                      {/* Pinterest-style action buttons */}
                      <div className="absolute top-2 right-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                        <div className="flex space-x-1">
-                         <Button size="icon" variant="secondary" className="w-8 h-8 rounded-full bg-white/90 hover:bg-white">
+                         <Button size="icon" variant="secondary" className="w-8 h-8 rounded-2xl bg-white/90 hover:bg-white">
                            <Heart className="w-4 h-4" />
                          </Button>
-                         <Button size="icon" variant="secondary" className="w-8 h-8 rounded-full bg-white/90 hover:bg-white">
+                         <Button size="icon" variant="secondary" className="w-8 h-8 rounded-2xl bg-white/90 hover:bg-white">
                            <Share2 className="w-4 h-4" />
                          </Button>
-                         <Button size="icon" variant="secondary" className="w-8 h-8 rounded-full bg-white/90 hover:bg-white">
+                         <Button size="icon" variant="secondary" className="w-8 h-8 rounded-2xl bg-white/90 hover:bg-white">
                            <MoreHorizontal className="w-4 h-4" />
                          </Button>
                        </div>
@@ -366,7 +366,7 @@ export default function Explore() {
                      
                      {/* Visit site button */}
                      <div className="absolute top-2 left-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                       <Button size="sm" className="bg-white/90 hover:bg-white text-black rounded-full">
+                       <Button size="sm" className="bg-white/90 hover:bg-white text-black rounded-2xl">
                          Visit site
                        </Button>
                      </div>
@@ -377,7 +377,7 @@ export default function Explore() {
                        <h3 className="font-bold text-lg text-gray-900 line-clamp-2">{pin.title}</h3>
                        <p className="text-gray-600 text-sm line-clamp-2">{pin.description}</p>
                        <div className="flex items-center justify-between">
-                         <span className="text-xs text-gray-500 bg-gray-100 px-2 py-1 rounded-full">{pin.category}</span>
+                         <span className="text-xs text-gray-500 bg-gray-100 px-2 py-1 rounded-2xl">{pin.category}</span>
                          <div className="flex items-center space-x-1 text-gray-400">
                            <span className="text-xs">Incuva</span>
                          </div>
@@ -393,7 +393,7 @@ export default function Explore() {
           <div className="text-center mt-8">
             <Button 
               variant="outline" 
-              className="rounded-full px-8"
+              className="rounded-2xl px-8"
               onClick={() => setShowMoreContent(!showMoreContent)}
             >
               {showMoreContent ? "Show less" : "See more"}

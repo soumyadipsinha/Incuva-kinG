@@ -2,7 +2,7 @@ import { Button } from "@/components/ui/button";
 
 export default function Footer() {
   return (
-    <footer className="w-full border-t bg-primary text-white rounded-t-2xl">
+    <footer className="w-full border-t bg-primary text-white rounded-t-3xl mt-16 sm:mt-20 md:mt-24">
       {/* Callout strip */}
       <div className="mx-auto max-w-7xl px-4 py-8 sm:py-10">
         <div className="grid grid-cols-1 gap-6 sm:gap-8 md:grid-cols-2">

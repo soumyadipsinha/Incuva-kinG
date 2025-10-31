@@ -5,84 +5,84 @@ import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { ArrowLeft, Download, Heart, Share2, Filter, Grid, List, Star, Eye, ShoppingCart } from "lucide-react";
 
-export default function FlexPrintingExplore() {
-  const flexDesigns = [
+export default function VinylPrintingExplore() {
+  const vinylDesigns = [
     {
       id: 1,
-      title: "Business Promotion Banner",
-      category: "Frontlit",
-      size: "3x6 feet",
-      price: 899,
+      title: "Custom Stickers",
+      category: "Stickers",
+      style: "Custom",
+      price: 299,
       image: "https://images.unsplash.com/photo-1505236858219-8359eb29e329?auto=format&fit=crop&w=600&q=60",
-      description: "High-quality frontlit flex banner for outdoor advertising",
-      tags: ["Business", "Promotion", "Outdoor"],
-      rating: 4.8,
-      downloads: 1250
-    },
-    {
-      id: 2,
-      title: "Event Banner Design",
-      category: "Backlit",
-      size: "4x8 feet",
-      price: 1299,
-      image: "/assets/flex3.jpg",
-      description: "Eye-catching backlit banner for events and exhibitions",
-      tags: ["Event", "Exhibition", "Backlit"],
-      rating: 4.9,
-      downloads: 2100
-    },
-    {
-      id: 3,
-      title: "Store Front Banner",
-      category: "Frontlit",
-      size: "2x4 feet",
-      price: 599,
-      image: "https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=600&q=60",
-      description: "Professional store front banner design",
-      tags: ["Store", "Retail", "Professional"],
-      rating: 4.7,
-      downloads: 890
-    },
-    {
-      id: 4,
-      title: "Festival Banner",
-      category: "Frontlit",
-      size: "5x10 feet",
-      price: 1899,
-      image: "/assets/flex1.jpg",
-      description: "Vibrant festival and celebration banner",
-      tags: ["Festival", "Celebration", "Colorful"],
+      description: "Custom vinyl stickers with your design and branding",
+      tags: ["Custom", "Stickers", "Branding"],
       rating: 4.9,
       downloads: 3200
     },
     {
-      id: 5,
-      title: "Corporate Banner",
-      category: "Backlit",
-      size: "3x6 feet",
-      price: 1099,
-      image: "/assets/flex2.jpg",
-      description: "Professional corporate branding banner",
-      tags: ["Corporate", "Professional", "Branding"],
+      id: 2,
+      title: "Vehicle Decals",
+      category: "Automotive",
+      style: "Professional",
+      price: 599,
+      image: "https://images.unsplash.com/photo-1600880292089-90e7e86ef2b6?auto=format&fit=crop&w=600&q=60",
+      description: "Professional vehicle decals for cars, trucks, and motorcycles",
+      tags: ["Vehicle", "Decals", "Professional"],
       rating: 4.8,
-      downloads: 1500
+      downloads: 1800
+    },
+    {
+      id: 3,
+      title: "Window Graphics",
+      category: "Windows",
+      style: "Transparent",
+      price: 799,
+      image: "https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=600&q=60",
+      description: "Transparent window graphics for storefronts and offices",
+      tags: ["Window", "Graphics", "Transparent"],
+      rating: 4.7,
+      downloads: 1200
+    },
+    {
+      id: 4,
+      title: "Wall Murals",
+      category: "Interior",
+      style: "Large Format",
+      price: 1999,
+      image: "https://images.unsplash.com/photo-1505236858219-8359eb29e329?auto=format&fit=crop&w=600&q=60",
+      description: "Large format wall murals for interior decoration",
+      tags: ["Wall", "Murals", "Interior"],
+      rating: 4.9,
+      downloads: 800
+    },
+    {
+      id: 5,
+      title: "Floor Graphics",
+      category: "Floor",
+      style: "Durable",
+      price: 1299,
+      image: "https://images.unsplash.com/photo-1600880292089-90e7e86ef2b6?auto=format&fit=crop&w=600&q=60",
+      description: "Durable floor graphics for retail and event spaces",
+      tags: ["Floor", "Graphics", "Durable"],
+      rating: 4.6,
+      downloads: 600
     },
     {
       id: 6,
-      title: "Sale Promotion Banner",
-      category: "Frontlit",
-      size: "2x3 feet",
-      price: 499,
-      image: "https://images.unsplash.com/photo-1600880292089-90e7e86ef2b6?auto=format&fit=crop&w=600&q=60",
-      description: "Attention-grabbing sale promotion banner",
-      tags: ["Sale", "Promotion", "Discount"],
-      rating: 4.6,
-      downloads: 1800
+      title: "Product Labels",
+      category: "Labels",
+      style: "Waterproof",
+      price: 199,
+      image: "https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?auto=format&fit=crop&w=600&q=60",
+      description: "Waterproof product labels for various applications",
+      tags: ["Product", "Labels", "Waterproof"],
+      rating: 4.8,
+      downloads: 2500
     }
   ];
 
-  const categories = ["All", "Frontlit", "Backlit", "Business", "Event", "Sale"];
-  const sizes = ["All Sizes", "2x3 feet", "3x6 feet", "4x8 feet", "5x10 feet", "Custom"];
+  const categories = ["All", "Stickers", "Automotive", "Windows", "Interior", "Floor", "Labels"];
+  const styles = ["All Styles", "Custom", "Professional", "Transparent", "Large Format", "Durable", "Waterproof"];
 
   return (
     <main className="min-h-screen bg-background">
@@ -104,11 +104,11 @@ export default function FlexPrintingExplore() {
               </a>
             </Button>
             <div className="animate-fade-in-up">
-              <h1 className="text-4xl sm:text-5xl md:text-6xl font-bold text-primary mb-2 animate-fade-in-up">
-                Flex Printing <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Designs</span>
+              <h1 className="text-3xl sm:text-4xl md:text-5xl font-bold text-primary mb-2">
+                Vinyl Printing <span className="bg-gradient-to-r from-primary to-accent bg-clip-text text-transparent">Services</span>
               </h1>
               <p className="text-lg text-muted-foreground animate-fade-in-up animation-delay-200">
-                Choose from our collection of professional flex banner designs
+                High-quality vinyl printing for stickers, decals, and graphics
               </p>
             </div>
           </div>
@@ -138,18 +138,18 @@ export default function FlexPrintingExplore() {
 
           <Select defaultValue="all">
             <SelectTrigger className="w-40">
-              <SelectValue placeholder="Size" />
+              <SelectValue placeholder="Style" />
             </SelectTrigger>
             <SelectContent>
-              {sizes.map((size) => (
-                <SelectItem key={size} value={size.toLowerCase()}>
-                  {size}
+              {styles.map((style) => (
+                <SelectItem key={style} value={style.toLowerCase()}>
+                  {style}
                 </SelectItem>
               ))}
             </SelectContent>
           </Select>
 
-          <Input placeholder="Search designs..." className="w-full sm:w-64" />
+          <Input placeholder="Search vinyl designs..." className="w-full sm:w-64" />
           
           <div className="ml-auto flex items-center gap-2">
             <Button variant="outline" size="sm">
@@ -163,7 +163,7 @@ export default function FlexPrintingExplore() {
 
         {/* Design Grid */}
         <div className="grid grid-cols-1 gap-4 sm:gap-6 md:gap-8 sm:grid-cols-2 lg:grid-cols-3">
-          {flexDesigns.map((design, index) => (
+          {vinylDesigns.map((design, index) => (
             <Card key={design.id} className={`group overflow-hidden hover:shadow-xl transition-all duration-300 hover:-translate-y-2 rounded-2xl animate-fade-in-up animation-delay-${(index + 1) * 200}`}>
               <div className="aspect-[4/3] w-full overflow-hidden bg-white relative">
                 <img
@@ -191,7 +191,7 @@ export default function FlexPrintingExplore() {
                     <CardTitle className="text-lg line-clamp-1">{design.title}</CardTitle>
                     <CardDescription className="mt-1">{design.description}</CardDescription>
                   </div>
-                  <Badge variant="outline">{design.category}</Badge>
+                  <Badge variant="outline">{design.style}</Badge>
                 </div>
               </CardHeader>
 
@@ -205,7 +205,7 @@ export default function FlexPrintingExplore() {
                     </div>
                     <div className="text-right">
                       <div className="text-lg font-bold text-primary">₹{design.price}</div>
-                      <div className="text-xs text-muted-foreground">{design.size}</div>
+                      <div className="text-xs text-muted-foreground">{design.category}</div>
                     </div>
                   </div>
 
@@ -219,10 +219,7 @@ export default function FlexPrintingExplore() {
 
                   <div className="flex gap-2">
                     <Button className="flex-1" size="sm" asChild>
-                      <a href="/requirements">
-                        <ShoppingCart className="mr-2 h-4 w-4" />
-                        Order Now
-                      </a>
+                      <a href="/requirements">Order Now</a>
                     </Button>
                     <Button variant="outline" size="sm">
                       <Eye className="h-4 w-4" />
