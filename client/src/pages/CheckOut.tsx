@@ -4,6 +4,7 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/com
 import { Input } from "@/components/ui/input";
 import { Select, SelectContent, SelectItem, SelectTrigger, SelectValue } from "@/components/ui/select";
 import { useCart } from "@/context/CartContext";
+import api from "@/services/api";
 import { CheckCircle, CreditCard, Truck, Shield } from "lucide-react";
 
 export default function CheckOutPage() {
@@ -30,10 +31,27 @@ export default function CheckOutPage() {
     }));
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setSubmitted(true);
-    clearCart();
+    try {
+      const response = await api.post('/api/cart/checkout', {
+        fullName: formData.fullName,
+        email: formData.email,
+        phone: formData.phone,
+        address: formData.address,
+        city: formData.city,
+        state: formData.state,
+        pincode: formData.pincode,
+        paymentMethod: formData.paymentMethod
+      });
+      
+      // Clear cart after successful order
+      await clearCart();
+      setSubmitted(true);
+    } catch (error: any) {
+      console.error('Checkout error:', error);
+      alert(error.message || 'Failed to place order. Please try again.');
+    }
   };
 
   if (submitted) {

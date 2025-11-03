@@ -54,7 +54,6 @@ export default function RequirementsPage() {
 
   const handleSubmit = () => {
     // Here you can process the form data
-    console.log("Form submitted:", formData);
     
     // Create email template with form data
     const subject = encodeURIComponent("Design Order Requirements - Incuva");

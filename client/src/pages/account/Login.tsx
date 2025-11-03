@@ -5,7 +5,7 @@ import { useEffect, useMemo, useState } from "react";
 import { useToast } from "@/context/ToastContext";
 
 export default function AccountLoginPage() {
-  const { login, logout, isAuthenticated } = useAuth();
+  const { login, logout, isAuthenticated, user } = useAuth();
   const navigate = useNavigate();
   const location = useLocation() as any;
   const from = location.state?.from?.pathname || "/services";
@@ -71,16 +71,53 @@ export default function AccountLoginPage() {
     return () => clearInterval(interval);
   }, [sidebarImages.length]);
 
-  const handleSubmit = (e: React.FormEvent) => {
+  const [email, setEmail] = useState("");
+  const [phone, setPhone] = useState("");
+  const [password, setPassword] = useState("");
+  const [error, setError] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+
+  const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    login();
-    show("Login successful");
-    navigate(from, { replace: true });
+    setError("");
+    
+    // Validation: either email or phone must be provided
+    if (!email && !phone) {
+      setError("Please provide either email or phone number");
+      show("Please provide either email or phone number", "error");
+      return;
+    }
+
+    if (!password) {
+      setError("Password is required");
+      show("Password is required", "error");
+      return;
+    }
+
+    setIsLoading(true);
+
+    try {
+      await login(email, phone, password);
+      show("Login successful");
+      navigate(from, { replace: true });
+    } catch (err: any) {
+      setError(err.message || "Login failed. Please try again.");
+      show(err.message || "Login failed", "error");
+    } finally {
+      setIsLoading(false);
+    }
   };
 
-  const handleLogout = () => {
-    logout();
-    navigate("/", { replace: true });
+  const handleLogout = async () => {
+    try {
+      await logout();
+      show("Logged out successfully");
+      navigate("/", { replace: true });
+    } catch (err: any) {
+      console.error("Logout error:", err);
+      // Even if logout fails on server, clear local state
+      navigate("/", { replace: true });
+    }
   };
 
   return (
@@ -88,28 +125,40 @@ export default function AccountLoginPage() {
       <div className="mx-auto grid max-w-7xl grid-cols-1 md:grid-cols-2">
         <section className="px-4 sm:px-6 py-8 sm:py-14 md:px-10">
           <h1 className="text-3xl sm:text-4xl font-normal tracking-tight text-primary">Login</h1>
-          {isAuthenticated && (
-            <div className="mt-4 flex items-center gap-3">
-              <span className="text-sm text-muted-foreground">You are currently logged in.</span>
-            
+          {isAuthenticated && user && (
+            <div className="mt-4 p-4 rounded-md bg-green-50 border border-green-200">
+              <p className="text-sm font-medium text-green-800">
+                Welcome back, {user.firstName} {user.lastName}!
+              </p>
+              <p className="text-xs text-green-600 mt-1">{user.email}</p>
             </div>
           )}
           <form className="mt-6 sm:mt-8 space-y-4" onSubmit={handleSubmit}>
+            {error && (
+              <div className="p-3 rounded-md bg-red-50 border border-red-200 text-red-600 text-sm">
+                {error}
+              </div>
+            )}
             <input
               type="email"
               placeholder="Email"
+              value={email}
+              onChange={(e) => setEmail(e.target.value)}
               className="h-12 w-full rounded-md border bg-background px-4 text-sm outline-none focus:ring-2 focus:ring-ring"
-              required
             />
+            <div className="text-xs text-muted-foreground text-center">OR</div>
             <input
               type="tel"
               placeholder="Phone Number"
+              value={phone}
+              onChange={(e) => setPhone(e.target.value)}
               className="h-12 w-full rounded-md border bg-background px-4 text-sm outline-none focus:ring-2 focus:ring-ring"
-              required
             />
             <input
               type="password"
               placeholder="Password"
+              value={password}
+              onChange={(e) => setPassword(e.target.value)}
               className="h-12 w-full rounded-md border bg-background px-4 text-sm outline-none focus:ring-2 focus:ring-ring"
               required
             />
@@ -117,7 +166,9 @@ export default function AccountLoginPage() {
               <a href="#" className="text-muted-foreground hover:underline">Forgot your password?</a>
             </div>
             <div className="flex flex-col md:flex-row items-stretch md:items-center gap-3">
-              <Button type="submit" className="h-12 w-full md:w-auto">Sign in</Button>
+              <Button type="submit" className="h-12 w-full md:w-auto" disabled={isLoading}>
+                {isLoading ? "Signing in..." : "Sign in"}
+              </Button>
               {isAuthenticated && (
                 <Button type="button" variant="outline" className="h-12 w-full md:w-auto" onClick={handleLogout}>
                   Logout

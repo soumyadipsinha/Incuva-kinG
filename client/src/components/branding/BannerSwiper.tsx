@@ -59,7 +59,7 @@ export default function BannerSwiper() {
                   <img
                     src={s.src}
                     alt={s.alt}
-                    className="h-56 w-full object-cover sm:h-72 md:h-96 lg:h-[32rem] rounded-2xl"
+                    className="h-56 w-full object-cover sm:h-72 md:h-96 lg:h-[32rem]"
                     loading="eager"
                   />
                 </div>

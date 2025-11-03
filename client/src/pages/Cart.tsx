@@ -3,7 +3,7 @@ import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import { Input } from "@/components/ui/input";
-import { ShoppingCart, Package, Truck, CheckCircle, Clock, Star, Download, Eye, Trash2, Plus, Minus, Heart, Share2, MessageCircle, ThumbsUp } from "lucide-react";
+import { ShoppingCart, Package, Truck, CheckCircle, Clock, Star, Download, Eye, Trash2, Plus, Minus, Heart, Share2, MessageCircle, ThumbsUp, CreditCard } from "lucide-react";
 import { useCart } from "@/context/CartContext";
 
 
@@ -20,6 +20,7 @@ interface Review {
 export default function CartPage() {
   // Use global cart context
   const { cartItems, updateQuantity, removeFromCart, getTotalItems, getTotalPrice } = useCart();
+  const [showPayment, setShowPayment] = useState(false);
 
   const [customerReviews, setCustomerReviews] = useState<Review[]>([
     {
@@ -61,17 +62,25 @@ export default function CartPage() {
   ]);
 
   // Cart functions
-  const handleUpdateQuantity = (id: string, newQuantity: number) => {
-    updateQuantity(id, newQuantity);
+  const handleUpdateQuantity = async (id: string, newQuantity: number) => {
+    try {
+      await updateQuantity(id, newQuantity);
+    } catch (error: any) {
+      console.error('Failed to update quantity:', error);
+    }
   };
 
-  const handleRemoveFromCart = (id: string) => {
-    removeFromCart(id);
+  const handleRemoveFromCart = async (id: string) => {
+    try {
+      await removeFromCart(id);
+    } catch (error: any) {
+      console.error('Failed to remove item:', error);
+    }
   };
 
   const toggleWishlist = (id: number) => {
     // This would typically add/remove from wishlist
-    console.log(`Toggle wishlist for item ${id}`);
+    // TODO: Implement wishlist functionality
   };
 
   const shareItem = (item: any) => {
@@ -100,6 +109,14 @@ export default function CartPage() {
   const shipping = 99;
   const total = subtotal + shipping;
   const totalSavings = 0; // We'll calculate this based on the actual cart items
+
+  // Handle Buy Now - opens payment options
+  const handleBuyNow = () => {
+    // TODO: Implement payment options modal/dialog here
+    setShowPayment(true);
+    // This will be where you implement the payment options later
+    // You can add a modal/dialog component here
+  };
 
   return (
     <main className="min-h-screen bg-background">
@@ -204,23 +221,24 @@ export default function CartPage() {
                           </div>
                         </div>
 
-                        <div className="flex items-center gap-2">
+                        <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-2 mt-2 sm:mt-0">
                           <Button 
                             variant="outline" 
                             size="sm"
                             onClick={() => shareItem(item)}
+                            className="flex-1 sm:flex-initial"
                           >
                             <Share2 className="mr-2 h-4 w-4" />
-                            Share
+                            <span className="hidden sm:inline">Share</span>
                           </Button>
                           <Button 
                             variant="outline" 
                             size="sm" 
-                            className="text-red-600 hover:text-red-700"
+                            className="text-red-600 hover:text-red-700 flex-1 sm:flex-initial"
                             onClick={() => handleRemoveFromCart(item.id)}
                           >
                             <Trash2 className="mr-2 h-4 w-4" />
-                            Remove
+                            <span className="hidden sm:inline">Remove</span>
                           </Button>
                         </div>
                       </div>
@@ -341,7 +359,17 @@ export default function CartPage() {
                 </div>
                 
                 <div className="space-y-3">
-                  <Button className="w-full bg-gradient-to-r from-primary to-primary/90 hover:from-primary/90 hover:to-primary text-white rounded-full py-3 text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300" size="lg" asChild>
+                  <Button 
+                    onClick={handleBuyNow}
+                    className="w-full bg-gradient-to-r from-primary to-primary/90 hover:from-primary/90 hover:to-primary text-white rounded-full py-3 text-lg font-semibold shadow-lg hover:shadow-xl transition-all duration-300" 
+                    size="lg"
+                    disabled={cartItems.length === 0}
+                  >
+                    <CreditCard className="w-5 h-5 mr-2" />
+                    Buy Now
+                  </Button>
+                  
+                  <Button className="w-full bg-gradient-to-r from-primary/10 to-primary/5 hover:from-primary/20 hover:to-primary/10 text-primary rounded-full py-3 text-base font-semibold border border-primary/20 transition-all duration-300" size="lg" asChild>
                     <a href="/contact" className="flex items-center justify-center gap-2">
                       <CheckCircle className="w-5 h-5" />
                       Proceed to Contact
@@ -355,6 +383,25 @@ export default function CartPage() {
                     </a>
                   </Button>
                 </div>
+                
+                {/* Payment Options Placeholder - This will be implemented later */}
+                {showPayment && (
+                  <div className="mt-4 p-4 bg-blue-50 border border-blue-200 rounded-lg">
+                    <p className="text-sm text-blue-800 font-medium mb-2">Payment Options</p>
+                    <p className="text-xs text-blue-600">
+                      Payment gateway integration will be implemented here. 
+                      Total amount: <span className="font-bold">₹{total}</span>
+                    </p>
+                    <Button 
+                      variant="outline" 
+                      size="sm" 
+                      className="mt-2"
+                      onClick={() => setShowPayment(false)}
+                    >
+                      Close
+                    </Button>
+                  </div>
+                )}
                 
                 {totalSavings > 0 && (
                   <div className="bg-green-50 border border-green-200 rounded-xl p-4 text-center">
